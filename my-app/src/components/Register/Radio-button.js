@@ -53,10 +53,16 @@ const useStyles = makeStyles({
     }
   },
   paper: {
-    margin: "3% 0%"
+    margin: "0% 1%"
   },
   rock: {
     margin: "5%"
+  },
+  details: {
+    display: "flex"
+  },
+  goal: {
+    margin: "3% 0%"
   }
 });
 
@@ -121,6 +127,7 @@ export default function CustomizedRadios() {
                 autoComplete="experience"
               />
               <TextField
+                className={classes.goal}
                 variant="outlined"
                 required
                 fullWidth
@@ -132,36 +139,39 @@ export default function CustomizedRadios() {
             </div>
           ) : (
             <div>
+              <Grid className={classes.details} item xs={12} sm={12}>
+                <TextField
+                  className={classes.paper}
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="age"
+                  label="Age"
+                  name="age"
+                  autoComplete="age"
+                />
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="about"
+                  label="Height"
+                  name="height"
+                  autoComplete="height"
+                />
+                <TextField
+                  className={classes.paper}
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="weight"
+                  label="Weight"
+                  name="weight"
+                  autoComplete="weight"
+                />
+              </Grid>
               <TextField
-                className={classes.paper}
-                variant="outlined"
-                required
-                fullWidth
-                id="age"
-                label="Enter your Age"
-                name="age"
-                autoComplete="age"
-              />
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="about"
-                label="Height"
-                name="height"
-                autoComplete="height"
-              />
-              <TextField
-                className={classes.paper}
-                variant="outlined"
-                required
-                fullWidth
-                id="weight"
-                label="Weight"
-                name="weight"
-                autoComplete="weight"
-              />
-              <TextField
+                className={classes.goal}
                 variant="outlined"
                 required
                 fullWidth

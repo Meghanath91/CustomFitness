@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SignUp() {
+export default function Register() {
   const classes = useStyles();
 
   return (
@@ -58,7 +58,7 @@ export default function SignUp() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Register
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -114,7 +114,7 @@ export default function SignUp() {
             color="primary"
             className={classes.submit}
           >
-            Sign Up
+            Create account
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
