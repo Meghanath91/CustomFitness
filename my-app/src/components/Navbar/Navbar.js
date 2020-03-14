@@ -46,7 +46,7 @@ export default function Navbar() {
   const classes = useStyles();
 
   return (
-    <Router>
+    
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
@@ -61,15 +61,7 @@ export default function Navbar() {
             </Link>
           </Toolbar>
         </AppBar>
-        <Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-        </Switch>
       </div>
-    </Router>
+    
   );
 }
