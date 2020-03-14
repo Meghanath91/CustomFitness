@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Dashboard/Sidebar";
 import Card from "./components/Card/Card";
 import ExerciseList from "./components/Customplan/ExerciseList";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 
 function App() {
   // Store global state like user here
@@ -15,22 +17,46 @@ function App() {
 
   
   return (
-    <div>
-
+    <Router>
       {/* Router */}
+
         {/* always showing  - outside of switch */}
         <Navbar /> 
-        <Sidebar/>
+        <Card/>
+        <dashboard_trainer/>
+        <ExerciseList />
 
         {/* Switch */}
           {/* Route = .... */}
-          <Card/>
-          <dashboard_trainer/>
+        <Switch>
+          
+          <Route path='/trainer/dashboard'>
+            Dashboard
+           <Sidebar/>
+          </Route>
 
-      <Navbar />
-      <ExerciseList />
+          <Route path='/student/dashboard'>
+          <Sidebar/>
+          </Route>
 
-    </div>
+
+          <Route path="/login">
+            <Login />
+          </Route>
+
+          <Route path="/register">
+            <Register />
+          </Route>
+
+
+          <Route path='/'>
+            Home
+          </Route>
+        </Switch>
+
+
+
+    </Router>
   );
 }
 
