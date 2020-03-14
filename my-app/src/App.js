@@ -22,10 +22,11 @@ function App() {
 
       {/* always showing  - outside of switch */}
       <Navbar /> 
+      <Sidebar/>
+
 
       {/* <div style={{display: flex}}>  */}
         {/* { isLoggedin && } */}
-        {/* <Sidebar/> */}
 
         {/* Switch */}
           {/* Route = .... */}
@@ -45,15 +46,26 @@ function App() {
               /plans <PlansList></PlansList> */}
 
                 {/* useParams */}
-
-              <Route path='/trainer/dashboard'>
+                <Route path='/trainer/dashboard'>
                 Dashboard
-              <Card/>
+                {/* <Sidebar/> */}
+
+              </Route>
+
+                <Route path='/trainer/profile'>
+                {/* <Sidebar/> */}
+                <Card/>
+
+              </Route>
+
+              <Route path='/trainer/create_plan'>
+              {/* <Sidebar/> */}
               <ExerciseList />
+
               </Route>
 
               <Route path='/student/dashboard'>
-              <Sidebar/>
+              {/* <Sidebar/> */}
               </Route>
 
 
@@ -68,7 +80,10 @@ function App() {
 
               <Route path='/'>
                 Home
+                <Sidebar/>
+
               </Route>
+
             </Switch>
           </div>
     </Router>

@@ -15,28 +15,10 @@ import {
 // spots: once for the sidebar and once in the main
 // content section. All routes are in the same
 // order they would appear in a <Switch>.
-const routes = [
-  {
-    path: "/",
-    exact: true,
-    sidebar: () => <div>Dashboard!</div>,
-    main: () => <h2>Dashboard</h2>
-  },
-  {
-    path: "/profile",
-    sidebar: () => <div>Profile!</div>,
-    main: () => <h2>Profile</h2>
-  },
-  {
-    path: "/create_plan",
-    sidebar: () => <div>Create custom plan!</div>,
-    main: () => <h2>create plan</h2>
-  }
-];
+
 
 export default function Sidebar() {
   return (
-    <Router>
       <div style={{ display: "flex" }}>
         <div
           style={{
@@ -47,50 +29,21 @@ export default function Sidebar() {
         >
           <ul style={{ listStyleType: "none", padding: 0 }}>
             <li>
-              <Link to="/">Dashboard</Link>
+              <Link to="/trainer/dashboard">Dashboard</Link>
             </li>
             <li>
-              <Link to="/profile">Profile</Link>
+              <Link to="/trainer/profile">Profile</Link>
             </li>
             <li>
-              <Link to="/create_plan">Create custom plan</Link>
+              <Link to="/trainer/create_plan">Create custom plan</Link>
             </li>
           </ul>
 
-          <Switch>
-            {routes.map((route, index) => (
-              // You can render a <Route> in as many places
-              // as you want in your app. It will render along
-              // with any other <Route>s that also match the URL.
-              // So, a sidebar or breadcrumbs or anything else
-              // that requires you to render multiple things
-              // in multiple places at the same URL is nothing
-              // more than multiple <Route>s.
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                children={<route.sidebar />}
-              />
-            ))}
-          </Switch>
+            
         </div>
 
-        <div style={{ flex: 1, padding: "10px" }}>
-          <Switch>
-            {routes.map((route, index) => (
-              // Render more <Route>s with the same paths as
-              // above, but different components this time.
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                children={<route.main />}
-              />
-            ))}
-          </Switch>
+        <div style={{ flex: 1, padding: "10px" }}>  
         </div>
       </div>
-    </Router>
   );
 }
