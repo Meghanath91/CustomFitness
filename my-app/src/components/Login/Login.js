@@ -13,11 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   useHistory,
-  Redirect
 } from "react-router-dom";
 
 function Copyright() {
@@ -60,7 +56,6 @@ export default function Login(props) {
     history.push(`/student{:id}`);
   };
   return (
-    <Router>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
@@ -97,8 +92,6 @@ export default function Login(props) {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Switch>
-              <Route>
                 <Button
                   type="submit"
                   fullWidth
@@ -109,8 +102,6 @@ export default function Login(props) {
                 >
                   Sign In
                 </Button>
-              </Route>
-            </Switch>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
@@ -129,6 +120,5 @@ export default function Login(props) {
           <Copyright />
         </Box>
       </Container>
-    </Router>
   );
 }
