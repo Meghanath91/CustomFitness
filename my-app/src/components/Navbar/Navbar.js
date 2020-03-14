@@ -50,8 +50,10 @@ export default function Navbar() {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h6" className={classes.title} to="/">
+              <Link className={classes.link} to="/">
               CustomFitness
+              </Link>
             </Typography>
             <Link className={classes.link} to="/login">
               Login
