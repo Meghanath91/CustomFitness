@@ -17,7 +17,7 @@ import {
 // order they would appear in a <Switch>.
 
 
-export default function Sidebar() {
+export default function Trainer_Sidebar() {
   return (
       <div style={{ display: "flex" }}>
         <div
