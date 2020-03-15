@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   
 });
 
-export default function OutlinedCard() {
+export default function Trainer_profile() {
   const classes = useStyles();
 
 
