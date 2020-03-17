@@ -4,6 +4,7 @@ div {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
 }
 
 .flexbox {
@@ -11,7 +12,7 @@ div {
   justify-content: space-evenly;
   width: 100%;
   overflow: hidden;
-  margin: 0 5%;
+  // margin: 0 5%;
   padding: 1%;
   background-color: rgb(255, 226, 193);
 }
@@ -26,4 +27,21 @@ div {
 h2 {
   text-align: center;
   color: white;
+}
+
+.button {
+  font-size: 1rem;
+  background-color: rgb(88, 47, 0);
+  color: white;
+  text-transform: uppercase;
+  padding: 2%;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+}
+.custom-plan {
+  text-align: center;
+  position: relative;
 }
