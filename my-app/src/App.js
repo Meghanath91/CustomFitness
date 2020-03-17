@@ -3,13 +3,15 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
+
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 
 //trainer route
 import Trainer_Sidebar from "./components/Trainer/Trainer_Sidebar";
 import Trainer_profile from "./components/Trainer/Trainer_profile";
-import ExerciseList from "./components/Trainer/Customplan/ExerciseList";
+import CustomPlan from "./components/Trainer/Customplan/Customplan";
+
 //student route
 import Student_Sidebar from "./components/Student/student_side_bar";
 import Student_profile from "./components/Student/student_profile";
@@ -55,7 +57,7 @@ function App() {
           </Route>
 
           <Route path="/trainer/create_plan">
-            <ExerciseList />
+            <CustomPlan />
           </Route>
 
           <Route path="/student/dashboard">
