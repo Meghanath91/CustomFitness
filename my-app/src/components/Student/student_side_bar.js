@@ -6,18 +6,8 @@ import {
   Link
 } from "react-router-dom";
 
-// Each logical "route" has two components, one for
-// the sidebar and one for the main area. We want to
-// render both of them in different places when the
-// path matches the current URL.
 
-// We are going to use this route config in 2
-// spots: once for the sidebar and once in the main
-// content section. All routes are in the same
-// order they would appear in a <Switch>.
-
-
-export default function Sidebar() {
+export default function Student_Sidebar() {
   return (
       <div style={{ display: "flex" }}>
         <div
@@ -29,13 +19,13 @@ export default function Sidebar() {
         >
           <ul style={{ listStyleType: "none", padding: 0 }}>
             <li>
-              <Link to="/trainer/dashboard">Dashboard</Link>
+              <Link to="/student/dashboard">Dashboard</Link>
             </li>
             <li>
-              <Link to="/trainer/profile">Profile</Link>
+              <Link to="/student/profile">Profile</Link>
             </li>
             <li>
-              <Link to="/trainer/create_plan">Create custom plan</Link>
+              <Link to="/student/my_plan">My custom plan</Link>
             </li>
           </ul>
 
