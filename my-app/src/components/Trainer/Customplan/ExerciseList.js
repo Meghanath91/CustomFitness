@@ -7,7 +7,8 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     width: "25%",
     height: "100vh",
-    backgroundColor: "#2B1B00"
+    backgroundColor: "#2B1B00",
+    position: "relative"
   }
 }));
 
