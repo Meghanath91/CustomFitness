@@ -3,9 +3,9 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
-import Sidebar from "./components/Sidebar/Sidebar";
-import Card from "./components/Card/Card";
-import ExerciseList from "./components/Customplan/ExerciseList";
+// import Sidebar from "./components/Sidebar/Sidebar";
+// import Card from "./components/Card/Card";
+// import ExerciseList from "./components/Customplan/ExerciseList";
 
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
@@ -35,13 +35,15 @@ function App() {
       <Navbar /> 
 
       {/* Having sidebar below will keep the navbar running on all pages, we will get rid of this after and only display it on pages the other pages */}
-      <Sidebar/>
+      {/* <Sidebar/> */}
 
 
       {/* <div style={{display: flex}}>  */}
         {/* { isLoggedin && } */}
 
         <div>
+
+          </div>
 
 
       {/* Switch */}
@@ -69,7 +71,7 @@ function App() {
 
                 <Route path='/trainer/profile'>
                 {/* <Sidebar/> */}
-                <Card/>
+                {/* <Card/> */}
 
               </Route>
 
@@ -117,6 +119,7 @@ function App() {
                 Pathway: / AKA Home Page
                 {/* <Sidebar/> */}
          </Route>
+
         </Switch>
       </div>
     </Router>
