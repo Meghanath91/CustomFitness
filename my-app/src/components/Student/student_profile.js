@@ -34,7 +34,7 @@ export default function OutlinedCard() {
         >
           Student profile
         </Typography>
-        <Typography variant="h5" component="h2">
+        <Typography variant="h5" component="h2" color="primary" align="left">
           Shivam
         </Typography>
 

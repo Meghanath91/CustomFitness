@@ -32,7 +32,7 @@ export default function Trainer_profile() {
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Trainer profile
         </Typography>
-        <Typography variant="h5" component="h2">
+        <Typography variant="h5" component="h2" color="primary" align="left">
           Megatron
         </Typography>
         

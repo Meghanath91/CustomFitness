@@ -9,13 +9,13 @@ import Navbar from "./components/Navbar/Navbar";
 
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
-import Dashboard from "./containers/dashboard";
+
 
 //trainer route
 import Trainer_Sidebar from "./components/Trainer/Trainer_Sidebar";
 import Trainer_profile from "./components/Trainer/Trainer_profile";
 import CustomPlan from "./components/Trainer/Customplan/Customplan";
-
+import Trainer_dashboard from "./components/Trainer/Trainer_dashboard";
 //student route
 import Student_Sidebar from "./components/Student/student_side_bar";
 import Student_profile from "./components/Student/student_profile";
@@ -62,19 +62,12 @@ function App() {
               /plans <PlansList></PlansList> */}
 
 
-                {/* useParams */}
-                <Route path='/trainer/dashboard'>
-               Pathway: /trainer/Dashboard
-                <Dashboard/>
-                {/* <Sidebar/> */}
-               </Route>
-
-                <Route path='/trainer/profile'>
-                {/* <Sidebar/> */}
-                {/* <Card/> */}
-
-              </Route>
-
+            {/* useParams */}
+           <Route path='/trainer/dashboard'>
+           
+           <Trainer_dashboard/>
+           {/* <Sidebar/> */}
+           </Route>
 
           <Route path="/trainer/profile">
             <Trainer_profile />
