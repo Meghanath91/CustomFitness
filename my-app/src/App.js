@@ -1,11 +1,15 @@
+// Main State stored here and Routes
 import React from "react";
-
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
+// import Sidebar from "./components/Sidebar/Sidebar";
+// import Card from "./components/Card/Card";
+// import ExerciseList from "./components/Customplan/ExerciseList";
 
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import Dashboard from "./containers/dashboard";
 
 //trainer route
 import Trainer_Sidebar from "./components/Trainer/Trainer_Sidebar";
@@ -25,14 +29,22 @@ function App() {
 
   return (
     <Router>
-      {/* Router */}
 
       {/* always showing  - outside of switch */}
-      <Navbar />
-      {/* <Sidebar /> */}
+
+      <Navbar /> 
+
+      {/* Having sidebar below will keep the navbar running on all pages, we will get rid of this after and only display it on pages the other pages */}
+      {/* <Sidebar/> */}
+
 
       {/* <div style={{display: flex}}>  */}
-      {/* { isLoggedin && } */}
+        {/* { isLoggedin && } */}
+
+        <div>
+
+          </div>
+
 
       {/* Switch */}
       {/* Route = .... */}
@@ -49,8 +61,20 @@ function App() {
               /plans/:id <PlansShow></PlansShow>
               /plans <PlansList></PlansList> */}
 
-          {/* useParams */}
-          <Route path="/trainer/dashboard">Dashboard</Route>
+
+                {/* useParams */}
+                <Route path='/trainer/dashboard'>
+               Pathway: /trainer/Dashboard
+                <Dashboard/>
+                {/* <Sidebar/> */}
+               </Route>
+
+                <Route path='/trainer/profile'>
+                {/* <Sidebar/> */}
+                {/* <Card/> */}
+
+              </Route>
+
 
           <Route path="/trainer/profile">
             <Trainer_profile />
@@ -86,11 +110,16 @@ function App() {
             <Login />
           </Route>
 
+
           <Route path="/register">
             <Register />
           </Route>
 
-          <Route path="/">Home</Route>
+          <Route path='/'>
+                Pathway: / AKA Home Page
+                {/* <Sidebar/> */}
+         </Route>
+
         </Switch>
       </div>
     </Router>
