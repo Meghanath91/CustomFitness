@@ -14,12 +14,13 @@ import Register from "./components/Register/Register";
 //trainer route
 import Trainer from "./containers/trainer"
 import Trainer_Sidebar from "./components/Trainer/Trainer_Sidebar";
-import Trainer_profile from "./components/Trainer/Trainer_profile";
+// import Trainer_profile from "./components/Trainer/Trainer_profile";
 import CustomPlan from "./components/Trainer/Customplan/Customplan";
 import Trainer_dashboard from "./components/Trainer/Trainer_dashboard";
 //student route
+import Student from "./containers/student"
 import Student_Sidebar from "./components/Student/student_side_bar";
-import Student_profile from "./components/Student/student_profile";
+// import Student_profile from "./components/Student/student_profile";
 import Student_my_plan from "./components/Student/student_my_plan";
 import Student_dashboard from "./components/Student/student_dashboard";
 
@@ -83,7 +84,7 @@ function App() {
           </Route>
 
           <Route path="/student/profile">
-            <Student_profile />
+            <Student />
           </Route>
 
           <Route path="/student/my_plan">

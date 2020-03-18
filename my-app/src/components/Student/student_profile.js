@@ -6,7 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
-import Avatar from "@material-ui/core/Avatar";
+// import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles({
   root: {
@@ -18,10 +18,14 @@ const useStyles = makeStyles({
   },
   pos: {
     marginBottom: 12
+  },
+  pic:{
+    width:300
+
   }
 });
 
-export default function Student_profile() {
+export default function Student_profile(props) {
   const classes = useStyles();
 
   return (
@@ -35,22 +39,22 @@ export default function Student_profile() {
           Student profile
         </Typography>
         <Typography variant="h5" component="h2" color="primary" align="left">
-          Shivam
+          {props.studentData.name}
         </Typography>
+        <img className={classes.pic} src={props.studentData.avatar} alt="Smiley face"/>
+        {/* <Avatar aria-label="recipe" className={classes.avatar}></Avatar> */}
 
-        <Avatar aria-label="recipe" className={classes.avatar}></Avatar>
-
         <Typography className={classes.pos} color="textSecondary">
-          Goal : body building
+          Goal : {props.studentData.goal}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Height : 175 cm
+          Height : {props.studentData.height}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Weight : 130 lbs
+          Weight : {props.studentData.weight}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          BMI : 20
+          BMI : {((props.studentData.weight / (props.studentData.height*0.39*props.studentData.height*0.39))* 703).toFixed(2)}
         </Typography>
       </CardContent>
       <CardActions>
