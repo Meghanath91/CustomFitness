@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     marginBottom: 12
   },
   pic:{
-    width:300
+    width:400
 
   }
 });

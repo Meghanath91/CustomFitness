@@ -19,6 +19,9 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  pic:{
+    width:400,
+  }
   
 });
 
@@ -39,9 +42,9 @@ export default function Trainer_profile(props) {
          {props.trainerData.name}
         </Typography>
         
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            
-          </Avatar>
+        <img className={classes.pic} src={props.trainerData.avatar} alt="Smiley face"/>
+
+          {/* <Avatar aria-label="recipe" className={classes.avatar}></Avatar> */}
         
         
         <Typography className={classes.pos} color="textSecondary">
