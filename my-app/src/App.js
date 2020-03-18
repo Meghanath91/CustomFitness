@@ -10,19 +10,19 @@ import Navbar from "./components/Navbar/Navbar";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 
-
 //trainer route
-import Trainer from "./containers/trainer"
+import Trainer from "./containers/trainer";
 import Trainer_Sidebar from "./components/Trainer/Trainer_Sidebar";
 // import Trainer_profile from "./components/Trainer/Trainer_profile";
 import CustomPlan from "./components/Trainer/Customplan/Customplan";
 import Trainer_dashboard from "./components/Trainer/Trainer_dashboard";
 //student route
-import Student from "./containers/student"
+import Student from "./containers/student";
 import Student_Sidebar from "./components/Student/student_side_bar";
 // import Student_profile from "./components/Student/student_profile";
 import Student_my_plan from "./components/Student/student_my_plan";
 import Student_dashboard from "./components/Student/student_dashboard";
+import Home from "./components/Home/Home";
 
 function App() {
   // Store global state like user here
@@ -31,22 +31,17 @@ function App() {
 
   return (
     <Router>
-
       {/* always showing  - outside of switch */}
 
-      <Navbar /> 
+      <Navbar />
 
       {/* Having sidebar below will keep the navbar running on all pages, we will get rid of this after and only display it on pages the other pages */}
       {/* <Sidebar/> */}
 
-
       {/* <div style={{display: flex}}>  */}
-        {/* { isLoggedin && } */}
+      {/* { isLoggedin && } */}
 
-        <div>
-
-          </div>
-
+      <div></div>
 
       {/* Switch */}
       {/* Route = .... */}
@@ -63,13 +58,11 @@ function App() {
               /plans/:id <PlansShow></PlansShow>
               /plans <PlansList></PlansList> */}
 
-
-            {/* useParams */}
-           <Route path='/trainer/dashboard'>
-           
-           <Trainer_dashboard/>
-           {/* <Sidebar/> */}
-           </Route>
+          {/* useParams */}
+          <Route path="/trainer/dashboard">
+            <Trainer_dashboard />
+            {/* <Sidebar/> */}
+          </Route>
 
           <Route path="/trainer/profile">
             <Trainer />
@@ -105,16 +98,14 @@ function App() {
             <Login />
           </Route>
 
-
           <Route path="/register">
             <Register />
           </Route>
 
-          <Route path='/'>
-                Pathway: / AKA Home Page
-                {/* <Sidebar/> */}
-         </Route>
-
+          <Route path="/">
+            <Home />
+            {/* <Sidebar/> */}
+          </Route>
         </Switch>
       </div>
     </Router>
