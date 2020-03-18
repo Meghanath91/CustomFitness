@@ -5,6 +5,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { red } from "@material-ui/core/colors";
 
 // import Avatar from "@material-ui/core/Avatar";
 
@@ -17,7 +18,7 @@ const useStyles = makeStyles({
     fontSize: 14
   },
   pos: {
-    marginBottom: 12
+    marginBottom: 12,
   },
   pic:{
     width:400
@@ -44,7 +45,7 @@ export default function Student_profile(props) {
         <img className={classes.pic} src={props.studentData.avatar} alt="Smiley face"/>
         {/* <Avatar aria-label="recipe" className={classes.avatar}></Avatar> */}
 
-        <Typography className={classes.pos} color="textSecondary">
+        <Typography className={classes.pos} variant="h5" color="Secondary">
           Goal : {props.studentData.goal}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">

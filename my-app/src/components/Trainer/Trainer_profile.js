@@ -21,6 +21,9 @@ const useStyles = makeStyles({
   },
   pic:{
     width:400,
+  },
+  desc:{
+    width:400
   }
   
 });
@@ -47,16 +50,16 @@ export default function Trainer_profile(props) {
           {/* <Avatar aria-label="recipe" className={classes.avatar}></Avatar> */}
         
         
-        <Typography className={classes.pos} color="textSecondary">
-          {props.trainerData.about}
+        <Typography className={classes.pos} variant ="h5"color="Secondary">
+          Focus: {props.trainerData.about}
         </Typography>
-        <Typography variant="body2" component="p">
-        < Typography classname={classes.desc}>
+        <Typography className={classes.desc} variant="body2" component="p">
+        
         {props.trainerData.experience}
         </Typography>
         
          
-        </Typography>
+        
       </CardContent>
       <CardActions>
         <Button size="small">update profile</Button>
