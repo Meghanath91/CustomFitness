@@ -9,7 +9,7 @@ export default function Trainer() {
   axios.get('http://localhost:8080/trainers')
     .then(res => {
       const trainers = res.data[0]
-      setState(trainers.name)
+      setState(trainers)
     })
     .catch(error => {
     console.log(error);
@@ -18,7 +18,7 @@ export default function Trainer() {
 
   return (
     <div>
-      <Trainer_profile name={state}/>
+      <Trainer_profile trainerData={state}/>
     </div>
   )
 }
