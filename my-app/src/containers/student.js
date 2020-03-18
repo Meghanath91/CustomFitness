@@ -1,15 +1,15 @@
 import React,{useState} from "react";
 import axios from "axios";
-import Trainer_profile from "../components/Trainer/Trainer_profile";
+import Student_profile from "../components/Student/Student_profile";
 
 export default function Trainer() {
 
   const [state, setState] = useState(0);
 
-  axios.get('http://localhost:8080/trainers')
+  axios.get('http://localhost:8080/students')
     .then(res => {
-      const trainers = res.data[0]
-      setState(trainers)
+      const students = res.data[0]
+      setState(students.name)
     })
     .catch(error => {
     console.log(error);
@@ -18,7 +18,7 @@ export default function Trainer() {
 
   return (
     <div>
-      <Trainer_profile trainerData={state}/>
+      <Student_profile studentData={state}/>
     </div>
   )
 }

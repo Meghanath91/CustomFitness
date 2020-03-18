@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function OutlinedCard() {
+export default function Student_profile() {
   const classes = useStyles();
 
   return (
