@@ -8,6 +8,9 @@ import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 
 // import Avatar from "@material-ui/core/Avatar";
+const currentUser = {
+  isStudent: false
+}
 
 const useStyles = makeStyles({
   root: {
@@ -58,9 +61,8 @@ export default function Student_profile(props) {
           BMI : {((props.studentData.weight / (props.studentData.height*0.39*props.studentData.height*0.39))* 703).toFixed(2)}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">update profile</Button>
-      </CardActions>
+      { currentUser.isStudent ? <CardActions><Button size="small">update profile</Button></CardActions> : ''
+      }
     </Card>
   );
 }

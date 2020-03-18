@@ -3,13 +3,16 @@ import ExerciseList from "./ExerciseList";
 import ExerciseListItem from "./ExerciseListItem";
 import Student_info from "./Student_info";
 
+const currentUser = {
+  isStudent: false
+}
 export default function CustomPlan() {
   return (
     <div className="custom-plan">
       <Student_info />
-
+      
       <div className="flexbox">
-        <ExerciseList id="board-1" className="board" name="Select Exercise(s)">
+      { currentUser.isStudent ? '': <ExerciseList id="board-1" className="board" name="Select Exercise(s)">
           <h2>Select Exercise(s)</h2>
           <ExerciseListItem
             id="1"
@@ -26,11 +29,16 @@ export default function CustomPlan() {
             name="Sit-ups"
           />
         </ExerciseList>
+      }
+        
+
+       
         <ExerciseList
           id="board-2"
           className="board"
           name="Selected Exercise(s)"
         >
+          
           <h2>Selected Exercise(s)</h2>
           <ExerciseListItem
             id="3"
@@ -41,7 +49,9 @@ export default function CustomPlan() {
           />
         </ExerciseList>
       </div>
-      <button className="button">Create Plan</button>
+      { currentUser.isStudent ? '' : <button className="button">Create Plan</button>
+      }
+      
     </div>
   );
 }
