@@ -4,6 +4,7 @@
 // })
 import React from "react";
 import Students from "../Trainer/Dashboard/Students";
+import StudentTable from "../Trainer/Dashboard/StudentTable"
 
 
 export default function Trainer_dashboard() {
@@ -11,10 +12,12 @@ export default function Trainer_dashboard() {
   return (
     <div>
       <Students avatar={'images array'}/>
-      
+
+      <StudentTable />
+
+      </div>
+
     
-
-
-    </div>
+    
   )
 }
