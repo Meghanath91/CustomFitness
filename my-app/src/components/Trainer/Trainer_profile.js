@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import Avatar from '@material-ui/core/Avatar';
+// import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles({
   root: {
@@ -57,6 +57,8 @@ export default function Trainer_profile(props) {
         
         {props.trainerData.experience}
         </Typography>
+
+        
         
          
         
