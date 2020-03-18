@@ -76,7 +76,7 @@ function App() {
           </Route>
 
           <Route path="/trainer/create_plan">
-            
+            <Student />
             <CustomPlan />
           </Route>
 
