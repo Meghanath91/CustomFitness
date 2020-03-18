@@ -12,6 +12,7 @@ import Register from "./components/Register/Register";
 
 
 //trainer route
+import Trainer from "./containers/trainer"
 import Trainer_Sidebar from "./components/Trainer/Trainer_Sidebar";
 import Trainer_profile from "./components/Trainer/Trainer_profile";
 import CustomPlan from "./components/Trainer/Customplan/Customplan";
@@ -70,7 +71,7 @@ function App() {
            </Route>
 
           <Route path="/trainer/profile">
-            <Trainer_profile />
+            <Trainer />
           </Route>
 
           <Route path="/trainer/create_plan">
