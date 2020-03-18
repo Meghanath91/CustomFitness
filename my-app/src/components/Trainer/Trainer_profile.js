@@ -24,7 +24,6 @@ const useStyles = makeStyles({
 
 export default function Trainer_profile(props) {
 
-  // state={trainers:[]}
   console.log(props)
  
   const classes = useStyles();
