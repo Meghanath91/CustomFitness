@@ -5,40 +5,44 @@ import Student_info from "./Student_info";
 
 const currentUser = {
   isStudent: false
-}
+};
 export default function CustomPlan() {
   return (
     <div className="custom-plan">
       <Student_info />
-      
-      <div className="flexbox">
-      { currentUser.isStudent ? '': <ExerciseList id="board-1" className="board" name="Select Exercise(s)">
-          <h2>Select Exercise(s)</h2>
-          <ExerciseListItem
-            id="1"
-            className="card"
-            image_url="https://thumbs.gfycat.com/GlossySkinnyDuckbillcat-small.gif"
-            title="Push-up"
-            name="Push-ups"
-          />
-          <ExerciseListItem
-            id="2"
-            className="card"
-            image_url="https://i.imgur.com/UJAnRhJ.gif?noredirect"
-            title="Sit-up"
-            name="Sit-ups"
-          />
-        </ExerciseList>
-      }
-        
 
-       
+      <div className="flexbox">
+        {currentUser.isStudent ? (
+          ""
+        ) : (
+          <ExerciseList
+            id="board-1"
+            className="board"
+            name="Select Exercise(s)"
+          >
+            <h2>Select Exercise(s)</h2>
+            <ExerciseListItem
+              id="1"
+              className="card"
+              image_url="https://thumbs.gfycat.com/GlossySkinnyDuckbillcat-small.gif"
+              title="Push-up"
+              name="Push-ups"
+            />
+            <ExerciseListItem
+              id="2"
+              className="card"
+              image_url="https://i.imgur.com/UJAnRhJ.gif?noredirect"
+              title="Sit-up"
+              name="Sit-ups"
+            />
+          </ExerciseList>
+        )}
+
         <ExerciseList
           id="board-2"
           className="board"
           name="Selected Exercise(s)"
         >
-          
           <h2>Selected Exercise(s)</h2>
           <ExerciseListItem
             id="3"
@@ -49,9 +53,11 @@ export default function CustomPlan() {
           />
         </ExerciseList>
       </div>
-      { currentUser.isStudent ? '' : <button className="button">Create Plan</button>
-      }
-      
+      {currentUser.isStudent ? (
+        ""
+      ) : (
+        <button className="button">Create Plan</button>
+      )}
     </div>
   );
 }

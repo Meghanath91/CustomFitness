@@ -1,9 +1,8 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Trainer_profile from "../components/Trainer/Trainer_profile";
 
 export default function Trainer() {
-
   const [state, setState] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:8080/trainers").then(res => {

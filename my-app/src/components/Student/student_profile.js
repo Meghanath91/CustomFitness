@@ -10,7 +10,7 @@ import { red } from "@material-ui/core/colors";
 // import Avatar from "@material-ui/core/Avatar";
 const currentUser = {
   isStudent: false
-}
+};
 
 const useStyles = makeStyles({
   root: {
@@ -21,11 +21,10 @@ const useStyles = makeStyles({
     fontSize: 14
   },
   pos: {
-    marginBottom: 12,
+    marginBottom: 12
   },
-  pic:{
-    width:400
-
+  pic: {
+    width: 400
   }
 });
 
@@ -45,7 +44,11 @@ export default function Student_profile(props) {
         <Typography variant="h5" component="h2" color="primary" align="left">
           {props.studentData.name}
         </Typography>
-        <img className={classes.pic} src={props.studentData.avatar} alt="Smiley face"/>
+        <img
+          className={classes.pic}
+          src={props.studentData.avatar}
+          alt="Smiley face"
+        />
         {/* <Avatar aria-label="recipe" className={classes.avatar}></Avatar> */}
 
         <Typography className={classes.pos} variant="h5" color="Secondary">
@@ -58,11 +61,24 @@ export default function Student_profile(props) {
           Weight : {props.studentData.weight}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          BMI : {((props.studentData.weight / (props.studentData.height*0.39*props.studentData.height*0.39))* 703).toFixed(2)}
+          BMI :{" "}
+          {(
+            (props.studentData.weight /
+              (props.studentData.height *
+                0.39 *
+                props.studentData.height *
+                0.39)) *
+            703
+          ).toFixed(2)}
         </Typography>
       </CardContent>
-      { currentUser.isStudent ? <CardActions><Button size="small">update profile</Button></CardActions> : ''
-      }
+      {currentUser.isStudent ? (
+        <CardActions>
+          <Button size="small">update profile</Button>
+        </CardActions>
+      ) : (
+        ""
+      )}
     </Card>
   );
 }
