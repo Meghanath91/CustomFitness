@@ -21,6 +21,7 @@ import Student_Sidebar from "./components/Student/student_side_bar";
 import Student_profile from "./components/Student/student_profile";
 import Student_my_plan from "./components/Student/student_my_plan";
 import Student_dashboard from "./components/Student/student_dashboard";
+import Home from "./components/Home/Home";
 
 function App() {
   // Store global state like user here
@@ -29,22 +30,17 @@ function App() {
 
   return (
     <Router>
-
       {/* always showing  - outside of switch */}
 
-      <Navbar /> 
+      <Navbar />
 
       {/* Having sidebar below will keep the navbar running on all pages, we will get rid of this after and only display it on pages the other pages */}
       {/* <Sidebar/> */}
 
-
       {/* <div style={{display: flex}}>  */}
-        {/* { isLoggedin && } */}
+      {/* { isLoggedin && } */}
 
-        <div>
-
-          </div>
-
+      <div></div>
 
       {/* Switch */}
       {/* Route = .... */}
@@ -61,20 +57,12 @@ function App() {
               /plans/:id <PlansShow></PlansShow>
               /plans <PlansList></PlansList> */}
 
-
-                {/* useParams */}
-                <Route path='/trainer/dashboard'>
-               Pathway: /trainer/Dashboard
-                <Dashboard/>
-                {/* <Sidebar/> */}
-               </Route>
-
-                <Route path='/trainer/profile'>
-                {/* <Sidebar/> */}
-                {/* <Card/> */}
-
-              </Route>
-
+          {/* useParams */}
+          <Route path="/trainer/dashboard">
+            Pathway: /trainer/Dashboard
+            <Dashboard />
+            {/* <Sidebar/> */}
+          </Route>
 
           <Route path="/trainer/profile">
             <Trainer_profile />
@@ -110,16 +98,14 @@ function App() {
             <Login />
           </Route>
 
-
           <Route path="/register">
             <Register />
           </Route>
 
-          <Route path='/'>
-                Pathway: / AKA Home Page
-                {/* <Sidebar/> */}
-         </Route>
-
+          <Route path="/">
+            <Home />
+            {/* <Sidebar/> */}
+          </Route>
         </Switch>
       </div>
     </Router>
