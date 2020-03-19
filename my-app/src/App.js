@@ -90,7 +90,6 @@ function App() {
           </Route>
 
           <Route path="/trainer">
-            trainer/home
             <Trainer_Sidebar />
           </Route>
 

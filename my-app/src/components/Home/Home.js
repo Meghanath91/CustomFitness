@@ -28,8 +28,8 @@ export default function Home() {
         url="/Videos/Fitness.mp4"
         type="video/mp4"
       />
-      <h2>Find Your Fit</h2>
-      <p>Day ONE or ONE Day</p>
+      <h2 className="tag">Find Your Fit</h2>
+      <p className="tag-line">Day ONE or ONE Day</p>
     </div>
   );
 }

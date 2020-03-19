@@ -57,7 +57,14 @@ export default function Navbar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" color="transparent" border="none">
+      <AppBar
+        position="fixed"
+        color="inherit"
+        border="none"
+        style={{
+          backgroundColor: "rgba(40, 40, 40, 0.62)"
+        }}
+      >
         <Toolbar>
           <Typography variant="h6" className={classes.title} to="/">
             <Link className={classes.logo} to="/">
