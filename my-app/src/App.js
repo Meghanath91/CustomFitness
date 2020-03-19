@@ -18,6 +18,7 @@ import Student from "./containers/student";
 import Student_Sidebar from "./components/Student/student_side_bar";
 import Student_dashboard from "./components/Student/student_dashboard";
 
+import Exercise from "./containers/exercise"
 import Home from "./components/Home/Home";
 
 function App() {
@@ -66,7 +67,8 @@ function App() {
 
           <Route path="/trainer/create_plan">
             <Student />
-            <CustomPlan />
+            <Exercise/>
+            
           </Route>
 
           <Route path="/student/dashboard">
