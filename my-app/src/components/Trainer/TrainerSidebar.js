@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Each logical "route" has two components, one for
 // the sidebar and one for the main area. We want to
@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // content section. All routes are in the same
 // order they would appear in a <Switch>.
 
-export default function Trainer_Sidebar() {
+export default function TrainerSidebar() {
   return (
     <div style={{ display: "flex" }}>
       <div

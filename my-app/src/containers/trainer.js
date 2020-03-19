@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Trainer_profile from "../components/Trainer/Trainer_profile";
+import TrainerProfile from "../components/Trainer/TrainerProfile";
 
 export default function Trainer() {
   const [state, setState] = useState([]);
@@ -14,7 +14,7 @@ export default function Trainer() {
 
   return (
     <div>
-      <Trainer_profile trainerData={state} />
+      <TrainerProfile trainerData={state} />
     </div>
   );
 }

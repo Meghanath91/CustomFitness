@@ -1,16 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { red } from "@material-ui/core/colors";
 
-// import Avatar from "@material-ui/core/Avatar";
-const currentUser = {
-  isStudent: false
-};
+// import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles({
   root: {
@@ -25,10 +21,15 @@ const useStyles = makeStyles({
   },
   pic: {
     width: 400
+  },
+  desc: {
+    width: 400
   }
 });
 
-export default function Student_profile(props) {
+export default function TrainerProfile(props) {
+  console.log(props);
+
   const classes = useStyles();
 
   return (
@@ -39,46 +40,30 @@ export default function Student_profile(props) {
           color="textSecondary"
           gutterBottom
         >
-          Student profile
+          Trainer profile
         </Typography>
         <Typography variant="h5" component="h2" color="primary" align="left">
-          {props.studentData.name}
+          {props.trainerData.name}
         </Typography>
+
         <img
           className={classes.pic}
-          src={props.studentData.avatar}
+          src={props.trainerData.avatar}
           alt="Smiley face"
         />
+
         {/* <Avatar aria-label="recipe" className={classes.avatar}></Avatar> */}
 
         <Typography className={classes.pos} variant="h5" color="Secondary">
-          Goal : {props.studentData.goal}
+          Focus: {props.trainerData.about}
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          Height : {props.studentData.height}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          Weight : {props.studentData.weight}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          BMI :{" "}
-          {(
-            (props.studentData.weight /
-              (props.studentData.height *
-                0.39 *
-                props.studentData.height *
-                0.39)) *
-            703
-          ).toFixed(2)}
+        <Typography className={classes.desc} variant="body2" component="p">
+          {props.trainerData.experience}
         </Typography>
       </CardContent>
-      {currentUser.isStudent ? (
-        <CardActions>
-          <Button size="small">update profile</Button>
-        </CardActions>
-      ) : (
-        ""
-      )}
+      <CardActions>
+        <Button size="small">update profile</Button>
+      </CardActions>
     </Card>
   );
 }

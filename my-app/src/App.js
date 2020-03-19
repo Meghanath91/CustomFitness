@@ -1,6 +1,6 @@
 // Main State stored here and Routes
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
 
@@ -10,15 +10,15 @@ import Register from "./components/Register/Register";
 
 //trainer route
 import Trainer from "./containers/trainer";
-import Trainer_Sidebar from "./components/Trainer/Trainer_Sidebar";
-import Trainer_dashboard from "./components/Trainer/Trainer_dashboard";
+import TrainerSidebar from "./components/Trainer/TrainerSidebar";
+import TrainerDashboard from "./components/Trainer/TrainerDashboard";
 import CustomPlan from "./components/Trainer/Customplan/Customplan";
 //student route
 import Student from "./containers/student";
-import Student_Sidebar from "./components/Student/student_side_bar";
-import Student_dashboard from "./components/Student/student_dashboard";
+import StudentSidebar from "./components/Student/StudentSidebar";
+import StudentDashboard from "./components/Student/StudentDashboard";
 
-import Exercise from "./containers/exercise"
+import Exercise from "./containers/exercise";
 import Home from "./components/Home/Home";
 
 function App() {
@@ -57,7 +57,7 @@ function App() {
 
           {/* useParams */}
           <Route path="/trainer/dashboard">
-            <Trainer_dashboard />
+            <TrainerDashboard />
             {/* <Sidebar/> */}
           </Route>
 
@@ -66,13 +66,12 @@ function App() {
           </Route>
 
           <Route path="/trainer/create_plan">
-            <Student />
-            <Exercise/>
-            
+            <Student className="student-profile" />
+            <Exercise />
           </Route>
 
           <Route path="/student/dashboard">
-            <Student_dashboard />
+            <StudentDashboard />
           </Route>
 
           <Route path="/student/profile">
@@ -85,11 +84,11 @@ function App() {
 
           <Route path="/student">
             student/home
-            <Student_Sidebar />
+            <StudentSidebar />
           </Route>
 
           <Route path="/trainer">
-            <Trainer_Sidebar />
+            <TrainerSidebar />
           </Route>
 
           <Route path="/login">

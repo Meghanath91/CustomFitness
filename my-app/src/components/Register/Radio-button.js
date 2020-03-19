@@ -8,7 +8,6 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 
 const useStyles = makeStyles({
   root: {

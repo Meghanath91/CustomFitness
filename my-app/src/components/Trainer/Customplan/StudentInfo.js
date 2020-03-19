@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Student_info() {
+export default function StudentInfo() {
   const classes = useStyles();
   return (
     <div className={classes.root}>

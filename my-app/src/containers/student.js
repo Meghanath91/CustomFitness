@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Student_profile from "../components/Student/student_profile";
+import StudentProfile from "../components/Student/StudentProfile";
+import "./student.scss";
 
 export default function Student() {
   const [state, setState] = useState([]);
@@ -14,7 +15,7 @@ export default function Student() {
 
   return (
     <div>
-      <Student_profile studentData={state} />
+      <StudentProfile studentData={state} />
     </div>
   );
 }
