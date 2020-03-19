@@ -4,7 +4,7 @@ import ExerciseListItem from "./ExerciseListItem";
 // import Student_info from "./Student_info";
 
 const currentUser = {
-  isStudent: false
+  isStudent: true
 };
 export default function CustomPlan(props) {
   console.log("props on customplan==========>", props);
@@ -28,7 +28,7 @@ export default function CustomPlan(props) {
                 id={x.id}
                 className="card"
                 image_url={x.thumbnail_photo_url}
-                
+
                 name={x.name}
               />
             ))}
@@ -41,6 +41,7 @@ export default function CustomPlan(props) {
           name="Selected Exercise(s)"
         >
           <h2>Selected Exercise(s)</h2>
+          
         </ExerciseList>
       </div>
       {currentUser.isStudent ? (
