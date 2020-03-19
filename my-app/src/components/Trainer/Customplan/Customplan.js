@@ -28,7 +28,7 @@ export default function CustomPlan(props) {
                 id={x.id}
                 className="card"
                 image_url={x.thumbnail_photo_url}
-                
+
                 name={x.name}
               />
             ))}
