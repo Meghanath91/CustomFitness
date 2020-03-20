@@ -47,6 +47,20 @@ function App() {
       {/* Route = .... */}
       {/* <div> */}
       <Switch>
+     {/* <Route path='/trainer/'>
+              <Sidebar/>
+
+              </Route> */}
+          {/* /dashboard <Dashboard></Dashboard>
+              /trainers/:id <Trainer></Trainer>
+              /profile  (<Profile></Profile>)
+              /plans/new <PlansCreate></PlansCreate>
+              /plans/:id <PlansShow></PlansShow>
+              /plans <PlansList></PlansList> */}
+    
+    
+    
+    
         
        
         <Route path="/register">
@@ -72,6 +86,9 @@ function App() {
         <Route path="/">
           <Home />
         </Route>
+    
+    
+    
        
         
         
