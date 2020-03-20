@@ -1,6 +1,6 @@
 // Main State stored here and Routes
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {Redirect, BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
 
@@ -56,19 +56,28 @@ function App() {
               /plans <PlansList></PlansList> */}
 
           {/* useParams */}
-          <Route path="/trainer/dashboard">
+          <Route path="/trainer">
+            {/* <TrainerSidebar /> */}
             <TrainerDashboard />
-            {/* <Sidebar/> */}
+            <Redirect to="/trainer/dashboard" />
+         
+            <Route path="dashboard">
+              <TrainerDashboard />
+              {/* <Sidebar/> */}
+            </Route>
+
+            <Route path="profile">
+              <Trainer />
+            </Route>
+
+            <Route path="create_plan">
+              <Student className="student-profile" />
+              <Exercise />
+            </Route>
+
           </Route>
 
-          <Route path="/trainer/profile">
-            <Trainer />
-          </Route>
-
-          <Route path="/trainer/create_plan">
-            <Student className="student-profile" />
-            <Exercise />
-          </Route>
+          
 
           <Route path="/student/dashboard">
             <StudentDashboard />
@@ -87,9 +96,7 @@ function App() {
             <StudentSidebar />
           </Route>
 
-          <Route path="/trainer">
-            <TrainerSidebar />
-          </Route>
+          
 
           <Route path="/login">
             <Login />
