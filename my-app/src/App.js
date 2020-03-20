@@ -23,13 +23,13 @@ import Home from "./components/Home/Home";
 
 function App() {
   // Store global state like user here
-
+  const [student,setStudent]=useState({});
   const [trainer, setTrainer] = useState({});
   // handleLogin
-  const loggedIn = {
-    isTrainer: true,
-    isLoggedin: true
-  };
+  // const loggedIn = {
+  //   isTrainer: true,
+  //   isLoggedin: true
+  // };
 
   return (
     <Router>
@@ -54,7 +54,7 @@ function App() {
         </Route>
 
         <Route path="/login">
-          <Login setTrainer={setTrainer} />
+          <Login setTrainer={setTrainer} setStudent={setStudent}/>
         </Route>
 
         
@@ -66,7 +66,7 @@ function App() {
         
         <Route path="/student">
           student/home
-          <Student_Sidebar />
+          <Student studentData={student} />
         </Route>
         
         <Route path="/">

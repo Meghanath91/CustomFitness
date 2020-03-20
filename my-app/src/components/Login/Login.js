@@ -56,11 +56,15 @@ export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loggedin, setLoggedin] = useState(false);
+  const [user,setUser]=useState("");
 
   // let history = useHistory();
   const handleLogin = evt => {
     evt.preventDefault();
-    axios
+
+    if(user===trainer){
+
+      axios
       .post("http://localhost:8080/trainers/login", {
         params: {
           email: email,
@@ -72,6 +76,24 @@ export default function Login(props) {
         console.log("i get to this point with user from======>>>", res.data);
         props.setTrainer(res.data);
       });
+
+    } else {
+
+      axios
+      .post("http://localhost:8080/students/login", {
+        params: {
+          email: email,
+          password: password
+        }
+      })
+      .then(res => {
+        setLoggedin(true);
+        console.log("i get to this point with user from======>>>", res.data);
+        props.setStudent(res.data);
+      });
+
+    }
+    
   };
 
   if (loggedin) {
@@ -126,7 +148,7 @@ export default function Login(props) {
             variant="contained"
             color="primary"
             className={classes.submit}
-            // onClick={handleLogin}
+            
           >
             Sign In
           </Button>
