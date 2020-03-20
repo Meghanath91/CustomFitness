@@ -119,7 +119,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function StudentDashboard() {
+export default function StudentDashboard(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -135,6 +135,7 @@ export default function StudentDashboard() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
+        
         position="absolute"
         className={clsx(classes.appBar, open && classes.appBarShift)}
       >
@@ -158,7 +159,7 @@ export default function StudentDashboard() {
             noWrap
             className={classes.title}
           >
-            Dashboard
+            {props.pagename}
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">

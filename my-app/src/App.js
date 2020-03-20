@@ -80,11 +80,11 @@ function App() {
           
 
           <Route path="/student/dashboard">
-            <StudentDashboard />
+            <StudentDashboard pagename="Testing" />
           </Route>
 
           <Route path="/student/profile">
-            <Student />
+            <Student pagename="Profile" />
           </Route>
 
           <Route path="/student/my_plan">
