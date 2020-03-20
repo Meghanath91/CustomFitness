@@ -4,6 +4,7 @@ import StudentProfile from "../components/Student/StudentProfile";
 import "./student.scss";
 import StudentDashboard from "../components/Student/StudentDashboard";
 import CustomPlan from "../components/Trainer/Customplan/Customplan"
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 
 
 
