@@ -3,7 +3,7 @@ import axios from "axios";
 import TrainerProfile from "../components/Trainer/TrainerProfile";
 import TrainerDashboard from "../components/Trainer/TrainerDashboard"
 import CustomPlan from "../components/Trainer/Customplan/Customplan"
-
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 export default function Trainer(props) {
   console.log("props in trainer.js ====>", props);
   // const [state, setState] = useState("Trainer_dashboard");
@@ -14,6 +14,7 @@ export default function Trainer(props) {
     <div style={{ display: "flex" }}>
       <div
         style={{
+          marginTop:"5%",
           padding: "10px",
           width: "40%",
           background: "#f0f0f0"

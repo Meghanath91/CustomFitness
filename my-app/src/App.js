@@ -15,7 +15,7 @@ import TrainerDashboard from "./components/Trainer/TrainerDashboard";
 import CustomPlan from "./components/Trainer/Customplan/Customplan";
 //student route
 import Student from "./containers/student";
-import StudentSidebar from "./components/Student/StudentSidebar";
+// import StudentSidebar from "./components/Student/StudentSidebar";
 import StudentDashboard from "./components/Student/StudentDashboard";
 
 import Exercise from "./containers/exercise";
@@ -25,6 +25,7 @@ function App() {
   // Store global state like user here
   const [student,setStudent]=useState({});
   const [trainer, setTrainer] = useState({});
+  // const [exercise,setExercise]=useState([]);
   // handleLogin
   // const loggedIn = {
   //   isTrainer: true,
@@ -75,7 +76,14 @@ function App() {
         <Route path="/trainer">
           trainer/home
           <Trainer trainerData={trainer} />
+          {/* <Exercise exerciseData={exercise}/> */}
         </Route>
+
+        <Route path="/trainer/create_plan">
+            <Student />
+            <Exercise/>
+            
+          </Route>
         
         
         <Route path="/student">
