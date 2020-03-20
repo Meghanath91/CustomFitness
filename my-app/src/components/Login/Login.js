@@ -56,7 +56,7 @@ export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loggedin, setLoggedin] = useState(false);
-  const [user, setUser] = useState("");
+  // const [user, setUser] = useState("");
 
   const user = "trainer";
 
