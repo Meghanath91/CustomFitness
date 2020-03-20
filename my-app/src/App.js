@@ -1,5 +1,5 @@
 // Main State stored here and Routes
-import React from "react";
+import React,{useState} from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
@@ -18,13 +18,18 @@ import Student from "./containers/student";
 import Student_Sidebar from "./components/Student/student_side_bar";
 import Student_dashboard from "./components/Student/student_dashboard";
 
-import Exercise from "./containers/exercise"
+import Exercise from "./containers/exercise";
 import Home from "./components/Home/Home";
 
 function App() {
   // Store global state like user here
-
+  
+  const[trainer,setTrainer]=useState({});
   // handleLogin
+  const loggedIn = {
+    isTrainer: true,
+    isLoggedin: true
+  };
 
   return (
     <Router>
@@ -38,11 +43,11 @@ function App() {
       {/* <div style={{display: flex}}>  */}
       {/* { isLoggedin && } */}
 
-      <div></div>
+     
 
       {/* Switch */}
       {/* Route = .... */}
-      <div>
+      {/* <div> */}
         <Switch>
           {/* <Route path='/trainer/'>
               <Sidebar/>
@@ -56,20 +61,47 @@ function App() {
               /plans <PlansList></PlansList> */}
 
           {/* useParams */}
-          <Route path="/trainer/dashboard">
-            <Trainer_dashboard />
-            {/* <Sidebar/> */}
+
+          {/* <Route exact path="/">
+            {loggedIn ? <Redirect to="/trainer" /> : <Home/>}
+          </Route> */}
+
+          {/* if (loggedin){
+            loggedin.trainer ? <trainer>:<student>
+            }else {
+              <loggedout>} */}
+
+          {loggedIn.isLoggedin ? (
+            loggedIn.isTrainer ? (
+              <Route path="/trainer">
+                trainer/home
+                <Trainer trainerData={trainer} />
+              </Route>
+            ) : (
+              <Route path="/student">
+                student/home
+                <Student_Sidebar />
+              </Route>
+            )
+          ) : (
+            <Route path="/">
+              <Home />
+            </Route>
+          )}
+
+          {/* <Route path="/trainer/dashboard">
+            <Trainer_dashboard /> */}
+          {/* <Sidebar/> */}
+          {/* </Route> */}
+
+          {/* <Route path="/trainer/create_plan">
+            <Student />
+            <Exercise />
           </Route>
 
           <Route path="/trainer/profile">
-            <Trainer />
-          </Route>
-
-          <Route path="/trainer/create_plan">
-            <Student />
-            <Exercise/>
-            
-          </Route>
+              <Trainer />
+            </Route>
 
           <Route path="/student/dashboard">
             <Student_dashboard />
@@ -83,30 +115,18 @@ function App() {
             <CustomPlan />
           </Route>
 
-          <Route path="/student">
-            student/home
-            <Student_Sidebar />
-          </Route>
-
-          <Route path="/trainer">
-            trainer/home
-            <Trainer_Sidebar />
-          </Route>
+           */}
 
           <Route path="/login">
-            <Login />
+            <Login setTrainer={setTrainer}/>
           </Route>
 
           <Route path="/register">
             <Register />
           </Route>
 
-          <Route path="/">
-            <Home />
-            {/* <Sidebar/> */}
-          </Route>
         </Switch>
-      </div>
+      {/* </div> */}
     </Router>
   );
 }

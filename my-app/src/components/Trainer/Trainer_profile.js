@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 
 export default function Trainer_profile(props) {
 
-  console.log(props)
+  console.log("this is props in trainer_profile.js=====>",props.trainerData)
  
   const classes = useStyles();
 

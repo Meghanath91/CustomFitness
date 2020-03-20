@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,9 +12,12 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import {
-  useHistory,
-} from "react-router-dom";
+import axios from "axios"
+
+import Trainer from "../../containers/trainer";
+// import {
+//   useHistory,
+// } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -50,13 +53,33 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Login(props) {
+  console.log("props in login========>",props)
   const classes = useStyles();
-  let history = useHistory();
-  const handleLogin = () => {
-    history.push(`/student{:id}`);
+
+  const[email,setEmail]=useState("")
+  const [password, setPassword] = useState("");
+  
+  
+  
+  // let history = useHistory();
+  const handleLogin = (evt) => {
+    evt.preventDefault();
+    axios.post("http://localhost:8080/trainers/login",{
+        params:{
+          email:email,
+          password:password
+        }}).then(res => {
+          
+          console.log("i get to this point with user from======>>>",res.data)
+          props.setTrainer(res.data)    
+  
+      });
   };
   return (
       <Container component="main" maxWidth="xs">
+        
+        {/* <Trainer trainerData={trainer}/> */}
+
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
@@ -65,15 +88,17 @@ export default function Login(props) {
           <Typography component="h1" variant="h5">
             Login
           </Typography>
-          <form className={classes.form} noValidate>
+          <form onSubmit={handleLogin} className={classes.form} noValidate>
             <TextField
               variant="outlined"
               margin="normal"
               required
               fullWidth
               id="email"
-              label="Email Address"
               name="email"
+              value={email}
+              onChange={e=>setEmail(e.target.value)}
+              label="Email Address"
               autoComplete="email"
               autoFocus
             />
@@ -83,6 +108,8 @@ export default function Login(props) {
               required
               fullWidth
               name="password"
+              value={password}
+              onChange={e=>setPassword(e.target.value)}
               label="Password"
               type="password"
               id="password"
@@ -98,7 +125,7 @@ export default function Login(props) {
                   variant="contained"
                   color="primary"
                   className={classes.submit}
-                  onClick={handleLogin}
+                  // onClick={handleLogin}
                 >
                   Sign In
                 </Button>

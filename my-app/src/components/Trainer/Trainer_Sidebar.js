@@ -17,7 +17,7 @@ import {
 // order they would appear in a <Switch>.
 
 
-export default function Trainer_Sidebar() {
+export default function Trainer_Sidebar(props) {
   return (
       <div style={{ display: "flex" }}>
         <div
@@ -32,7 +32,7 @@ export default function Trainer_Sidebar() {
               <Link to="/trainer/dashboard">Dashboard</Link>
             </li>
             <li>
-              <Link to="/trainer/profile">Profile</Link>
+              <Link onClick={()=>props.setMode}to="/trainer/profile">Profile</Link>
             </li>
             <li>
               <Link to="/trainer/create_plan">Create custom plan</Link>
