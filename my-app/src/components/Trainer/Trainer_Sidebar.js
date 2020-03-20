@@ -32,7 +32,7 @@ export default function Trainer_Sidebar(props) {
               <Link to="/trainer/dashboard">Dashboard</Link>
             </li>
             <li>
-              <Link onClick={()=>props.setMode}to="/trainer/profile">Profile</Link>
+              <Link to="/trainer/profile">Profile</Link>
             </li>
             <li>
               <Link to="/trainer/create_plan">Create custom plan</Link>
