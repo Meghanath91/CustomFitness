@@ -27,7 +27,7 @@ export default function StudentsItem(props) {
     <div className={classes.root}>
       <Avatar alt="Remy Sharp" src="https://i.imgur.com/LpaY82x.png" className={classes.small} />
       <Avatar alt="Travis Howard" src="https://i.imgur.com/Nmx0Qxo.png" />
-      <Avatar alt="Cindy Baker" src="https://i.imgur.com/T2WwVfS.png" classname={classes.large}/>
+      <Avatar alt="Cindy Baker" src="https://i.imgur.com/T2WwVfS.png" className={classes.large}/>
 
       {/* <li onCLick={props.setStudent}> */}
       {/* <Avatar alt="Cohana Roy" src={props.avatar} /> */}

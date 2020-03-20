@@ -1,6 +1,6 @@
 // Main State stored here and Routes
-import React from "react";
-import {Redirect, BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
 
@@ -24,7 +24,12 @@ import Home from "./components/Home/Home";
 function App() {
   // Store global state like user here
 
+  const [trainer, setTrainer] = useState({});
   // handleLogin
+  const loggedIn = {
+    isTrainer: true,
+    isLoggedin: true
+  };
 
   return (
     <Router>
@@ -38,13 +43,11 @@ function App() {
       {/* <div style={{display: flex}}>  */}
       {/* { isLoggedin && } */}
 
-      <div></div>
-
       {/* Switch */}
       {/* Route = .... */}
-      <div>
-        <Switch>
-          {/* <Route path='/trainer/'>
+      {/* <div> */}
+      <Switch>
+     {/* <Route path='/trainer/'>
               <Sidebar/>
 
               </Route> */}
@@ -54,64 +57,43 @@ function App() {
               /plans/new <PlansCreate></PlansCreate>
               /plans/:id <PlansShow></PlansShow>
               /plans <PlansList></PlansList> */}
+    
+    
+    
+    
+        
+       
+        <Route path="/register">
+          <Register />
+        </Route>
 
-          {/* useParams */}
-          <Route path="/trainer">
-            {/* <TrainerSidebar /> */}
-            <TrainerDashboard />
-            <Redirect to="/trainer/dashboard" />
-         
-            <Route path="dashboard">
-              <TrainerDashboard />
-              {/* <Sidebar/> */}
-            </Route>
+        <Route path="/login">
+          <Login setTrainer={setTrainer} />
+        </Route>
 
-            <Route path="profile">
-              <Trainer />
-            </Route>
-
-            <Route path="create_plan">
-              <Student className="student-profile" />
-              <Exercise />
-            </Route>
-
-          </Route>
-
-          
-
-          <Route path="/student/dashboard">
-            <StudentDashboard pagename="Testing" />
-          </Route>
-
-          <Route path="/student/profile">
-            <Student pagename="Profile" />
-          </Route>
-
-          <Route path="/student/my_plan">
-            <CustomPlan />
-          </Route>
-
-          <Route path="/student">
-            student/home
-            <StudentSidebar />
-          </Route>
-
-          
-
-          <Route path="/login">
-            <Login />
-          </Route>
-
-          <Route path="/register">
-            <Register />
-          </Route>
-
-          <Route path="/">
-            <Home />
-            {/* <Sidebar/> */}
-          </Route>
-        </Switch>
-      </div>
+        
+        <Route path="/trainer">
+          trainer/home
+          <Trainer trainerData={trainer} />
+        </Route>
+        
+        
+        <Route path="/student">
+          student/home
+          <Student_Sidebar />
+        </Route>
+        
+        <Route path="/">
+          <Home />
+        </Route>
+    
+    
+    
+       
+        
+        
+      </Switch>
+     
     </Router>
   );
 }
