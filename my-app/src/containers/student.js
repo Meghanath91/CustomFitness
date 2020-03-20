@@ -10,14 +10,14 @@ import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-ro
 
 
 export default function Student(props) {
-  // const [state, setState] = useState([]);
-  // useEffect(() => {
-  //   axios.get("http://localhost:8080/students").then(res => {
-  //     const students = res.data[0];
+  const [allStudents, setAllStudents] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:8080/students").then(res => {
+      const students = res.data[0];
 
-  //     setState(students);
-  //   });
-  // }, []);
+      setAllStudents(students);
+    });
+  }, []);
 
   return (
     <div style={{ display: "flex" }}>
@@ -44,6 +44,7 @@ export default function Student(props) {
 
         <Route path="/student/profile">
           <StudentProfile studentData={props.studentData}/>
+          
         </Route>
 
         <Route path="/student/dashboard" >

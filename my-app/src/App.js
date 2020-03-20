@@ -79,11 +79,11 @@ function App() {
           {/* <Exercise exerciseData={exercise}/> */}
         </Route>
 
-        <Route path="/trainer/create_plan">
+        {/* <Route path="/trainer/create_plan">
             <Student />
             <Exercise/>
             
-          </Route>
+          </Route> */}
         
         
         <Route path="/student">

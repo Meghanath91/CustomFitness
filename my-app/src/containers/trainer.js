@@ -4,7 +4,8 @@ import TrainerProfile from "../components/Trainer/TrainerProfile";
 import TrainerDashboard from "../components/Trainer/TrainerDashboard"
 import CustomPlan from "../components/Trainer/Customplan/Customplan"
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
-
+import Student from "../containers/student";
+import Exercise from "../containers/exercise"
 export default function Trainer(props) {
   console.log("props in trainer.js ====>", props);
   // const [state, setState] = useState("Trainer_dashboard");
@@ -43,8 +44,10 @@ export default function Trainer(props) {
         </Route>
 
         <Route path= "/trainer/create_plan">
-          <CustomPlan/>
-          </Route>
+          {/* <Student /> */}
+          <Exercise/>
+            
+        </Route>
 
       </Switch>
       </div>
