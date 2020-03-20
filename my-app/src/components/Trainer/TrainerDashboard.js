@@ -24,7 +24,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './Dashboard/listItems';
 
-import Trainers from "./Dashboard/Students";
+import Students from "./Dashboard/Students";
 import Money from "./Dashboard/Money";
 import StudentTable from "./Dashboard/Table";
 import Chart from "./Dashboard/Chart";
@@ -146,7 +146,7 @@ export default function TrainerDashboard() {
 
       {/* <StudentTable /> */}
 
-      {/* <StudentRequest /> */}
+      
 
       <CssBaseline />
       <AppBar
@@ -226,7 +226,10 @@ export default function TrainerDashboard() {
             <Copyright />
           </Box>
           <Box pt={4}>
-            <Trainers cards={cards} />
+            <Students cards={cards} />
+          </Box>
+          <Box pt={4}>
+          <StudentRequest />
           </Box>
         </Container>
       </main>

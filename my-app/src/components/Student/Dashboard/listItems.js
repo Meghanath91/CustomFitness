@@ -9,6 +9,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 export const mainListItems = (
   <div>
@@ -18,23 +19,25 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button>
+
+    <ListItem button component="a" href="/student/profile">
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <AccountCircleIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <ListItemText primary="My Profile" />
     </ListItem>
+
     <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Customers" />
+      <ListItemText primary="Trainers" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Reports" />
+      <ListItemText primary="My Feedback" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
