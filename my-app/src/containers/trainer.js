@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import TrainerProfile from "../components/Trainer/TrainerProfile";
-import TrainerDashboard from "../components/Trainer/TrainerDashboard";
+import TrainerDashboard from "../components/Trainer/TrainerDashboard"
 import CustomPlan from "../components/Trainer/Customplan/Customplan"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function Trainer(props) {
   console.log("props in trainer.js ====>", props);
