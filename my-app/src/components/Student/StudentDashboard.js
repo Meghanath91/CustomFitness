@@ -132,14 +132,20 @@ export default function StudentDashboard(props) {
 
   const cards = [1, 2, 3, 4, 5, 6];
   return (
-    <div className={classes.root}>
+    <div
+     
+      className={classes.root}>
       <CssBaseline />
       <AppBar
-        
+        style={{
+          marginTop: "5%"
+        }}
         position="absolute"
         className={clsx(classes.appBar, open && classes.appBarShift)}
       >
-        <Toolbar className={classes.toolbar}>
+        <Toolbar
+     
+        className={classes.toolbar}>
           <IconButton
             edge="start"
             color="inherit"

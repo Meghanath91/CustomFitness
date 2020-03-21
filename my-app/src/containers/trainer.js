@@ -17,7 +17,7 @@ export default function Trainer(props) {
         style={{
           marginTop:"5%",
           padding: "10px",
-          width: "40%",
+          // width: "40%",
           background: "#f0f0f0"
         }}
       >
