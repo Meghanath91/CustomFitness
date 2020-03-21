@@ -14,7 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import Trainer from "../../containers/trainer";
+// import Trainer from "../../containers/trainer";
 
 function Copyright() {
   return (
@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Login(props) {
-  console.log("props in login========>", props);
+ 
   const classes = useStyles();
 
   const [email, setEmail] = useState("");
@@ -58,7 +58,7 @@ export default function Login(props) {
   const [loggedin, setLoggedin] = useState(false);
   // const [user, setUser] = useState("");
 
-  const user = "trainer";
+  const user = "student";
 
   const handleLogin = evt => {
     evt.preventDefault();

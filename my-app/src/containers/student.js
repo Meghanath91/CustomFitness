@@ -3,27 +3,31 @@ import axios from "axios";
 import StudentProfile from "../components/Student/StudentProfile";
 import "./student.scss";
 import StudentDashboard from "../components/Student/StudentDashboard";
-import CustomPlan from "../components/Trainer/Customplan/Customplan"
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
-
-
-
+import StudentExercise from "../containers/studentExercise";
+// import StudentCustomPlan from "../components/Student/StudentCustomplan"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 
 export default function Student(props) {
-  // const [state, setState] = useState([]);
-  // useEffect(() => {
-  //   axios.get("http://localhost:8080/students").then(res => {
-  //     const students = res.data[0];
+  const [allStudents, setAllStudents] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:8080/students").then(res => {
+      const students = res.data[0];
 
-  //     setState(students);
-  //   });
-  // }, []);
+      setAllStudents(students);
+    });
+  }, []);
 
   return (
     <div style={{ display: "flex" }}>
       <div
         style={{
-          marginTop:"5%",
+          marginTop: "5%",
           padding: "10px",
           background: "#f0f0f0"
         }}
@@ -40,20 +44,20 @@ export default function Student(props) {
           </li>
         </ul>
         <Switch>
-
-        <Route path="/student/profile">
-          <StudentProfile studentData={props.studentData}/>
-        </Route>
-
-        <Route path="/student/dashboard" >
-          <StudentDashboard/>
-        </Route>
-
-        <Route path= "/student/my_plan">
-          {/* <CustomPlan/> */}
+          
+          <Route path="/student/profile">
+            <StudentProfile studentData={props.studentData} />
           </Route>
 
-      </Switch>
+          <Route path="/student/dashboard">
+            <StudentDashboard />
+          </Route>
+
+          <Route path="/student/my_plan">
+            <StudentExercise studentData={props.studentData}/>
+          </Route>
+
+        </Switch>
       </div>
 
       <div style={{ flex: 1, padding: "10px" }}></div>
