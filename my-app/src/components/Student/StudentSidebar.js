@@ -7,7 +7,7 @@ export default function StudentSidebar() {
       <div
         style={{
           padding: "10px",
-          width: "40%",
+          // width: "40%",
           background: "#f0f0f0"
         }}
       >
