@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -50,7 +50,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Login(props) {
- 
   const classes = useStyles();
 
   const [email, setEmail] = useState("");
@@ -58,31 +57,27 @@ export default function Login(props) {
   const [loggedin, setLoggedin] = useState(false);
   // const [user, setUser] = useState("");
 
-  const user = "student";
+  axios.defaults.withCredentials = true;
+  const user = "trainer";
 
   const handleLogin = evt => {
     evt.preventDefault();
 
     if (user === "trainer") {
-      axios
-        .post("http://localhost:8080/trainers/login", {
-          params: {
-            email: email,
-            password: password
-          }
+      axios.post(`http://localhost:8080/trainers/login`, {
+          email: email,
+          password: password
         })
         .then(res => {
+          // console.log({headers: res.headers})
           setLoggedin(true);
           console.log("i get to this point with user from======>>>", res.data);
           props.setTrainer(res.data);
         });
     } else {
-      axios
-        .post("http://localhost:8080/students/login", {
-          params: {
-            email: email,
-            password: password
-          }
+      axios.post(`http://localhost:8080/students/login`, {
+          email: email,
+          password: password
         })
         .then(res => {
           setLoggedin(true);

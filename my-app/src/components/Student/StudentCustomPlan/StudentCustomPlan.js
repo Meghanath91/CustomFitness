@@ -4,7 +4,7 @@ import ExerciseListItem from "./StudentExerciseListItem";
 
 
 export default function StudentCustomPlan(props) {
-  console.log("props on studentcustomplan==========>", props);
+  console.log("props on studentcustomplan==========>", props.exerciseData);
   
   return (
     <div className="custom-plan">
@@ -21,7 +21,7 @@ export default function StudentCustomPlan(props) {
                 id={x.id}
                 className="card"
                 image_url={x.thumbnail_photo_url}
-                title={x.title}
+                name={x.name}
               />
             ))}
           </ExerciseList>
