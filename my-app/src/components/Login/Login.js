@@ -69,9 +69,10 @@ export default function Login(props) {
           params: {
             email: email,
             password: password
-          }
+          },withCredentials:true
         })
         .then(res => {
+          console.log(res.headers["set-cookie"])
           setLoggedin(true);
           console.log("i get to this point with user from======>>>", res.data);
           props.setTrainer(res.data);

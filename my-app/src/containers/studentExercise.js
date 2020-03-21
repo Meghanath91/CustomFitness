@@ -5,8 +5,7 @@ export default function StudentExercise(props) {
  console.log("props at studentExercise.js====>",props.studentData.id)
   
   const [state, setState] = useState([]);
-  // useEffect(() => {
-  
+  useEffect(() => {
     axios.post("http://localhost:8080/exercises/student", {
       
       params: {
@@ -17,7 +16,7 @@ export default function StudentExercise(props) {
 
       setState(exercises);
     });
-  // }, []);
+  },[props.studentData.id]);
 
   return (
     <div>
