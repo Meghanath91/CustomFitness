@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import TrainerProfile from "../components/Trainer/TrainerProfile";
 import TrainerDashboard from "../components/Trainer/TrainerDashboard"
 // import CustomPlan from "../components/Trainer/Customplan/Customplan"
@@ -11,7 +11,6 @@ export default function Trainer(props) {
   // const [state, setState] = useState("Trainer_dashboard");
 
   // console.log("state====>", state);
-
   return (
     <div style={{ display: "flex" }}>
       <div
