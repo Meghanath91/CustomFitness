@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 // content section. All routes are in the same
 // order they would appear in a <Switch>.
 
-export default function TrainerSidebar() {
+export default function Trainer_Sidebar() {
   return (
     <div style={{ display: "flex" }}>
       <div

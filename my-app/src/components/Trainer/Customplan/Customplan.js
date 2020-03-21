@@ -6,8 +6,7 @@ const currentUser = {
   isStudent: false
 };
 export default function CustomPlan(props) {
-  console.log("props on customplan==========>", props);
-  console.log("typeof", typeof props);
+  
   return (
     <div className="custom-plan">
       <div className="flexbox">
