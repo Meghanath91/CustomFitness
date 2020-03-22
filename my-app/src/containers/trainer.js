@@ -22,7 +22,7 @@ export default function Trainer(props) {
           background: "#f0f0f0"
         }}
       >
-        <ul style={{ listStyleType: "none", padding: 0 }}>
+        {/* <ul style={{ listStyleType: "none", padding: 0 }}>
           <li>
             <Link to="/trainer/dashboard">Dashboard</Link>
           </li>
@@ -32,7 +32,7 @@ export default function Trainer(props) {
           <li>
             <Link to="/trainer/create_plan">Create custom plan</Link>
           </li>
-        </ul>
+        </ul> */}
         <Switch>
 
         <Route path="/trainer/profile">
