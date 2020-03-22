@@ -58,7 +58,7 @@ export default function Login(props) {
   // const [user, setUser] = useState("");
 
   axios.defaults.withCredentials = true;
-  const user = "trainer";
+  const user = "student";
 
   const handleLogin = evt => {
     evt.preventDefault();
