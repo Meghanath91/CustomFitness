@@ -14,6 +14,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import LoginRadioButton from "./LoginRadioButton";
+
 // import Trainer from "../../containers/trainer";
 
 function Copyright() {
@@ -64,7 +66,8 @@ export default function Login(props) {
     evt.preventDefault();
 
     if (user === "trainer") {
-      axios.post(`http://localhost:8080/trainers/login`, {
+      axios
+        .post(`http://localhost:8080/trainers/login`, {
           email: email,
           password: password
         })
@@ -75,7 +78,8 @@ export default function Login(props) {
           props.setTrainer(res.data);
         });
     } else {
-      axios.post(`http://localhost:8080/students/login`, {
+      axios
+        .post(`http://localhost:8080/students/login`, {
           email: email,
           password: password
         })
@@ -133,6 +137,8 @@ export default function Login(props) {
             id="password"
             autoComplete="current-password"
           />
+          <LoginRadioButton />
+
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
