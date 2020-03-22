@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Radio from "@material-ui/core/Radio";
@@ -7,7 +7,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
+// import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles({
   root: {
@@ -66,6 +66,7 @@ const useStyles = makeStyles({
 });
 
 function StyledRadio(props) {
+  console.log("props===>", props);
   const classes = useStyles();
 
   return (
@@ -80,12 +81,13 @@ function StyledRadio(props) {
   );
 }
 
-export default function LoginRadioButton() {
+export default function LoginRadioButton(props) {
   const classes = useStyles();
-  const [state, setState] = useState(null);
+
   const cb = e => {
-    setState(e.target.value);
+    props.setUser(e.target.value);
   };
+  
   return (
     <FormControl className={classes.rock} component="fieldset">
       <FormLabel className={classes.paper} component="legend">
@@ -107,7 +109,7 @@ export default function LoginRadioButton() {
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControlLabel
-              value="Student"
+              value="student"
               control={<StyledRadio />}
               label="Student"
             />
