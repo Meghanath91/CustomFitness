@@ -1,5 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
+import clsx from 'clsx';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
@@ -12,7 +13,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
+import TrainerAppSideBar from "./TrainerAppSidebar"
+import StudentsItem from './StudentsItem';
+// import StudentTable from "./StudentTable";
+import Chart from "./Chart";
+import Box from '@material-ui/core/Box';
+import StudentRequest from "./StudentRequests";
 
 function Copyright() {
   return (
@@ -28,124 +36,115 @@ function Copyright() {
 }
 
 const useStyles = makeStyles(theme => ({
-  icon: {
-    marginRight: theme.spacing(2),
+  root: {
+    display: "flex"
   },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
+  toolbar: {
+    paddingRight: 24 // keep right padding when drawer closed
   },
-  heroButtons: {
-    marginTop: theme.spacing(4),
+  toolbarIcon: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    padding: "0 8px",
+    ...theme.mixins.toolbar
   },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(["width", "margin"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    })
   },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
+  appBarShift: {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(["width", "margin"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen
+    })
   },
-  cardMedia: {
-    paddingTop: '56.25%', // 16:9
+  menuButton: {
+    marginRight: 36
   },
-  cardContent: {
+  menuButtonHidden: {
+    display: "none"
+  },
+  title: {
+    flexGrow: 1
+  },
+  drawerPaper: {
+    position: "relative",
+    whiteSpace: "nowrap",
+    width: drawerWidth,
+    transition: theme.transitions.create("width", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen
+    })
+  },
+  drawerPaperClose: {
+    overflowX: "hidden",
+    transition: theme.transitions.create("width", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    }),
+    width: theme.spacing(7),
+    [theme.breakpoints.up("sm")]: {
+      width: theme.spacing(9)
+    }
+  },
+  appBarSpacer: theme.mixins.toolbar,
+  content: {
     flexGrow: 1,
+    height: "100vh",
+    overflow: "auto"
   },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
+  container: {
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4)
   },
+  paper: {
+    padding: theme.spacing(2),
+    display: "flex",
+    overflow: "auto",
+    flexDirection: "column"
+  },
+  fixedHeight: {
+    height: 240
+  }
 }));
+
+const drawerWidth = 240;
 
 export default function Students(props) {
 
+
   const classes = useStyles();
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
    return (
-    <React.Fragment>
+     
+    <div className={classes.root} > 
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Album layout
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <main>
-        {/* Hero unit */}
-        <div className={classes.heroContent}>
-          <Container maxWidth="sm">
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Album layout
-            </Typography>
-            <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
-            </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
-          </Container>
-        </div>
-        <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {props.cards.map(card => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
+      <TrainerAppSideBar />
+      <main className={classes.content}>
+        <div className={classes.appBarSpacer} />
+        <Container maxWidth="lg" className={classes.container}>
+          <Grid container spacing={10}>
+            {/* Students Images */}
+            <Grid item xs={12} md={12} lg={20}>
+              <Paper className={fixedHeightPaper}>
+                <StudentsItem />
+              </Paper>
+            </Grid>          
           </Grid>
+          <Box pt={4}>
+            <Copyright />
+          </Box>
         </Container>
       </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
-    </React.Fragment>
+    </div>
+  
   );
 }
+    

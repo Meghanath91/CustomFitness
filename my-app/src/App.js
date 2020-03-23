@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
+import TrainerDashboard from "./components/Trainer/TrainerDashboard"
+import StudentDashboard from "./components/Student/StudentDashboard"
 
 //login/register routes
 import Login from "./components/Login/Login";
@@ -77,7 +79,6 @@ function App() {
 
         <Route path="/trainer">
           <Trainer trainerData={trainer} />
-          <TrainerDashboard />
             <Redirect to="/trainer/dashboard" />
         </Route>
 
