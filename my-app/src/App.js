@@ -15,8 +15,6 @@ import StudentDashboard from "./components/Student/StudentDashboard"
 //login/register routes
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
-import TrainerDashboard from "./components/Trainer/TrainerDashboard";
-import StudentDashboard from "./components/Student/StudentDashboard";
 
 //trainer route
 import Trainer from "./containers/trainer";
