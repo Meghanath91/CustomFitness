@@ -1,6 +1,7 @@
 import React from "react";
 import ExerciseList from "./ExerciseList";
 import ExerciseListItem from "./ExerciseListItem";
+import CustomForm from "./CustomForm";
 
 // const currentUser = {
 //   isStudent: false
@@ -30,7 +31,7 @@ export default function CustomPlan(props) {
             ))}
           </ExerciseList>
         {/* )} */}
-
+        <CustomForm/>
         <ExerciseList
           id="board-2"
           className="board"
