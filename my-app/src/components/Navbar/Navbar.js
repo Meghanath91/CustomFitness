@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -6,7 +6,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { purple } from "@material-ui/core/colors";
-
+import axios from "axios";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -46,7 +46,29 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Navbar() {
+export default function Navbar(props) {
+  let user = "";
+
+  const handleLogout = evt => {
+    evt.preventDefault();
+  
+    
+    axios.post(`http://localhost:8080/logout`, { user_id: props.trainerData.id })
+      .then(res => {
+        // console.log({headers: res.headers})
+        user = "";
+        console.log("i get to this point with user from======>>>", res.data);
+      });
+  };
+
+  if (props.trainerData.name) {
+    debugger;
+    user = props.trainerData.name;
+  }
+  if (props.studentData.name) {
+    debugger;
+    user = props.studentData.name;
+  }
   const classes = useStyles();
 
   return (
@@ -65,16 +87,26 @@ export default function Navbar() {
               CustomFitness
             </Link>
           </Typography>
-          <Typography className={classes.link}>Loggedin as : user </Typography>
-          <Link className={classes.link} to ="/home">
-            Logout
-            </Link>
-          <Link className={classes.link} to="/login">
-            Login
-          </Link>
-          <Link className={classes.link} to="/register">
-            Register
-          </Link>
+          {user ? (
+            <div>
+              {" "}
+              <Typography className={classes.link}>
+                Loggedin as : {user}
+              </Typography>
+              <Link  onSubmit={()=>handleLogout} className={classes.link} to="/home">
+                Logout
+              </Link>{" "}
+            </div>
+          ) : (
+            <div>
+              <Link className={classes.link} to="/login">
+                Login
+              </Link>
+              <Link className={classes.link} to="/register">
+                Register
+              </Link>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
     </div>

@@ -44,7 +44,7 @@ function App() {
     <Router>
       {/* always showing  - outside of switch */}
 
-      <Navbar />
+      <Navbar trainerData={trainer} studentData={student}/>
 
       {/* Having sidebar below will keep the navbar running on all pages, we will get rid of this after and only display it on pages the other pages */}
       {/* <Sidebar/> */}
