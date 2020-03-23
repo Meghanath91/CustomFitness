@@ -43,24 +43,41 @@ export const mainListItems = (
     </ListItem>
     </Link>
 
+    <Link 
+        style={{
+          textDecoration: "none",
+        color:"black"
+        }}
+          to="/trainer/students">
+
     <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Students" />
     </ListItem>
+    </Link>
+    
     <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="Feedback" />
     </ListItem>
+
+    <Link 
+        style={{
+          textDecoration: "none",
+        color:"black"
+        }}
+          to="/trainer/create_plan">
     <ListItem button>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <ListItemText primary="Integrations" />
+      <ListItemText primary="Create Plan" />
     </ListItem>
+    </Link>
   </div>
 );
 

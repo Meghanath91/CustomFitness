@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 // import axios from "axios";
 import TrainerProfile from "../components/Trainer/TrainerProfile";
 import TrainerDashboard from "../components/Trainer/TrainerDashboard"
+import Students from "../components/Trainer/Dashboard/Students"
 // import CustomPlan from "../components/Trainer/Customplan/Customplan"
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 // import Student from "../containers/student";
 import Exercise from "../containers/exercise"
 export default function Trainer(props) {
   console.log("props in trainer.js ====>", props);
+  const cards = [1, 2, 3, 4, 5, 6];
   // const [state, setState] = useState("Trainer_dashboard");
 
   // console.log("state====>", state);
@@ -40,6 +42,10 @@ export default function Trainer(props) {
 
         <Route path="/trainer/dashboard" >
           <TrainerDashboard/>
+        </Route>
+
+        <Route path="/trainer/students" >
+        <Students cards={cards} />
         </Route>
 
         <Route path= "/trainer/create_plan">
