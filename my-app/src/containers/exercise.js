@@ -5,16 +5,14 @@ export default function Exercise() {
   const [state, setState] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:8080/exercises").then(res => {
-
       const exercises = res.data;
       setState(exercises);
-
     });
   }, []);
 
   return (
-    <div>
+    <section>
       <CustomPlan exerciseData={state} />
-    </div>
+    </section>
   );
 }
