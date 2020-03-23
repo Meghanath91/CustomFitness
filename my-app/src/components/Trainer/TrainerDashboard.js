@@ -124,80 +124,12 @@ const useStyles = makeStyles(theme => ({
 
 export default function TrainerDashboard() {
   const classes = useStyles();
-  // const [open, setOpen] = React.useState(true);
-  // const handleDrawerOpen = () => {
-  //   setOpen(true);
-  // };
-  // const handleDrawerClose = () => {
-  //   setOpen(false);
-  // };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  const cards = [1, 2, 3, 4, 5, 6];
   return (
-    <div className={classes.root} >
-      {/* <Students /> */}
-
-      {/* <StudentTable /> */}
-
-      
-
+    <div className={classes.root} > 
       <CssBaseline />
       <TrainerAppSideBar />
-
-      {/* <AppBar
-      style={{
-        marginTop: "4%"
-      }}
-        position="absolute"
-        className={clsx(classes.appBar, open && classes.appBarShift)}
-      >
-        <Toolbar className={classes.toolbar}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            className={clsx(
-              classes.menuButton,
-              open && classes.menuButtonHidden
-            )}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            className={classes.title}
-          >
-            Trainer Dashboard
-          </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        variant="permanent"
-        classes={{
-          paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
-        }}
-        open={open}
-      >
-        <div className={classes.toolbarIcon}>
-          <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon />
-          </IconButton>
-        </div>
-        <Divider />
-        <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List>
-      </Drawer> */}
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
@@ -222,18 +154,13 @@ export default function TrainerDashboard() {
             </Grid>
           </Grid>
           <Box pt={4}>
-            <Copyright />
-          </Box>
-          <Box pt={4}>
-            <Students cards={cards} />
-          </Box>
-          <Box pt={4}>
           <StudentRequest />
+          </Box>
+          <Box pt={4}>
+            <Copyright />
           </Box>
         </Container>
       </main>
     </div>
-
-      
   );
 }
