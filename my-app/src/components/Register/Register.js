@@ -75,6 +75,7 @@ export default function Register() {
 
         })
         .then(res => {
+          debugger;
           // console.log({headers: res.headers})
           // setLoggedin(true);
           console.log("i get to this point with user from======>>>", res.data);
@@ -94,6 +95,7 @@ export default function Register() {
         })
         .then(res => {
           // setLoggedin(true);
+          debugger;
           console.log("i get to this point with user from======>>>", res.data);
           // props.setStudent(res.data);
         });
