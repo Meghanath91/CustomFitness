@@ -57,16 +57,16 @@ export default function Navbar(props) {
       .then(res => {
         // console.log({headers: res.headers})
         user = "";
-        console.log("i get to this point with user from======>>>", res.data);
+       
       });
   };
 
   if (props.trainerData.name) {
-    debugger;
+   
     user = props.trainerData.name;
   }
   if (props.studentData.name) {
-    debugger;
+    
     user = props.studentData.name;
   }
   const classes = useStyles();

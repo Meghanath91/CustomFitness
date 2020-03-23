@@ -78,6 +78,7 @@ export default function Login(props) {
           props.setTrainer(res.data);
         });
     } else {
+     
       axios.post(`http://localhost:8080/students/login`, {
           email: email,
           password: password
