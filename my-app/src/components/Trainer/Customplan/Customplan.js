@@ -2,17 +2,18 @@ import React from "react";
 import ExerciseList from "./ExerciseList";
 import ExerciseListItem from "./ExerciseListItem";
 
-const currentUser = {
-  isStudent: false
-};
+// const currentUser = {
+//   isStudent: false
+// };
 export default function CustomPlan(props) {
+  
   
   return (
     <div className="custom-plan">
       <div className="flexbox">
-        {currentUser.isStudent ? (
+        {/* {currentUser.isStudent ? (
           ""
-        ) : (
+        ) : ( */}
           <ExerciseList
             id="board-1"
             className="board"
@@ -28,7 +29,7 @@ export default function CustomPlan(props) {
               />
             ))}
           </ExerciseList>
-        )}
+        {/* )} */}
 
         <ExerciseList
           id="board-2"
@@ -38,11 +39,11 @@ export default function CustomPlan(props) {
           <h2>Selected Exercise(s)</h2>
         </ExerciseList>
       </div>
-      {currentUser.isStudent ? (
+      {/* {currentUser.isStudent ? (
         ""
-      ) : (
+      ) : ( */}
         <button className="button">Create Plan</button>
-      )}
+      {/* )} */}
     </div>
   );
 }

@@ -65,6 +65,10 @@ export default function Navbar() {
               CustomFitness
             </Link>
           </Typography>
+          <Typography className={classes.link}>Loggedin as : user </Typography>
+          <Link className={classes.link} to ="/home">
+            Logout
+            </Link>
           <Link className={classes.link} to="/login">
             Login
           </Link>
