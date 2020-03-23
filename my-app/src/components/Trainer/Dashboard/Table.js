@@ -35,15 +35,15 @@ export default function StudentTable() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title>Student Details</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
             <TableCell>Date</TableCell>
             <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
+            <TableCell>Location</TableCell>
             <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell align="right">Training Fee</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
