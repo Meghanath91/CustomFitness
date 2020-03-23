@@ -66,7 +66,7 @@ const useStyles = makeStyles({
 });
 
 function StyledRadio(props) {
-  console.log("props===>", props);
+  // console.log("props===>", props);
   const classes = useStyles();
 
   return (

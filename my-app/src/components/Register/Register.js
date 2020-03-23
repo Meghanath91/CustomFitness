@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import CustomizedRadios from "./Radio-button";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -49,6 +50,56 @@ const useStyles = makeStyles(theme => ({
 
 export default function Register() {
   const classes = useStyles();
+  const [user,setUser]=useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullName,setFullname]= useState("");
+  const [experience,setExperience]= useState("");
+  const [about,setAbout]=useState("");
+  const [age,setAge]= useState(0);
+  const [height,setHeight]= useState(0);
+  const [weight,setWeight]= useState(0);
+  const [goal,setGoal]=useState("");
+
+  const handleRegister = evt => {
+    evt.preventDefault();
+
+    if (user === "trainer") {
+      debugger;
+      axios.post(`http://localhost:8080/trainers/register`, {
+          name:fullName,
+          email: email,
+          password: password,
+          experience:experience,
+          about:about
+
+        })
+        .then(res => {
+          // console.log({headers: res.headers})
+          // setLoggedin(true);
+          console.log("i get to this point with user from======>>>", res.data);
+          // props.setTrainer(res.data);
+        });
+    } else {
+      debugger;
+      axios.post(`http://localhost:8080/students/register`, {
+          name:fullName,
+          email: email,
+          password: password,
+          age:age,
+          height:height,
+          weight:weight,
+          goal:goal
+
+        })
+        .then(res => {
+          // setLoggedin(true);
+          console.log("i get to this point with user from======>>>", res.data);
+          // props.setStudent(res.data);
+        });
+    }
+  };
+
 
   return (
     <Container component="main" maxWidth="xs">
@@ -60,12 +111,14 @@ export default function Register() {
         <Typography component="h1" variant="h5">
           Register
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={handleRegister} className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
                 autoComplete="name"
                 name="name"
+                value={fullName}
+                onChange={evt=>setFullname(evt.target.value)}
                 variant="outlined"
                 required
                 fullWidth
@@ -82,6 +135,8 @@ export default function Register() {
                 id="email"
                 label="Email Address"
                 name="email"
+                value={email}
+                onChange={evt=>setEmail(evt.target.value)}
                 autoComplete="email"
               />
             </Grid>
@@ -91,6 +146,8 @@ export default function Register() {
                 required
                 fullWidth
                 name="password"
+                value={password}
+                onChange={evt=>setPassword(evt.target.value)}
                 label="Password"
                 type="password"
                 id="password"
@@ -98,7 +155,15 @@ export default function Register() {
               />
             </Grid>
             <Grid>
-              <CustomizedRadios />
+              <CustomizedRadios 
+                setUser={setUser}
+                setExperience={setExperience}
+                setAbout={setAbout}
+                setAge={setAge}
+                setHeight={setHeight}
+                setWeight={setWeight}
+                setGoal={setGoal}
+              />
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel

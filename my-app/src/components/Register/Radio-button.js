@@ -68,7 +68,7 @@ const useStyles = makeStyles({
 // Inspired by blueprintjs
 function StyledRadio(props) {
   const classes = useStyles();
-
+ 
   return (
     <Radio
       className={classes.root}
@@ -81,10 +81,11 @@ function StyledRadio(props) {
   );
 }
 
-export default function CustomizedRadios() {
-  const [state, setState] = useState(null);
+export default function CustomizedRadios(props) {
+  const [state,setState] = useState("");
   const cb = e => {
-    setState(e.target.value);
+    props.setUser(()=>e.target.value)
+   setState(e.target.value)
   };
   const classes = useStyles();
   return (
@@ -108,7 +109,7 @@ export default function CustomizedRadios() {
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControlLabel
-              value="Student"
+              value="student"
               control={<StyledRadio />}
               label="Student"
             />
@@ -122,6 +123,8 @@ export default function CustomizedRadios() {
                 fullWidth
                 id="experience"
                 label="Years of Experience"
+                value={props.experience}
+                onChange={evt=>props.setExperience(evt.target.value)}
                 name="experience"
                 autoComplete="experience"
               />
@@ -133,6 +136,8 @@ export default function CustomizedRadios() {
                 id="about"
                 label="About you"
                 name="about"
+                value={props.about}
+                onChange={evt=>props.setAbout(evt.target.value)}
                 autoComplete="about"
               />
             </div>
@@ -147,6 +152,8 @@ export default function CustomizedRadios() {
                   id="age"
                   label="Age"
                   name="age"
+                  value={props.age}
+                  onChange={evt=>props.setAge(evt.target.value)}
                   autoComplete="age"
                 />
                 <TextField
@@ -156,6 +163,8 @@ export default function CustomizedRadios() {
                   id="about"
                   label="Height"
                   name="height"
+                  value={props.height}
+                  onChange={evt=>props.setHeight(evt.target.value)}
                   autoComplete="height"
                 />
                 <TextField
@@ -166,6 +175,8 @@ export default function CustomizedRadios() {
                   id="weight"
                   label="Weight"
                   name="weight"
+                  value={props.weight}
+                  onChange={evt=>props.setWeight(evt.target.value)}
                   autoComplete="weight"
                 />
               </Grid>
@@ -177,6 +188,8 @@ export default function CustomizedRadios() {
                 id="goal"
                 label="Your goal"
                 name="goal"
+                value={props.goal}
+                onChange={evt=>props.setGoal(evt.target.value)}
                 autoComplete="goal"
               />
             </div>

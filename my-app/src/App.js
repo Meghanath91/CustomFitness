@@ -13,6 +13,8 @@ import Navbar from "./components/Navbar/Navbar";
 //login/register routes
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import TrainerDashboard from "./components/Trainer/TrainerDashboard";
+import StudentDashboard from "./components/Student/StudentDashboard";
 
 //trainer route
 import Trainer from "./containers/trainer";
@@ -75,10 +77,14 @@ function App() {
 
         <Route path="/trainer">
           <Trainer trainerData={trainer} />
+          <TrainerDashboard />
+            <Redirect to="/trainer/dashboard" />
         </Route>
 
         <Route path="/student">
           <Student studentData={student} />
+          <StudentDashboard />
+            <Redirect to="/student/dashboard" />
         </Route>
 
         <Route path="/">
