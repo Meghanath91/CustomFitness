@@ -1,32 +1,13 @@
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-
+import "./CustomPlan.scss";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    "& .MuiTextField-root": {
-      margin: theme.spacing(1),
-      width: "45ch"
-    },
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-  }
-}));
-
 export default function CustomPlanForm() {
-  const classes = useStyles();
-
   const [difficulty, setDifficulty] = useState("beginner");
   const [type, setType] = useState("weightloss");
 
@@ -36,25 +17,30 @@ export default function CustomPlanForm() {
   };
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <Typography component="h1" variant="h5">
+    <form className="custom-form" noValidate autoComplete="off">
+      <Typography
+        style={{
+          color: "black"
+        }}
+        component="h1"
+        variant="h5"
+      >
         Custom Plan Details
       </Typography>
-      <div>
+      <section className="custom-form">
         <TextField
           required
           id="standard-required"
           label="Title of the plan"
-          defaultValue="title"
+          placeholder="Title"
         />
         <TextField
           required
           id="standard-required"
           label="Description"
-          defaultValue="Description"
+          placeholder="Description"
         />
-
-        <FormControl className={classes.formControl}>
+        <FormControl>
           <InputLabel id="demo-simple-select-label">Difficulty</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -66,10 +52,9 @@ export default function CustomPlanForm() {
             <MenuItem value="intermediate">Intermediate</MenuItem>
             <MenuItem value="hard">Hard</MenuItem>
           </Select>
-        </FormControl>
-          {" "}
-        <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-label">Difficulty</InputLabel>
+        </FormControl>{" "}
+        <FormControl>
+          <InputLabel id="demo-simple-select-label">Work out type</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -83,7 +68,34 @@ export default function CustomPlanForm() {
             <MenuItem value="mediatation">Meditation</MenuItem>
           </Select>
         </FormControl>
-      </div>
+        <TextField
+          required
+          id="standard-required"
+          label="Number of sets"
+          placeholder="# of sets"
+        />
+        <TextField
+          required
+          id="standard-required"
+          label="Number of reps"
+          placeholder="# of reps"
+        />
+      </section>
+      <button
+        style={{
+          backgroundColor: "#0456B1",
+          color: "white",
+          border: "none",
+          borderRadius: "8px",
+          marginTop: "3%",
+          padding: "3%",
+          fontFamily: "'Raleway', sans-serif",
+          fontSize: "1rem",
+          textTransform: "uppercase"
+        }}
+      >
+        Create Plan
+      </button>
     </form>
   );
 }
