@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import StudentCustomPlan from "../components/Student/StudentCustomPlan/StudentCustomPlan";
 export default function StudentExercise(props) {
-
   const [state, setState] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:8080/student/${props.studentData.id}/exercises`)
+    axios
+      .get(`http://localhost:8080/student/${props.studentData.id}/exercises`)
       .then(res => {
         console.log("res.data=====>", res.data);
         const exercises = res.data;
@@ -15,8 +15,8 @@ export default function StudentExercise(props) {
   }, [props.studentData.id]);
 
   return (
-    <div>
+    <section>
       <StudentCustomPlan exerciseData={state} />
-    </div>
+    </section>
   );
 }
