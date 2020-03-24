@@ -1,64 +1,77 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import uuid from "uuid/v4";
 
-const itemsFromBackend = [
-  { id: uuid(), content: "Push ups" },
-  { id: uuid(), content: "Sit ups" },
-  { id: uuid(), content: "Planks" },
-  { id: uuid(), content: "Pull ups" }
-];
 
-const columnsFromBackend = {
-  [uuid()]: {
-    name: "Select Exercise(s)",
-    items: itemsFromBackend
-  },
-  [uuid()]: {
-    name: "Selected Exercise(s)",
-    items: []
-  }
-};
-
-const onDragEnd = (result, columns, setColumns) => {
-  if (!result.destination) return;
-  const { source, destination } = result;
-
-  if (source.droppableId !== destination.droppableId) {
-    const sourceColumn = columns[source.droppableId];
-    const destColumn = columns[destination.droppableId];
-    const sourceItems = [...sourceColumn.items];
-    const destItems = [...destColumn.items];
-    const [removed] = sourceItems.splice(source.index, 1);
-    destItems.splice(destination.index, 0, removed);
-    setColumns({
-      ...columns,
-      [source.droppableId]: {
-        ...sourceColumn,
-        items: sourceItems
+export default function ExerciseList(props) {
+  
+  const [columns, setColumns] = useState({});
+  useEffect(()=>{
+    const itemsFromBackend = props.exerciseData
+    
+    const columnsFromBackend = {
+      [uuid()]: {
+        name: "Select Exercise(s)",
+        items: itemsFromBackend
       },
-      [destination.droppableId]: {
-        ...destColumn,
-        items: destItems
+      [uuid()]: {
+        name: "Selected Exercise(s)",
+        items: []
       }
-    });
-  } else {
-    const column = columns[source.droppableId];
-    const copiedItems = [...column.items];
-    const [removed] = copiedItems.splice(source.index, 1);
-    copiedItems.splice(destination.index, 0, removed);
-    setColumns({
-      ...columns,
-      [source.droppableId]: {
-        ...column,
-        items: copiedItems
-      }
-    });
-  }
-};
+    };
+  setColumns(columnsFromBackend);
 
-export default function ExerciseList() {
-  const [columns, setColumns] = useState(columnsFromBackend);
+  },[props.exerciseData])
+  console.log("colums is=>",columns)
+  // [
+  //   { id: uuid(), content: "Push ups" },
+  //   { id: uuid(), content: "Sit ups" },
+  //   { id: uuid(), content: "Planks" },
+  //   { id: uuid(), content: "Pull ups" }
+  // ];
+  
+  
+  // console.log("itemsFromBackend==>",itemsFromBackend)
+  
+ 
+  const onDragEnd = (result, columns, setColumns) => {
+    if (!result.destination) return;
+    const { source, destination } = result;
+  
+    if (source.droppableId !== destination.droppableId) {
+      const sourceColumn = columns[source.droppableId];
+      const destColumn = columns[destination.droppableId];
+      const sourceItems = [...sourceColumn.items];
+      const destItems = [...destColumn.items];
+      const [removed] = sourceItems.splice(source.index, 1);
+      destItems.splice(destination.index, 0, removed);
+      setColumns({
+        ...columns,
+        [source.droppableId]: {
+          ...sourceColumn,
+          items: sourceItems
+        },
+        [destination.droppableId]: {
+          ...destColumn,
+          items: destItems
+        }
+      });
+    } else {
+      const column = columns[source.droppableId];
+      const copiedItems = [...column.items];
+      const [removed] = copiedItems.splice(source.index, 1);
+      copiedItems.splice(destination.index, 0, removed);
+      setColumns({
+        ...columns,
+        [source.droppableId]: {
+          ...column,
+          items: copiedItems
+        }
+      });
+    }
+  };
+  
+  
   return (
     <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
       <DragDropContext
@@ -99,10 +112,11 @@ export default function ExerciseList() {
                         }}
                       >
                         {column.items.map((item, index) => {
+                          console.log("items ==>>", item)
                           return (
                             <Draggable
                               key={item.id}
-                              draggableId={item.id}
+                              draggableId={item.id.toString()}
                               index={index}
                             >
                               {(provided, snapshot) => {
@@ -123,7 +137,18 @@ export default function ExerciseList() {
                                       ...provided.draggableProps.style
                                     }}
                                   >
-                                    {item.content}
+                                    {item.name}
+                                    <br/>
+                                    {/* <img src={item.thumbnail_photo_url} /> */}
+                                    {item.explanation}
+                                    <br/>
+                                    {item.body_part}
+                                    <br/>
+                                    {item.type}
+                                    <br/>
+                                    {item.content_video}
+
+                                    
                                   </div>
                                 );
                               }}

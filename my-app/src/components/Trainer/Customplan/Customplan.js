@@ -4,14 +4,14 @@ import "./CustomPlan.scss";
 
 import CustomForm from "./CustomForm";
 
-// const currentUser = {
-//   isStudent: false
-// };
+
 export default function CustomPlan(props) {
+  console.log("props from exercise==>",props.exerciseData)
+  
   return (
     <section className="custom-plan">
       <CustomForm className="custom-form" />
-      <ExerciseList />
+      <ExerciseList exerciseData={props.exerciseData}/>
     </section>
   );
-}
+};
