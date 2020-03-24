@@ -34,11 +34,7 @@ function App() {
   const [student, setStudent] = useState({});
   const [trainer, setTrainer] = useState({});
   // const [exercise,setExercise]=useState([]);
-  // handleLogin
-  // const loggedIn = {
-  //   isTrainer: true,
-  //   isLoggedin: true
-  // };
+  
 
   return (
     <Router>

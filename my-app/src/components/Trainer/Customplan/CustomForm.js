@@ -12,6 +12,7 @@ export default function CustomPlanForm() {
   const [type, setType] = useState("weightloss");
 
   const handleChange = event => {
+   
     setDifficulty(event.target.value);
     setType(event.target.value);
   };

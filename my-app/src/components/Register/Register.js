@@ -14,6 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import CustomizedRadios from "./Radio-button";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -74,6 +75,8 @@ export default function Register() {
         })
         .then(res => {
           console.log("i get to this point with user from======>>>", res.data);
+          return <Redirect to="/login" />;
+          
         });
     } else {
       axios.post(`http://localhost:8080/students/register`, {
@@ -87,6 +90,7 @@ export default function Register() {
         })
         .then(res => {
           console.log("i get to this point with user from======>>>", res.data);
+          return <Redirect to="/login" />;
         });
     }
   };
