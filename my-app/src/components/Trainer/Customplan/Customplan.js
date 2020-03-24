@@ -6,7 +6,7 @@ import CustomForm from "./CustomForm";
 
 
 export default function CustomPlan(props) {
-  console.log("props from exercise==>",props.exerciseData)
+  
   
   return (
     <section className="custom-plan">

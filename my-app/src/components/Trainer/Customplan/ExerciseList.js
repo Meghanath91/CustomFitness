@@ -1,37 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import uuid from "uuid/v4";
+// import uuid from "uuid/v4";
 
 
 export default function ExerciseList(props) {
   
-  const [columns, setColumns] = useState({});
+  const columnsFromBackend = {
+    select: {
+      name: "Select Exercise(s)",
+      items: []
+    },
+    selected: {
+      name: "Selected Exercise(s)",
+      items: []
+    }
+  };
+  const [columns, setColumns] = useState(columnsFromBackend);
   useEffect(()=>{
-    const itemsFromBackend = props.exerciseData
-    
-    const columnsFromBackend = {
-      [uuid()]: {
-        name: "Select Exercise(s)",
-        items: itemsFromBackend
-      },
-      [uuid()]: {
-        name: "Selected Exercise(s)",
-        items: []
+    const itemsFromBackend = props.exerciseData;
+    // const selectedExercise=[];
+    setColumns(prev => {
+      return {
+        ...prev,
+        select: {name: "Select Exercise(s)", items: itemsFromBackend} 
       }
-    };
-  setColumns(columnsFromBackend);
-
+    });
+    
+    // console.log("if we get this one, we are good=>",columnsFromBackend)
+    
   },[props.exerciseData])
-  console.log("colums is=>",columns)
-  // [
-  //   { id: uuid(), content: "Push ups" },
-  //   { id: uuid(), content: "Sit ups" },
-  //   { id: uuid(), content: "Planks" },
-  //   { id: uuid(), content: "Pull ups" }
-  // ];
   
-  
-  // console.log("itemsFromBackend==>",itemsFromBackend)
+  console.log("selected is ---->", columns.selected.items)
+ 
+ 
   
  
   const onDragEnd = (result, columns, setColumns) => {
@@ -80,19 +81,19 @@ export default function ExerciseList(props) {
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
             <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                flexDirection: "column",
-                alignItems: "center"
-              }}
-              key={columnId}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              flexDirection: "column",
+              alignItems: "center"
+            }}
+            key={columnId}
             >
               <h2
                 style={{
                   color: "black"
                 }}
-              >
+                >
                 {column.name}
               </h2>
               <div style={{ margin: 8 }}>
@@ -100,19 +101,19 @@ export default function ExerciseList(props) {
                   {(provided, snapshot) => {
                     return (
                       <div
-                        {...provided.droppableProps}
-                        ref={provided.innerRef}
-                        style={{
-                          background: snapshot.isDraggingOver
-                            ? "lightblue"
-                            : "lightgrey",
-                          padding: 4,
-                          width: 250,
-                          minHeight: 500
-                        }}
+                      {...provided.droppableProps}
+                      ref={provided.innerRef}
+                      style={{
+                        background: snapshot.isDraggingOver
+                        ? "lightblue"
+                        : "lightgrey",
+                        padding: 4,
+                        width: 250,
+                        minHeight: 500
+                      }}
                       >
                         {column.items.map((item, index) => {
-                          console.log("items ==>>", item)
+                          
                           return (
                             <Draggable
                               key={item.id}
