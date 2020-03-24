@@ -26,7 +26,7 @@ export default function ExerciseList(props) {
       }
     });
     
-    console.log("if we get this one, we are good=>",columnsFromBackend)
+    // console.log("if we get this one, we are good=>",columnsFromBackend)
     
   },[props.exerciseData])
   
