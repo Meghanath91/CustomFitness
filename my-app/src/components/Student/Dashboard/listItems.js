@@ -47,12 +47,20 @@ export const mainListItems = (
     </ListItem>
       </Link>
 
+      <Link 
+        style={{
+          textDecoration: "none",
+        color:"black"
+        }}
+          to="/student/trainers"> 
     <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Trainers" />
     </ListItem>
+    </Link>
+
     <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
@@ -70,7 +78,7 @@ export const mainListItems = (
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
+    {/* <ListSubheader inset>Saved reports</ListSubheader>
     <ListItem button>
       <ListItemIcon>
         <AssignmentIcon />
@@ -88,6 +96,6 @@ export const secondaryListItems = (
         <AssignmentIcon />
       </ListItemIcon>
       <ListItemText primary="Year-end sale" />
-    </ListItem>
+    </ListItem> */}
   </div>
 );

@@ -141,11 +141,11 @@ export default function TrainerDashboard() {
               </Paper>
             </Grid>
             {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Money />
-              </Paper>
-            </Grid>
+            {/* <Grid item xs={12} md={4} lg={3}> */}
+              {/* <Paper className={fixedHeightPaper}> */}
+                {/* <Money /> */}
+              {/* </Paper> */}
+            {/* </Grid> */}
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>

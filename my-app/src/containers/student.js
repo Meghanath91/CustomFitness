@@ -4,6 +4,7 @@ import StudentProfile from "../components/Student/StudentProfile";
 import "./student.scss";
 import StudentDashboard from "../components/Student/StudentDashboard";
 import StudentExercise from "../containers/studentExercise";
+import Trainers from "../components/Student/Dashboard/Trainers"
 // import StudentCustomPlan from "../components/Student/StudentCustomplan"
 import {
   BrowserRouter as Router,
@@ -32,19 +33,7 @@ export default function Student(props) {
           background: "#f0f0f0"
         }}
       >
-        <ul style={{ listStyleType: "none", padding: 0 }}>
-          <li>
-            <Link to="/student/dashboard">Dashboard</Link>
-          </li>
-          <li>
-            <Link to="/student/profile">Profile</Link>
-          </li>
-          <li>
-            <Link to="/student/my_plan">My custom plan</Link>
-          </li>
-        </ul>
         <Switch>
-          
           <Route path="/student/profile">
             <StudentProfile studentData={props.studentData} />
           </Route>
@@ -55,6 +44,10 @@ export default function Student(props) {
 
           <Route path="/student/my_plan">
             <StudentExercise studentData={props.studentData}/>
+          </Route>
+
+          <Route path="/student/trainers">
+            <Trainers />
           </Route>
 
         </Switch>
