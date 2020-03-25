@@ -82,7 +82,6 @@ function App() {
 
         <Route path="/student">
           <Student studentData={student} />
-          <StudentDashboard />
             <Redirect to="/student/dashboard" />
         </Route>
 

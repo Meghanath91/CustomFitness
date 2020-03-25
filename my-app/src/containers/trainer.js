@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import TrainerProfile from "../components/Trainer/TrainerProfile";
 import TrainerDashboard from "../components/Trainer/TrainerDashboard";
 import Students from "../components/Trainer/Dashboard/Students";
+import Exercise from "../containers/exercise";
 // import CustomPlan from "../components/Trainer/Customplan/Customplan"
 import {
   BrowserRouter as Router,
@@ -12,7 +13,6 @@ import {
   Redirect
 } from "react-router-dom";
 // import Student from "../containers/student";
-import Exercise from "../containers/exercise";
 export default function Trainer(props) {
   console.log("props in trainer.js ====>", props);
   const cards = [1, 2, 3, 4, 5, 6];
@@ -30,17 +30,7 @@ export default function Trainer(props) {
           width: "100%"
         }}
       >
-        {/* <ul style={{ listStyleType: "none", padding: 0 }}>
-          <li>
-            <Link to="/trainer/dashboard">Dashboard</Link>
-          </li>
-          <li>
-            <Link to="/trainer/profile">Profile</Link>
-          </li>
-          <li>
-            <Link to="/trainer/create_plan">Create custom plan</Link>
-          </li>
-        </ul> */}
+        
         <Switch>
           <Route path="/trainer/profile">
             <TrainerProfile trainerData={props.trainerData} />
