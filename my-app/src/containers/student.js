@@ -15,12 +15,12 @@ import {
 } from "react-router-dom";
 
 export default function Student(props) {
-  const [allStudents, setAllStudents] = useState([]);
+  const [allTrainers, setAllTrainers] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8080/students").then(res => {
-      const students = res.data[0];
-
-      setAllStudents(students);
+    axios.get("http://localhost:8080/trainers").then(res => {
+      const trainers = res.data[0];
+    console.log("students=> => =>",trainers)
+      setAllTrainers(trainers);
     });
   }, []);
 
@@ -44,12 +44,12 @@ export default function Student(props) {
           </Route>
 
           <Route path="/student/dashboard">
-            <StudentDashboard />
+            <StudentDashboard  />
           </Route>
 
 
           <Route path="/student/trainers">
-            <Trainers />
+            <Trainers allTrainers={allTrainers}/>
           </Route>
 
         </Switch>
