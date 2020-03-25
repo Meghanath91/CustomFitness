@@ -34,17 +34,19 @@ export default function Student(props) {
         }}
       >
         <Switch>
+          
           <Route path="/student/profile">
             <StudentProfile studentData={props.studentData} />
+          </Route>
+
+          <Route path="/student/my_plan">
+            <StudentExercise studentData={props.studentData}/>
           </Route>
 
           <Route path="/student/dashboard">
             <StudentDashboard />
           </Route>
 
-          <Route path="/student/my_plan">
-            <StudentExercise studentData={props.studentData}/>
-          </Route>
 
           <Route path="/student/trainers">
             <Trainers />
