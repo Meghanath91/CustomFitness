@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-// import uuid from "uuid/v4";
 
 export default function StudentExerciseList(props) {
   const columnsFromBackend = {
@@ -16,7 +15,7 @@ export default function StudentExerciseList(props) {
   const [columns, setColumns] = useState(columnsFromBackend);
   useEffect(() => {
     const itemsFromBackend = props.exerciseData;
-    // const selectedExercise=[];
+  
     setColumns(prev => {
       return {
         ...prev,
@@ -24,7 +23,7 @@ export default function StudentExerciseList(props) {
       };
     });
 
-    // console.log("if we get this one, we are good=>",columnsFromBackend)
+    
   }, [props.exerciseData]);
 
   console.log("selected is ---->", columns.selected.items);
