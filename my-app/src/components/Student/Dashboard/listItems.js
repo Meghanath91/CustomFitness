@@ -42,9 +42,7 @@ export const mainListItems = (
         <AccountCircleIcon />
       </ListItemIcon>
       <ListItemText primary="My Profile" />
-       
-
-    </ListItem>
+     </ListItem>
       </Link>
 
       <Link 
@@ -67,12 +65,21 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="My Feedback" />
     </ListItem>
+
+    
+      <Link 
+        style={{
+          textDecoration: "none",
+        color:"black"
+        }}
+          to="/student/my_plan"> 
     <ListItem button>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="My Workout Plan" />
     </ListItem>
+    </Link>
   </div>
 );
 
