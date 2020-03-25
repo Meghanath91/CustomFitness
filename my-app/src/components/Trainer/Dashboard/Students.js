@@ -117,6 +117,7 @@ const useStyles = makeStyles(theme => ({
 const drawerWidth = 240;
 
 export default function Students(props) {
+  console.log("props on students.js ---->",props)
 
 
   const classes = useStyles();
