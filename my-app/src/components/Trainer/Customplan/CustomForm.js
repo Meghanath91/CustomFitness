@@ -7,18 +7,26 @@ import "./CustomPlan.scss";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
-export default function CustomPlanForm() {
+export default function CustomPlanForm(props) {
   const [difficulty, setDifficulty] = useState("beginner");
   const [type, setType] = useState("weightloss");
 
-  const handleChange = event => {
-   
+  const handleDifficulty = event => {
+    props.setDifficulty(()=>event.target.value)
     setDifficulty(event.target.value);
+  };
+  const handleType = event => {
+    props.setType(()=>event.target.value)
     setType(event.target.value);
   };
 
   return (
-    <form className="custom-form" noValidate autoComplete="off">
+    <form
+      onSubmit={props.handleCreatePlan}
+      className="custom-form"
+      noValidate
+      autoComplete="off"
+    >
       <Typography
         style={{
           color: "black"
@@ -33,12 +41,16 @@ export default function CustomPlanForm() {
           required
           id="standard-required"
           label="Title of the plan"
+          value={props.title}
+          onChange={evt => props.setTitle(evt.target.value)}
           placeholder="Title"
         />
         <TextField
           required
           id="standard-required"
           label="Description"
+          value={props.description}
+          onChange={evt => props.setDescription(evt.target.value)}
           placeholder="Description"
         />
         <FormControl>
@@ -47,7 +59,7 @@ export default function CustomPlanForm() {
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={difficulty}
-            onChange={handleChange}
+            onChange={handleDifficulty}
           >
             <MenuItem value="beginner">Beginner</MenuItem>
             <MenuItem value="intermediate">Intermediate</MenuItem>
@@ -60,7 +72,7 @@ export default function CustomPlanForm() {
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={type}
-            onChange={handleChange}
+            onChange={handleType}
           >
             <MenuItem value="weightloss">Weight loss</MenuItem>
             <MenuItem value="weightgain">Weight gain</MenuItem>
@@ -72,12 +84,16 @@ export default function CustomPlanForm() {
         <TextField
           required
           id="standard-required"
+          value={props.sets}
+          onChange={evt => props.setSets(evt.target.value)}
           label="Number of sets"
           placeholder="# of sets"
         />
         <TextField
           required
           id="standard-required"
+          value={props.reps}
+          onChange={evt => props.setReps(evt.target.value)}
           label="Number of reps"
           placeholder="# of reps"
         />
