@@ -18,8 +18,7 @@ export default function CustomPlan(props) {
   const handleCreatePlan = evt => {
     evt.preventDefault();
 
-    axios
-      .post(`http://localhost:8080/custom_plans/create`, {
+    axios.post(`http://localhost:8080/custom_plans/create`, {
         trainer_id: 1,
         student_id: 1,
         title: title,
@@ -31,8 +30,7 @@ export default function CustomPlan(props) {
         const workoutExercises = exerciseIdArray;
 
         for (let exerciseID of workoutExercises) {
-          debugger;
-          console.log("sets",sets,reps)
+          
           axios.post(`http://localhost:8080/workout_exercises/create`, {
             custom_plan_id: parseInt(res.data),
             exercise_id: parseInt(exerciseID.id),
@@ -41,9 +39,8 @@ export default function CustomPlan(props) {
           });
         }
 
-        console.log("i get to this point with user from======>>>", res.data);
-        // return <Redirect to="/trainer" />;
       });
+      
   };
 
   return (
