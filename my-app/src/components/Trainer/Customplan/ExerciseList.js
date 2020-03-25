@@ -31,7 +31,8 @@ export default function ExerciseList(props) {
   },[props.exerciseData])
   
   console.log("selected is ---->", columns.selected.items)
- 
+  
+  props.setExerciseIdArray(columns.selected.items)
  
   
  

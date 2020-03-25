@@ -11,13 +11,15 @@ export default function CustomPlan(props) {
   const [description, setDescription] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [type, setType] = useState("");
-  const [sets, setSets] = useState("");
-  const [reps, setReps] = useState("");
+  const [sets, setSets] = useState(0);
+  const [reps, setReps] = useState(0);
+  const [exerciseIdArray, setExerciseIdArray] = useState("");
 
   const handleCreatePlan = evt => {
     evt.preventDefault();
 
-    axios.post(`http://localhost:8080/custom_plans/create`, {
+    axios
+      .post(`http://localhost:8080/custom_plans/create`, {
         trainer_id: 1,
         student_id: 1,
         title: title,
@@ -26,8 +28,21 @@ export default function CustomPlan(props) {
         type: type
       })
       .then(res => {
+        const workoutExercises = exerciseIdArray;
+
+        for (let exerciseID of workoutExercises) {
+          debugger;
+          console.log("sets",sets,reps)
+          axios.post(`http://localhost:8080/workout_exercises/create`, {
+            custom_plan_id: parseInt(res.data),
+            exercise_id: parseInt(exerciseID.id),
+            sets: sets,
+            reps: reps
+          });
+        }
+
         console.log("i get to this point with user from======>>>", res.data);
-        return <Redirect to="/trainer" />;
+        // return <Redirect to="/trainer" />;
       });
   };
 
@@ -43,7 +58,10 @@ export default function CustomPlan(props) {
         setReps={setReps}
         handleCreatePlan={handleCreatePlan}
       />
-      <ExerciseList exerciseData={props.exerciseData} />
+      <ExerciseList
+        exerciseData={props.exerciseData}
+        setExerciseIdArray={setExerciseIdArray}
+      />
     </section>
   );
 }

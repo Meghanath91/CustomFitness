@@ -84,12 +84,16 @@ export default function CustomPlanForm(props) {
         <TextField
           required
           id="standard-required"
+          value={props.sets}
+          onChange={evt => props.setSets(evt.target.value)}
           label="Number of sets"
           placeholder="# of sets"
         />
         <TextField
           required
           id="standard-required"
+          value={props.reps}
+          onChange={evt => props.setReps(evt.target.value)}
           label="Number of reps"
           placeholder="# of reps"
         />
