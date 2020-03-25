@@ -11,6 +11,7 @@ import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { Link } from "react-router-dom";
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 
 export const mainListItems = (
   <div>
@@ -75,7 +76,7 @@ export const mainListItems = (
           to="/student/my_plan"> 
     <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <FitnessCenterIcon />
       </ListItemIcon>
       <ListItemText primary="My Workout Plan" />
     </ListItem>
