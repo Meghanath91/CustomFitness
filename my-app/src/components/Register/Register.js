@@ -74,6 +74,7 @@ export default function Register() {
           about: about
         })
         .then(res => {
+          alert("new trainer registered, please login");
           console.log("i get to this point with user from======>>>", res.data);
           return <Redirect to="/login" />;
           
@@ -89,6 +90,7 @@ export default function Register() {
           goal: goal
         })
         .then(res => {
+          alert("new student registered,please login");
           console.log("i get to this point with user from======>>>", res.data);
           return <Redirect to="/login" />;
         });

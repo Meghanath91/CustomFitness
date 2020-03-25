@@ -36,10 +36,16 @@ export default function CustomPlan(props) {
             exercise_id: parseInt(exerciseID.id),
             sets: sets,
             reps: reps
-          });
+          }).then(res=>{
+            alert("new workoutExercise  created");
+
+          })
+
         }
+        
 
       });
+      alert("new CustomPlan  created");
       
   };
 
