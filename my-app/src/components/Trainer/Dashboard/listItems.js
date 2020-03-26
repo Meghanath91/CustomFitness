@@ -10,6 +10,8 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import { Link } from "react-router-dom";
+import ContactsIcon from '@material-ui/icons/Contacts';
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 export const mainListItems = (
   <div>
@@ -37,7 +39,7 @@ export const mainListItems = (
 
     <ListItem button>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <ContactsIcon />
       </ListItemIcon>
       <ListItemText primary="My Profile" />
     </ListItem>
@@ -73,7 +75,7 @@ export const mainListItems = (
           to="/trainer/create_plan">
     <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <NoteAddIcon />
       </ListItemIcon>
       <ListItemText primary="Create Plan" />
     </ListItem>
