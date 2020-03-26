@@ -1,5 +1,5 @@
 // Main State stored here and Routes
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,12 +28,25 @@ import Student from "./containers/student";
 
 // import Exercise from "./containers/exercise";
 import Home from "./components/Home/Home";
+import localforage from "localforage";
 
 function App() {
   // Store global state like user here
   const [student, setStudent] = useState({});
   const [trainer, setTrainer] = useState({});
   // const [exercise,setExercise]=useState([]);
+
+  useEffect(() => {
+    localforage.getItem("usertype")
+    .then(type=> {
+      localforage.getItem("user")
+      .then(storedUser=>{
+        type === "trainer" 
+        ? setTrainer(storedUser) 
+        : setStudent(storedUser)
+      })
+    })
+  }, [])
   
 
   return (

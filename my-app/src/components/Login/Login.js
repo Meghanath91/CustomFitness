@@ -15,6 +15,7 @@ import Container from "@material-ui/core/Container";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import LoginRadioButton from "./LoginRadioButton";
+import localforage from "localforage";
 
 // import Trainer from "../../containers/trainer";
 
@@ -66,35 +67,59 @@ export default function Login(props) {
   const handleLogin = evt => {
     evt.preventDefault();
 
-    console.log('handleLogin called');
 
-    if (user === "trainer") {
-      console.log('user is of type trainer');
-      axios.post(`http://localhost:8080/trainers/login`, {
-          email: email,
-          password: password
-        })
-        .then(res => {
-          // console.log({headers: res.headers})
-          console.log('trainer login post request res: ', res);
+    axios.post(`http://localhost:8080/${
+      user === "trainer"? "trainers":"students"
+    }/login`, {
+        email: email,
+        password: password
+      })
+      .then(res => {
+        // console.log({headers: res.headers})
+        localforage.setItem('user',res.data,()=>{
+          localforage.setItem('usertype',user)
           setLoggedin(true);
           console.log("i get to this point with user from======>>>", res.data);
-          props.setTrainer(res.data);
+          user === "trainer" 
+          ? props.setTrainer(res.data)
+          : props.setStudent(res.data)
+          // localforage.getItem("user",(error,black)=>{
+          //   console.log("done",black)
+          // });
         });
-    } else {
-     
-      axios.post(`http://localhost:8080/students/login`, {
-          email: email,
-          password: password
-        })
-        .then(res => {
-          setLoggedin(true);
-          console.log('sutdetn login post request res: ', res);
-          console.log("i get to this point with user from======>>>", res.data);
-          props.setStudent(res.data);
-        });
+      });
+
+
     }
-  };
+  //   console.log('handleLogin called');
+
+  //   if (user === "trainer") {
+  //     console.log('user is of type trainer');
+  //     axios.post(`http://localhost:8080/trainers/login`, {
+  //         email: email,
+  //         password: password
+  //       })
+  //       .then(res => {
+  //         // console.log({headers: res.headers})
+  //         console.log('trainer login post request res: ', res);
+  //         setLoggedin(true);
+  //         console.log("i get to this point with user from======>>>", res.data);
+  //         props.setTrainer(res.data);
+  //       });
+  //   } else {
+     
+  //     axios.post(`http://localhost:8080/students/login`, {
+  //         email: email,
+  //         password: password
+  //       })
+  //       .then(res => {
+  //         setLoggedin(true);
+  //         console.log('sutdetn login post request res: ', res);
+  //         console.log("i get to this point with user from======>>>", res.data);
+  //         props.setStudent(res.data);
+  //       });
+  //   }
+  // };
 
   if (loggedin) {
     if (user === "trainer") {
