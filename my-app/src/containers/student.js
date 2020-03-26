@@ -49,7 +49,7 @@ export default function Student(props) {
 
 
           <Route path="/student/trainers">
-            <Trainers allTrainers={allTrainers}/>
+            <Trainers allTrainers={allTrainers} studentData={props.studentData}/>
           </Route>
 
         </Switch>
