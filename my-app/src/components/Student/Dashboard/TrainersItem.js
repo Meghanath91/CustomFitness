@@ -61,8 +61,14 @@ const useStyles = makeStyles(theme => ({
 
 // const cards = [1, 2, 3, 4, 5, 6];
 
+
 export default function StudentsItem(props) {
   const classes = useStyles();
+
+  const handleSubsribe = evt => {
+    evt.preventDefault();
+    debugger;
+  }
 
   return (
     <React.Fragment>
@@ -121,8 +127,8 @@ export default function StudentsItem(props) {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
-                      View
+                    <Button onClick={handleSubsribe} size="small" color="primary">
+                      Subscribe
                     </Button>
                     <Button size="small" color="primary">
                       Edit
