@@ -12,6 +12,7 @@
     "axios": "^0.19.2",
     "chartist": "0.10.1",
     "classnames": "^2.2.6",
+    "localforage": "^1.7.3",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
     "react-beautiful-dnd": "^13.0.0",
