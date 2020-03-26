@@ -27,10 +27,10 @@ export default function Trainer_Sidebar() {
             <Link to="/trainer/dashboard">Dashboard</Link>
           </li>
           <li>
-            <Link to="/trainer/profile">Profile</Link>
+            <Link to="trainer/profile">Profile</Link>
           </li>
           <li>
-            <Link to="/trainer/create_plan">Create custom plan</Link>
+            <Link to="trainer/create_plan">Create custom plan</Link>
           </li>
         </ul>
       </div>

@@ -66,13 +66,17 @@ export default function Login(props) {
   const handleLogin = evt => {
     evt.preventDefault();
 
+    console.log('handleLogin called');
+
     if (user === "trainer") {
+      console.log('user is of type trainer');
       axios.post(`http://localhost:8080/trainers/login`, {
           email: email,
           password: password
         })
         .then(res => {
           // console.log({headers: res.headers})
+          console.log('trainer login post request res: ', res);
           setLoggedin(true);
           console.log("i get to this point with user from======>>>", res.data);
           props.setTrainer(res.data);
@@ -85,6 +89,7 @@ export default function Login(props) {
         })
         .then(res => {
           setLoggedin(true);
+          console.log('sutdetn login post request res: ', res);
           console.log("i get to this point with user from======>>>", res.data);
           props.setStudent(res.data);
         });
@@ -93,9 +98,9 @@ export default function Login(props) {
 
   if (loggedin) {
     if (user === "trainer") {
-      return <Redirect to="/trainer" />;
+      return <Redirect to="/trainer/dashboard" />;
     } else {
-      return <Redirect to="/student" />;
+      return <Redirect to="/student/dashboard" />;
     }
   }
   return (

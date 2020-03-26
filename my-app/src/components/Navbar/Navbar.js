@@ -1,29 +1,39 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, withRouter } from "react-router-dom";
 import "./Navbar.scss";
 
 import axios from "axios";
 
-export default function Navbar(props) {
-  let user = "";
+function Navbar(props) {
+  const [user, setUser] = useState(null);
 
-  const handleLogout = evt => {
+  useEffect(() => {
+    console.log('user: ', user);
+    if(props.trainerData && props.trainerData.name) {
+      setUser(props.trainerData.name);
+    }
+
+    if(props.studentData && props.studentData.name) {
+      setUser(props.studentData.name);
+    }
+  }, [props, user]);
+  
+
+  const handleLogout = async (evt) => {
     evt.preventDefault();
+    console.log('props inside of handleLogout', props);
 
-    axios
+    await axios
       .post(`http://localhost:8080/logout`, { user_id: props.trainerData.id })
       .then(res => {
         // console.log({headers: res.headers})
-        user = "";
+       
+        props.setStudent({});
+        props.setTrainer({});
+        setUser(null);
+        props.history.push('/');
       });
   };
-
-  if (props.trainerData.name) {
-    user = props.trainerData.name;
-  }
-  if (props.studentData.name) {
-    user = props.studentData.name;
-  }
 
   return (
     <nav className="navbar-root">
@@ -34,9 +44,9 @@ export default function Navbar(props) {
         <>
           <p className="user-name navbar-grid-login">Loggedin as: {user} </p>
           <Link
-            onSubmit={() => handleLogout}
+            onClick={handleLogout}
             className="logout navbar-grid-register"
-            to="/home"
+            to="/"
           >
             Logout
           </Link>
@@ -54,3 +64,5 @@ export default function Navbar(props) {
     </nav>
   );
 }
+
+export default withRouter(Navbar);

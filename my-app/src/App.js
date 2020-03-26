@@ -40,7 +40,6 @@ function App() {
     <Router>
       {/* always showing  - outside of switch */}
 
-      <Navbar trainerData={trainer} studentData={student}/>
 
       {/* Having sidebar below will keep the navbar running on all pages, we will get rid of this after and only display it on pages the other pages */}
       {/* <Sidebar/> */}
@@ -51,6 +50,7 @@ function App() {
       {/* Switch */}
       {/* Route = .... */}
       {/* <div> */}
+      <Navbar setTrainer={setTrainer} trainerData={trainer} setStudent={setStudent} studentData={student}/>
       <Switch>
         {/* <Route path='/trainer/'>
               <Sidebar/>
@@ -59,9 +59,13 @@ function App() {
         {/* /dashboard <Dashboard></Dashboard>
               /trainers/:id <Trainer></Trainer>
               /profile  (<Profile></Profile>)
-              /plans/new <PlansCreate></PlansCreate>
+              /plans/new <PlansCreate></Plans`Create`>
               /plans/:id <PlansShow></PlansShow>
               /plans <PlansList></PlansList> */}
+        
+        <Route path="/" exact>
+          <Home />
+        </Route>
 
         <Route path="/register">
           <Register />
@@ -71,19 +75,16 @@ function App() {
           <Login setTrainer={setTrainer} setStudent={setStudent} />
         </Route>
 
-        <Route path="/trainer">
+        <Route path="/trainer/">
           <Trainer trainerData={trainer} />
             <Redirect to="/trainer/dashboard" />
         </Route>
 
-        <Route path="/student">
+        <Route path="/student/">
           <Student studentData={student} />
             <Redirect to="/student/dashboard" />
         </Route>
 
-        <Route path="/">
-          <Home />
-        </Route>
         
       </Switch>
     </Router>
