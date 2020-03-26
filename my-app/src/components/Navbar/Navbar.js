@@ -26,7 +26,7 @@ function Navbar(props) {
     await axios
       .post(`http://localhost:8080/logout`, { user_id: props.trainerData.id })
       .then(res => {
-        // console.log({headers: res.headers})
+        
        
         props.setStudent({});
         props.setTrainer({});
