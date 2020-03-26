@@ -18,7 +18,7 @@ export default function Student(props) {
   const [allTrainers, setAllTrainers] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:8080/trainers").then(res => {
-      const trainers = res.data[0];
+      const trainers = res.data;
     console.log("students=> => =>",trainers)
       setAllTrainers(trainers);
     });
