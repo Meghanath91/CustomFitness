@@ -69,7 +69,7 @@ export default function StudentsItem(props) {
     evt.preventDefault();
 
     axios
-      .post(`http://localhost:8080/custom_plans/create`, {
+      .post(`http://localhost:8080/subscriptions/subscribe`, {
         trainer_id: id,
         student_id: props.studentData.id
       })
