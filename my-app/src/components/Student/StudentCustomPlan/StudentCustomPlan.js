@@ -1,13 +1,11 @@
 import React from "react";
 import StudentExerciseList from "./StudentExerciseList";
-// import "./CustomPlan.scss";
-
-// import CustomForm from "./CustomForm";
+import StudentCustomForm from "./StudentCustomForm";
 
 export default function StudentCustomPlan(props) {
   return (
     <section className="custom-plan">
-      {/* <CustomForm className="custom-form" /> */}
+      <StudentCustomForm className="custom-form" />
       <StudentExerciseList exerciseData={props.exerciseData} />
     </section>
   );

@@ -43,7 +43,8 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex"
+    display: "flex",
+    width: "100%"
   },
   toolbar: {
     paddingRight: 24 // keep right padding when drawer closed
@@ -104,7 +105,7 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     height: "100vh",
-    overflow: "auto"
+    width: "100%"
   },
   container: {
     paddingTop: theme.spacing(4),
@@ -115,9 +116,6 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     overflow: "auto",
     flexDirection: "column"
-  },
-  fixedHeight: {
-    height: "100%"
   }
 }));
 

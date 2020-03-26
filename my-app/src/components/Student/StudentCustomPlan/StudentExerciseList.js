@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-
+import "../Student.scss";
 export default function StudentExerciseList(props) {
   const columnsFromBackend = {
     select: {
@@ -15,15 +15,13 @@ export default function StudentExerciseList(props) {
   const [columns, setColumns] = useState(columnsFromBackend);
   useEffect(() => {
     const itemsFromBackend = props.exerciseData;
-  
+
     setColumns(prev => {
       return {
         ...prev,
         select: { name: "In Progress", items: itemsFromBackend }
       };
     });
-
-    
   }, [props.exerciseData]);
 
   console.log("selected is ---->", columns.selected.items);
@@ -97,8 +95,8 @@ export default function StudentExerciseList(props) {
                         ref={provided.innerRef}
                         style={{
                           background: snapshot.isDraggingOver
-                            ? "lightblue"
-                            : "lightgrey",
+                            ? "#B7B7B7"
+                            : "#3F3F3F",
                           padding: 4,
                           width: 250,
                           minHeight: 500
@@ -120,25 +118,33 @@ export default function StudentExerciseList(props) {
                                     style={{
                                       userSelect: "none",
                                       padding: 16,
-                                      margin: "0 0 8px 0",
+                                      margin: "2%",
+                                      width: "95%",
                                       minHeight: "50px",
+                                      textTransform: "uppercase",
+                                      border: "1px solid black",
+                                      borderRadius: "8px",
+                                      textAlign: "center",
+                                      fontWeight: "700",
                                       backgroundColor: snapshot.isDragging
-                                        ? "#263B4A"
-                                        : "#456C86",
-                                      color: "white",
+                                        ? "#828282"
+                                        : "#FFFFFF",
+                                      color: "#000000",
                                       ...provided.draggableProps.style
                                     }}
                                   >
                                     {item.name}
                                     <br />
-                                    {/* <img src={item.thumbnail_photo_url} /> */}
+                                    <img
+                                      className="student-exercise-gif"
+                                      src={item.thumbnail_photo_url}
+                                    />
+                                    <br />
                                     {item.explanation}
                                     <br />
                                     {item.body_part}
                                     <br />
                                     {item.type}
-                                    <br />
-                                    {item.content_video}
                                   </div>
                                 );
                               }}

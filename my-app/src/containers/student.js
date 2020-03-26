@@ -4,7 +4,7 @@ import StudentProfile from "../components/Student/StudentProfile";
 import "./student.scss";
 import StudentDashboard from "../components/Student/StudentDashboard";
 import StudentExercise from "../containers/studentExercise";
-import Trainers from "../components/Student/Dashboard/Trainers"
+import Trainers from "../components/Student/Dashboard/Trainers";
 // import StudentCustomPlan from "../components/Student/StudentCustomplan"
 import {
   BrowserRouter as Router,
@@ -19,7 +19,7 @@ export default function Student(props) {
   useEffect(() => {
     axios.get("http://localhost:8080/trainers").then(res => {
       const trainers = res.data;
-    console.log("students=> => =>",trainers)
+      console.log("students=> => =>", trainers);
       setAllTrainers(trainers);
     });
   }, []);
@@ -30,28 +30,26 @@ export default function Student(props) {
         style={{
           marginTop: "5%",
           padding: "10px",
-          background: "#f0f0f0"
+          background: "#f0f0f0",
+          width: "100%"
         }}
       >
         <Switch>
-          
           <Route path="/student/profile">
             <StudentProfile studentData={props.studentData} />
           </Route>
 
           <Route path="/student/my_plan">
-            <StudentExercise studentData={props.studentData}/>
+            <StudentExercise studentData={props.studentData} />
           </Route>
 
           <Route path="/student/dashboard">
-            <StudentDashboard  />
+            <StudentDashboard />
           </Route>
-
 
           <Route path="/student/trainers">
-            <Trainers allTrainers={allTrainers}/>
+            <Trainers allTrainers={allTrainers} />
           </Route>
-
         </Switch>
       </div>
 

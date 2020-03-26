@@ -1,12 +1,5 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
-import clsx from "clsx";
-import Button from "@material-ui/core/Button";
-import CameraIcon from "@material-ui/icons/PhotoCamera";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -36,7 +29,8 @@ function Copyright() {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex"
+    display: "flex",
+    width: "100%"
   },
   toolbar: {
     paddingRight: 24 // keep right padding when drawer closed
@@ -95,8 +89,7 @@ const useStyles = makeStyles(theme => ({
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: "100vh",
-    overflow: "auto"
+    height: "100vh"
   },
   container: {
     paddingTop: theme.spacing(4),
@@ -105,11 +98,7 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     display: "flex",
-    overflow: "auto",
     flexDirection: "column"
-  },
-  fixedHeight: {
-    height: 240
   }
 }));
 
@@ -119,7 +108,6 @@ export default function Students(props) {
   console.log("props all trainers shiv==>", props);
 
   const classes = useStyles();
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
@@ -130,11 +118,7 @@ export default function Students(props) {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={10}>
             {/* Students Images */}
-            <Grid item xs={12} md={12} lg={20}>
-              <Paper className={fixedHeightPaper}>
-                <TrainersItem allTrainers={props.allTrainers} />
-              </Paper>
-            </Grid>
+            <TrainersItem allTrainers={props.allTrainers} />
           </Grid>
           <Box pt={4}>
             <Copyright />

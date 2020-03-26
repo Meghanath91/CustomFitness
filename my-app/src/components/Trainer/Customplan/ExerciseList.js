@@ -16,15 +16,12 @@ export default function ExerciseList(props) {
   const [columns, setColumns] = useState(columnsFromBackend);
   useEffect(() => {
     const itemsFromBackend = props.exerciseData;
-    // const selectedExercise=[];
     setColumns(prev => {
       return {
         ...prev,
         select: { name: "Select Exercise(s)", items: itemsFromBackend }
       };
     });
-
-    // console.log("if we get this one, we are good=>",columnsFromBackend)
   }, [props.exerciseData]);
   props.setExerciseIdArray(columns.selected.items);
 

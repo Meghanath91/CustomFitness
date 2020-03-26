@@ -124,14 +124,11 @@ export default function StudentProfile(props) {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={10}>
-            {/* Students Images */}
-            <Grid item xs={12} md={12} lg={20}>
-              <Paper className={fixedHeightPaper}>
-                <Profile studentData={props.studentData} />
-              </Paper>
-            </Grid>
+          {/* Students Images */}
+          <Grid item xs={12} md={12} lg={20}>
+            <Profile studentData={props.studentData} />
           </Grid>
+
           <Box pt={4}>
             <Copyright />
           </Box>

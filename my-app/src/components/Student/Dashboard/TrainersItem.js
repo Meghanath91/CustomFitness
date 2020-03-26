@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
+import Axios from "axios";
 
 function Copyright() {
   return (
@@ -45,10 +46,13 @@ const useStyles = makeStyles(theme => ({
   card: {
     height: "100%",
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    alignItems: "center"
   },
   cardMedia: {
-    paddingTop: "56.25%" // 16:9
+    paddingTop: "56.25%",
+    width: "35%",
+    height: "35%" // 16:9
   },
   cardContent: {
     flexGrow: 1
@@ -61,47 +65,31 @@ const useStyles = makeStyles(theme => ({
 
 // const cards = [1, 2, 3, 4, 5, 6];
 
-
-const handleSubscribe = evt => {
-  evt.preventDefault();
-  
-  axios.post(`http://localhost:8080/custom_plans/create`, {
-    trainer_id: props.trainerData.id,
-    student_id: student,
-  })
-  .then(res => {
-
-    console.log(res.data)
-
-    alert("new StudentRequest being sent to Trainer");
-  });
-  
-};
-
-
-
-
-
 export default function StudentsItem(props) {
   const classes = useStyles();
 
-  const handleSubscribe = evt => {
-    evt.preventDefault();
-    debugger;
-  };
+  // const handleSubscribe = evt => {
+  //   evt.preventDefault();
+  //   debugger;
+  //   Axios.post(`http://localhost:8080/custom_plans/create`, {
+  //     trainer_id: props.trainerData.id,
+  //     student_id: student
+  //   }).then(res => {
+  //     console.log(res.data);
+
+  //     alert("new StudentRequest being sent to Trainer");
+  //   });
+  // };
 
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Available Trainers
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <main>
+
+      <main
+        style={{
+          width: "100%"
+        }}
+      >
         {/* Hero unit */}
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
@@ -157,7 +145,11 @@ export default function StudentsItem(props) {
                     <Typography>{card.about}</Typography>
                   </CardContent>
                   <CardActions>
-                    <Button onClick={handleSubscribe} size="small" color="primary">
+                    <Button
+                      // onClick={handleSubscribe}
+                      size="small"
+                      color="primary"
+                    >
                       Subscribe
                     </Button>
                     <Button size="small" color="primary">
@@ -170,22 +162,6 @@ export default function StudentsItem(props) {
           </Grid>
         </Container>
       </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="textSecondary"
-          component="p"
-        >
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
     </React.Fragment>
   );
 }
