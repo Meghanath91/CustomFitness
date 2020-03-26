@@ -107,7 +107,7 @@ const useStyles = makeStyles(theme => ({
 const drawerWidth = 240;
 
 
-export default function Exercise() {
+export default function Exercise(props) {
 
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
@@ -131,7 +131,11 @@ export default function Exercise() {
           {/* Students Images */}
           <Grid item xs={12} md={12} lg={20}>
             <Paper className={fixedHeightPaper}>
-            <CustomPlan exerciseData={state} />
+            <CustomPlan 
+              exerciseData={state} 
+              myStudents={props.myStudents} 
+              trainerData={props.trainerData}
+              />
             </Paper>
           </Grid>          
         </Grid>

@@ -8,8 +8,11 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
 export default function CustomPlanForm(props) {
+
+  console.log("props on customform",props.myStudents)
   const [difficulty, setDifficulty] = useState("beginner");
   const [type, setType] = useState("weightloss");
+  const [student,setStudent] = useState({});
 
   const handleDifficulty = event => {
     props.setDifficulty(()=>event.target.value)
@@ -18,6 +21,11 @@ export default function CustomPlanForm(props) {
   const handleType = event => {
     props.setType(()=>event.target.value)
     setType(event.target.value);
+  };
+
+  const handleStudent= event => {
+    props.setStudent(()=>event.target.value)
+    setStudent(event.target.value);
   };
 
   return (
@@ -66,6 +74,7 @@ export default function CustomPlanForm(props) {
             <MenuItem value="hard">Hard</MenuItem>
           </Select>
         </FormControl>{" "}
+
         <FormControl>
           <InputLabel id="demo-simple-select-label">Work out type</InputLabel>
           <Select
@@ -81,6 +90,26 @@ export default function CustomPlanForm(props) {
             <MenuItem value="mediatation">Meditation</MenuItem>
           </Select>
         </FormControl>
+
+        <FormControl>
+          <InputLabel id="demo-simple-select-label">Select Student</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={student}
+            onChange={handleStudent}
+          >
+            {props.myStudents.map(student=>(
+                
+            <MenuItem value={student.id}>{student.name}</MenuItem>
+
+            ))
+            }
+            
+          
+          </Select>
+        </FormControl>
+
         <TextField
           required
           id="standard-required"
@@ -97,6 +126,7 @@ export default function CustomPlanForm(props) {
           label="Number of reps"
           placeholder="# of reps"
         />
+         
       </section>
       <button
         style={{

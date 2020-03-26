@@ -7,6 +7,7 @@ import { Redirect } from "react-router-dom";
 import CustomForm from "./CustomForm";
 
 export default function CustomPlan(props) {
+  console.log("props on customplan=========>",props)
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [difficulty, setDifficulty] = useState("");
@@ -14,13 +15,26 @@ export default function CustomPlan(props) {
   const [sets, setSets] = useState(0);
   const [reps, setReps] = useState(0);
   const [exerciseIdArray, setExerciseIdArray] = useState("");
+  const [student,setStudent] = useState("");
 
   const handleCreatePlan = evt => {
     evt.preventDefault();
 
+  //   const [myStudents, setMyStudents] = useState([]);
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:8080//${props.trainerData.id}/students`)
+  //     .then(res => {
+  //       const students = res.data;
+
+  //       console.log("mystudents on trainer", students);
+  //       setMyStudents(students);
+  //     });
+  // }, [props.trainerData.id]);
+
     axios.post(`http://localhost:8080/custom_plans/create`, {
-        trainer_id: 1,
-        student_id: 1,
+        trainer_id: props.trainerData.id,
+        student_id: student,
         title: title,
         description: description,
         difficulty: difficulty,
@@ -38,15 +52,10 @@ export default function CustomPlan(props) {
             reps: reps
           }).then(res=>{
             alert("new workoutExercise  created");
-
           })
-
         }
-        
-
       });
       alert("new CustomPlan  created");
-      
   };
 
   return (
@@ -60,10 +69,13 @@ export default function CustomPlan(props) {
         setSets={setSets}
         setReps={setReps}
         handleCreatePlan={handleCreatePlan}
+        setStudent={setStudent}
+        myStudents={props.myStudents}
       />
       <ExerciseList
         exerciseData={props.exerciseData}
         setExerciseIdArray={setExerciseIdArray}
+
       />
     </section>
   );
