@@ -23,7 +23,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Custom Fitness
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -54,20 +54,20 @@ const useStyles = makeStyles(theme => ({
 export default function Login(props) {
   const classes = useStyles();
 
-  const [user,setUser]=useState("");
+  const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loggedin, setLoggedin] = useState(false);
   // const [user, setUser] = useState("");
 
   axios.defaults.withCredentials = true;
-  
 
   const handleLogin = evt => {
     evt.preventDefault();
 
     if (user === "trainer") {
-      axios.post(`http://localhost:8080/trainers/login`, {
+      axios
+        .post(`http://localhost:8080/trainers/login`, {
           email: email,
           password: password
         })
@@ -78,8 +78,8 @@ export default function Login(props) {
           props.setTrainer(res.data);
         });
     } else {
-     
-      axios.post(`http://localhost:8080/students/login`, {
+      axios
+        .post(`http://localhost:8080/students/login`, {
           email: email,
           password: password
         })
@@ -137,7 +137,7 @@ export default function Login(props) {
             id="password"
             autoComplete="current-password"
           />
-          <LoginRadioButton setUser={setUser}/>
+          <LoginRadioButton setUser={setUser} />
 
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}

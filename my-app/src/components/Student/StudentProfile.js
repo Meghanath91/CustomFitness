@@ -1,26 +1,26 @@
 import React from "react";
-import clsx from 'clsx';
+import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Link from '@material-ui/core/Link';
+import Link from "@material-ui/core/Link";
 import Profile from "./Dashboard/Profile";
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import StudentAppSideBar from "./Dashboard/StudentAppSideBar"
-import Box from '@material-ui/core/Box';
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import Paper from "@material-ui/core/Paper";
+import StudentAppSideBar from "./Dashboard/StudentAppSideBar";
+import Box from "@material-ui/core/Box";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Custom Fitness
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -117,28 +117,26 @@ export default function StudentProfile(props) {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-
   return (
-    <div className={classes.root} > 
-    <CssBaseline />
-    <StudentAppSideBar />
-    <main className={classes.content}>
-      <div className={classes.appBarSpacer} />
-      <Container maxWidth="lg" className={classes.container}>
-        <Grid container spacing={10}>
-          {/* Students Images */}
-          <Grid item xs={12} md={12} lg={20}>
-            <Paper className={fixedHeightPaper}>
-              <Profile studentData={props.studentData} />
-            </Paper>
-          </Grid>          
-        </Grid>
-        <Box pt={4}>
-          <Copyright />
-        </Box>
-      </Container>
-    </main>
-  </div>
-
+    <div className={classes.root}>
+      <CssBaseline />
+      <StudentAppSideBar />
+      <main className={classes.content}>
+        <div className={classes.appBarSpacer} />
+        <Container maxWidth="lg" className={classes.container}>
+          <Grid container spacing={10}>
+            {/* Students Images */}
+            <Grid item xs={12} md={12} lg={20}>
+              <Paper className={fixedHeightPaper}>
+                <Profile studentData={props.studentData} />
+              </Paper>
+            </Grid>
+          </Grid>
+          <Box pt={4}>
+            <Copyright />
+          </Box>
+        </Container>
+      </main>
+    </div>
   );
 }

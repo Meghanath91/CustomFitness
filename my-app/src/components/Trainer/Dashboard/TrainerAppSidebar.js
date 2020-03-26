@@ -1,24 +1,24 @@
 import React from "react";
-import clsx from 'clsx';
+import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import Box from '@material-ui/core/Box';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Drawer from "@material-ui/core/Drawer";
+import Box from "@material-ui/core/Box";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import List from "@material-ui/core/List";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import Badge from "@material-ui/core/Badge";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import Link from "@material-ui/core/Link";
+import MenuIcon from "@material-ui/icons/Menu";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import { mainListItems, secondaryListItems } from "./listItems";
 
 const drawerWidth = 240;
 
@@ -27,7 +27,8 @@ const useStyles = makeStyles(theme => ({
     display: "flex"
   },
   toolbar: {
-    paddingRight: 24 // keep right padding when drawer closed
+    // paddingRight: 24 // keep right padding when drawer closed
+    // position: "fixed"
   },
   toolbarIcon: {
     display: "flex",
@@ -114,53 +115,54 @@ export default function TrainerAppSideBar() {
 
   const cards = [1, 2, 3, 4, 5, 6];
   return (
-    <div className={classes.root} >
+    <div className={classes.root}>
       {/* <Students /> */}
 
       {/* <StudentTable /> */}
 
-
-
-  <AppBar
-  style={{
-    marginTop: "5%"
-  }}
-  position="absolute"
-  className={clsx(classes.appBar, open && classes.appBarShift)}
-  >
-  <Toolbar className={classes.toolbar}>
-    <IconButton
-      edge="start"
-      color="inherit"
-      aria-label="open drawer"
-      onClick={handleDrawerOpen}
-      className={clsx(
-        classes.menuButton,
-        open && classes.menuButtonHidden
-      )}
-    >
-      <MenuIcon />
-    </IconButton>
-    <Typography
-      component="h1"
-      variant="h6"
-      color="inherit"
-      noWrap
-      className={classes.title}
-    >
-      Trainer Dashboard
-    </Typography>
-    <IconButton color="inherit">
-      <Badge badgeContent={4} color="secondary">
-        <NotificationsIcon />
-      </Badge>
-    </IconButton>
-  </Toolbar>
-  </AppBar>
-  <Drawer
+      <AppBar
+        style={{
+          marginTop: "4%",
+          backgroundColor: "#E0E0E0",
+          color: "black",
+          position: "fixed"
+        }}
+        position="absolute"
+        className={clsx(classes.appBar, open && classes.appBarShift)}
+      >
+        <Toolbar className={classes.toolbar}>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            className={clsx(
+              classes.menuButton,
+              open && classes.menuButtonHidden
+            )}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            className={classes.title}
+          >
+            Trainer Dashboard
+          </Typography>
+          <IconButton color="inherit">
+            <Badge badgeContent={4} color="secondary">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Drawer
         variant="permanent"
         classes={{
-          paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
+          paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose)
         }}
         open={open}
       >
@@ -174,7 +176,6 @@ export default function TrainerAppSideBar() {
         <Divider />
         <List>{secondaryListItems}</List>
       </Drawer>
-</div>
-
-)
+    </div>
+  );
 }
