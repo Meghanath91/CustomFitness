@@ -62,21 +62,21 @@ const useStyles = makeStyles(theme => ({
 // const cards = [1, 2, 3, 4, 5, 6];
 
 
-const handleSubscribe = evt => {
-  evt.preventDefault();
+// const handleSubscribe = evt => {
+//   evt.preventDefault();
   
-  axios.post(`http://localhost:8080/custom_plans/create`, {
-    trainer_id: props.trainerData.id,
-    student_id: student,
-  })
-  .then(res => {
+//   axios.post(`http://localhost:8080/custom_plans/create`, {
+//     trainer_id: props.trainerData.id,
+//     student_id: student,
+//   })
+//   .then(res => {
 
-    console.log(res.data)
+//     console.log(res.data)
 
-    alert("new StudentRequest being sent to Trainer");
-  });
+//     alert("new StudentRequest being sent to Trainer");
+//   });
   
-};
+// };
 
 
 

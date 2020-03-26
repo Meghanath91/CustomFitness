@@ -131,9 +131,6 @@ export default function StudentsItem(props) {
                     <Button size="small" color="primary">
                       view
                     </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
                   </CardActions>
                 </Card>
               </Grid>
