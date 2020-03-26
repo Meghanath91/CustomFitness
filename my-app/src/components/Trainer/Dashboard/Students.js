@@ -108,9 +108,6 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     overflow: "auto",
     flexDirection: "column"
-  },
-  fixedHeight: {
-    height: 240
   }
 }));
 
@@ -127,20 +124,9 @@ export default function Students(props) {
       <CssBaseline />
       <TrainerAppSideBar />
       <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={10}>
-            {/* Students Images */}
-            <Grid item xs={12} md={12} lg={20}>
-              <Paper className={fixedHeightPaper}>
-                <StudentsItem myStudents={props.myStudents} />
-              </Paper>
-            </Grid>
-          </Grid>
-          <Box pt={4}>
-            <Copyright />
-          </Box>
-        </Container>
+        <Grid item xs={12} md={12} lg={20}>
+          <StudentsItem myStudents={props.myStudents} />
+        </Grid>
       </main>
     </div>
   );

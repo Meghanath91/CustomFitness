@@ -48,7 +48,9 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column"
   },
   cardMedia: {
-    paddingTop: "56.25%" // 16:9
+    paddingTop: "56.25%",
+    width: "45%",
+    height: "25%"
   },
   cardContent: {
     flexGrow: 1
@@ -66,14 +68,7 @@ export default function StudentsItem(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Students
-          </Typography>
-        </Toolbar>
-      </AppBar>
+
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
@@ -84,6 +79,9 @@ export default function StudentsItem(props) {
               align="center"
               color="textPrimary"
               gutterBottom
+              style={{
+                fontSize: "2.3rem"
+              }}
             >
               Your Students
             </Typography>
@@ -116,7 +114,7 @@ export default function StudentsItem(props) {
           {/* End hero unit */}
           <Grid container spacing={4}>
             {props.myStudents.map(card => (
-              <Grid item key={card.id} xs={12} sm={6} md={4}>
+              <Grid item key={card.id} xs={12} sm={6} md={3}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
@@ -143,22 +141,6 @@ export default function StudentsItem(props) {
           </Grid>
         </Container>
       </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="textSecondary"
-          component="p"
-        >
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
     </React.Fragment>
   );
 }
