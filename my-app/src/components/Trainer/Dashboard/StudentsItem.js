@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
-
+import StudentProfile from "../../Student/StudentProfile"
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -59,11 +59,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6];
+
 
 export default function StudentsItem(props) {
   const classes = useStyles();
 console.log("props on studentitem is==>",props)
+
+
   
 
   return (
@@ -123,8 +125,8 @@ console.log("props on studentitem is==>",props)
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
-                      View
+                    <Button  size="small" color="primary">
+                      view
                     </Button>
                     <Button size="small" color="primary">
                       Edit

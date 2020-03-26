@@ -134,7 +134,7 @@ export default function Students(props) {
             {/* Students Images */}
             <Grid item xs={12} md={12} lg={20}>
               <Paper className={fixedHeightPaper}>
-                <TrainersItem />
+                <TrainersItem allTrainers={props.allTrainers}/>
               </Paper>
             </Grid>          
           </Grid>
