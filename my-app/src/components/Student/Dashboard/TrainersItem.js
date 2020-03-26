@@ -61,10 +61,31 @@ const useStyles = makeStyles(theme => ({
 
 // const cards = [1, 2, 3, 4, 5, 6];
 
+
+const handleSubscribe = evt => {
+  evt.preventDefault();
+  
+  axios.post(`http://localhost:8080/custom_plans/create`, {
+    trainer_id: props.trainerData.id,
+    student_id: student,
+  })
+  .then(res => {
+
+    console.log(res.data)
+
+    alert("new StudentRequest being sent to Trainer");
+  });
+  
+};
+
+
+
+
+
 export default function StudentsItem(props) {
   const classes = useStyles();
 
-  const handleSubsribe = evt => {
+  const handleSubscribe = evt => {
     evt.preventDefault();
     debugger;
   };
@@ -136,11 +157,7 @@ export default function StudentsItem(props) {
                     <Typography>{card.about}</Typography>
                   </CardContent>
                   <CardActions>
-                    <Button
-                      onClick={handleSubsribe}
-                      size="small"
-                      color="primary"
-                    >
+                    <Button onClick={handleSubscribe} size="small" color="primary">
                       Subscribe
                     </Button>
                     <Button size="small" color="primary">
