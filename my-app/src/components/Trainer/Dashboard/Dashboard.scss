@@ -1,0 +1,23 @@
+.trainer-profile button {
+  background-color: #3F3F3F;
+  color: white;
+  border-radius: 8px;
+  margin-top: 2%;
+  padding: 1%;
+  font-family: 'Raleway',
+    sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.trainer-profile button:hover {
+  background-color: #B7B7B7;
+  color: black;
+  border: 1px solid black;
+}
+
+.trainer-avatar {
+  height: 50%;
+  width: 50%
+}

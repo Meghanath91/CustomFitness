@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from 'clsx';
+import clsx from "clsx";
 import Typography from "@material-ui/core/Typography";
-import Link from '@material-ui/core/Link';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import Link from "@material-ui/core/Link";
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import Paper from "@material-ui/core/Paper";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import axios from "axios";
 import CustomPlan from "../components/Trainer/Customplan/Customplan";
-import TrainerAppSideBar from "../components/Trainer/Dashboard/TrainerAppSidebar"
+import TrainerAppSideBar from "../components/Trainer/Dashboard/TrainerAppSidebar";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Custom Fitness
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     ...theme.mixins.toolbar
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: "-1",
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
@@ -87,30 +87,16 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     height: "100vh",
-    overflow: "auto"
-  },
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4)
-  },
-  paper: {
-    padding: theme.spacing(2),
-    display: "flex",
     overflow: "auto",
-    flexDirection: "column"
-  },
-  fixedHeight: {
-    height: 240
+    marginTop: "5%"
   }
 }));
 
 const drawerWidth = 240;
 
-
 export default function Exercise(props) {
-
   const classes = useStyles();
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   const [state, setState] = useState([]);
   useEffect(() => {
@@ -121,29 +107,18 @@ export default function Exercise(props) {
   }, []);
 
   return (
-    <div className={classes.root} > 
-    <CssBaseline />
-    <TrainerAppSideBar />
-    <main className={classes.content}>
-      <div className={classes.appBarSpacer} />
-      <Container maxWidth="lg" className={classes.container}>
-        <Grid container spacing={10}>
-          {/* Students Images */}
-          <Grid item xs={12} md={12} lg={20}>
-            <Paper className={fixedHeightPaper}>
-            <CustomPlan 
-              exerciseData={state} 
-              myStudents={props.myStudents} 
-              trainerData={props.trainerData}
-              />
-            </Paper>
-          </Grid>          
+    <div className={classes.root}>
+      <CssBaseline />
+      <TrainerAppSideBar />
+      <main className={classes.content}>
+        <Grid item xs={12} md={12} lg={20}>
+          <CustomPlan
+            exerciseData={state}
+            myStudents={props.myStudents}
+            trainerData={props.trainerData}
+          />
         </Grid>
-        <Box pt={4}>
-          <Copyright />
-        </Box>
-      </Container>
-    </main>
-  </div>
+      </main>
+    </div>
   );
 }

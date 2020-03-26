@@ -8,23 +8,22 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
 export default function CustomPlanForm(props) {
-
-  console.log("props on customform",props.myStudents)
+  console.log("props on customform", props.myStudents);
   const [difficulty, setDifficulty] = useState("beginner");
   const [type, setType] = useState("weightloss");
-  const [student,setStudent] = useState({});
+  const [student, setStudent] = useState({});
 
   const handleDifficulty = event => {
-    props.setDifficulty(()=>event.target.value)
+    props.setDifficulty(() => event.target.value);
     setDifficulty(event.target.value);
   };
   const handleType = event => {
-    props.setType(()=>event.target.value)
+    props.setType(() => event.target.value);
     setType(event.target.value);
   };
 
-  const handleStudent= event => {
-    props.setStudent(()=>event.target.value)
+  const handleStudent = event => {
+    props.setStudent(() => event.target.value);
     setStudent(event.target.value);
   };
 
@@ -37,16 +36,16 @@ export default function CustomPlanForm(props) {
     >
       <Typography
         style={{
-          color: "black"
+          color: "black",
+          textAlign: "center"
         }}
         component="h1"
         variant="h5"
       >
         Custom Plan Details
       </Typography>
-      <section className="custom-form">
-
-      <FormControl>
+      <section className="custom-form-data">
+        <FormControl>
           <InputLabel id="demo-simple-select-label">Select Student</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -54,16 +53,15 @@ export default function CustomPlanForm(props) {
             value={student}
             onChange={handleStudent}
           >
-            {props.myStudents.map(student=>(
-                
+            {props.myStudents.map(student => (
               <MenuItem value={student.id}>{student.name}</MenuItem>
-
-            ))
-            }
+            ))}
           </Select>
         </FormControl>
-
         <TextField
+          style={{
+            padding: "10px 0px"
+          }}
           required
           id="standard-required"
           label="Title of the plan"
@@ -72,6 +70,9 @@ export default function CustomPlanForm(props) {
           placeholder="Title"
         />
         <TextField
+          style={{
+            padding: "10px 0px"
+          }}
           required
           id="standard-required"
           label="Description"
@@ -79,7 +80,11 @@ export default function CustomPlanForm(props) {
           onChange={evt => props.setDescription(evt.target.value)}
           placeholder="Description"
         />
-        <FormControl>
+        <FormControl
+          style={{
+            padding: "10px 0px"
+          }}
+        >
           <InputLabel id="demo-simple-select-label">Difficulty</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -92,8 +97,11 @@ export default function CustomPlanForm(props) {
             <MenuItem value="hard">Hard</MenuItem>
           </Select>
         </FormControl>{" "}
-
-        <FormControl>
+        <FormControl
+          style={{
+            padding: "10px 0px"
+          }}
+        >
           <InputLabel id="demo-simple-select-label">Work out type</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -108,10 +116,10 @@ export default function CustomPlanForm(props) {
             <MenuItem value="mediatation">Meditation</MenuItem>
           </Select>
         </FormControl>
-
-      
-
         <TextField
+          style={{
+            padding: "10px 0px"
+          }}
           required
           id="standard-required"
           value={props.sets}
@@ -120,6 +128,9 @@ export default function CustomPlanForm(props) {
           placeholder="# of sets"
         />
         <TextField
+          style={{
+            padding: "10px 0px"
+          }}
           required
           id="standard-required"
           value={props.reps}
@@ -127,23 +138,8 @@ export default function CustomPlanForm(props) {
           label="Number of reps"
           placeholder="# of reps"
         />
-         
       </section>
-      <button
-        style={{
-          backgroundColor: "#0456B1",
-          color: "white",
-          border: "none",
-          borderRadius: "8px",
-          marginTop: "3%",
-          padding: "3%",
-          fontFamily: "'Raleway', sans-serif",
-          fontSize: "1rem",
-          textTransform: "uppercase"
-        }}
-      >
-        Create Plan
-      </button>
+      <button className="createPlan">Create Plan</button>
     </form>
   );
 }

@@ -1,25 +1,25 @@
 import React from "react";
-import clsx from 'clsx';
+import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import Box from '@material-ui/core/Box';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Drawer from "@material-ui/core/Drawer";
+import Box from "@material-ui/core/Box";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import List from "@material-ui/core/List";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import Badge from "@material-ui/core/Badge";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import Link from "@material-ui/core/Link";
+import MenuIcon from "@material-ui/icons/Menu";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 // import { mainListItems, secondaryListItems } from './Dashboard/listItems';
-import TrainerAppSideBar from "./Dashboard/TrainerAppSidebar"
+import TrainerAppSideBar from "./Dashboard/TrainerAppSidebar";
 import Students from "./Dashboard/Students";
 import Money from "./Dashboard/Money";
 import StudentTable from "./Dashboard/Table";
@@ -31,7 +31,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Custom Fitness
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -56,11 +56,12 @@ const useStyles = makeStyles(theme => ({
     ...theme.mixins.toolbar
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: theme.zIndex.drawer - 10,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
-    })
+    }),
+    backgroundColor: "rgb(0, 11, 14)"
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -116,18 +117,16 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column"
   },
   fixedHeight: {
-    height: 240
+    height: "100%"
   }
 }));
-
-
 
 export default function TrainerDashboard() {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
-    <div className={classes.root} > 
+    <div className={classes.root}>
       <CssBaseline />
       <TrainerAppSideBar />
       <main className={classes.content}>
@@ -140,13 +139,6 @@ export default function TrainerDashboard() {
                 <Chart />
               </Paper>
             </Grid>
-            {/* Recent Deposits */}
-            {/* <Grid item xs={12} md={4} lg={3}> */}
-              {/* <Paper className={fixedHeightPaper}> */}
-                {/* <Money /> */}
-              {/* </Paper> */}
-            {/* </Grid> */}
-            {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <StudentTable />
@@ -154,7 +146,7 @@ export default function TrainerDashboard() {
             </Grid>
           </Grid>
           <Box pt={4}>
-          <StudentRequest />
+            <StudentRequest />
           </Box>
           <Box pt={4}>
             <Copyright />

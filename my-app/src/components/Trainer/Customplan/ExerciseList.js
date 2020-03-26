@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 // import uuid from "uuid/v4";
 
-
 export default function ExerciseList(props) {
-  
   const columnsFromBackend = {
     select: {
       name: "Select Exercise(s)",
@@ -16,30 +14,24 @@ export default function ExerciseList(props) {
     }
   };
   const [columns, setColumns] = useState(columnsFromBackend);
-  useEffect(()=>{
+  useEffect(() => {
     const itemsFromBackend = props.exerciseData;
     // const selectedExercise=[];
     setColumns(prev => {
       return {
         ...prev,
-        select: {name: "Select Exercise(s)", items: itemsFromBackend} 
-      }
+        select: { name: "Select Exercise(s)", items: itemsFromBackend }
+      };
     });
-    
+
     // console.log("if we get this one, we are good=>",columnsFromBackend)
-    
-  },[props.exerciseData])
-  
-  console.log("selected is ---->", columns.selected.items)
-  
-  props.setExerciseIdArray(columns.selected.items)
- 
-  
- 
+  }, [props.exerciseData]);
+  props.setExerciseIdArray(columns.selected.items);
+
   const onDragEnd = (result, columns, setColumns) => {
     if (!result.destination) return;
     const { source, destination } = result;
-  
+
     if (source.droppableId !== destination.droppableId) {
       const sourceColumn = columns[source.droppableId];
       const destColumn = columns[destination.droppableId];
@@ -72,49 +64,60 @@ export default function ExerciseList(props) {
       });
     }
   };
-  
-  
+
   return (
-    <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        height: "100%",
+        width: "100%"
+      }}
+    >
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
             <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              flexDirection: "column",
-              alignItems: "center"
-            }}
-            key={columnId}
+              style={{
+                display: "flex",
+                justifyContent: "flex-start",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "100%"
+              }}
+              key={columnId}
             >
               <h2
                 style={{
-                  color: "black"
+                  color: "black",
+                  margin: 0
                 }}
-                >
+              >
                 {column.name}
               </h2>
-              <div style={{ margin: 8 }}>
+              <div
+                style={{ margin: "2%", width: "100%", alignContent: "center" }}
+              >
                 <Droppable droppableId={columnId} key={columnId}>
                   {(provided, snapshot) => {
                     return (
                       <div
-                      {...provided.droppableProps}
-                      ref={provided.innerRef}
-                      style={{
-                        background: snapshot.isDraggingOver
-                        ? "lightblue"
-                        : "lightgrey",
-                        padding: 4,
-                        width: 250,
-                        minHeight: 500
-                      }}
+                        {...provided.droppableProps}
+                        ref={provided.innerRef}
+                        style={{
+                          background: snapshot.isDraggingOver
+                            ? "#B7B7B7"
+                            : "#3F3F3F",
+                          padding: 4,
+                          margin: "3%",
+                          width: "60%",
+                          minHeight: 768,
+                          textAlign: "center"
+                        }}
                       >
                         {column.items.map((item, index) => {
-                          
                           return (
                             <Draggable
                               key={item.id}
@@ -130,27 +133,31 @@ export default function ExerciseList(props) {
                                     style={{
                                       userSelect: "none",
                                       padding: 16,
-                                      margin: "0 0 8px 0",
+                                      margin: "2%",
+                                      width: "95%",
                                       minHeight: "50px",
+                                      textTransform: "uppercase",
+                                      border: "1px solid black",
+                                      borderRadius: "8px",
+                                      textAlign: "center",
+                                      fontWeight: "700",
                                       backgroundColor: snapshot.isDragging
-                                        ? "#263B4A"
-                                        : "#456C86",
-                                      color: "white",
+                                        ? "#828282"
+                                        : "#FFFFFF",
+                                      color: "#000000",
                                       ...provided.draggableProps.style
                                     }}
                                   >
                                     {item.name}
-                                    <br/>
-                                    {/* <img src={item.thumbnail_photo_url} /> */}
-                                    {item.explanation}
-                                    <br/>
+                                    <br />
+                                    <img
+                                      className="exercise-gif"
+                                      src={item.thumbnail_photo_url}
+                                    />
+                                    <br />
                                     {item.body_part}
-                                    <br/>
+                                    <br />
                                     {item.type}
-                                    <br/>
-                                    {item.content_video}
-
-                                    
                                   </div>
                                 );
                               }}
