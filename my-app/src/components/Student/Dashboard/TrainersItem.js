@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import CameraIcon from "@material-ui/icons/PhotoCamera";
@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -60,14 +61,23 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-
-
-
-
 export default function StudentsItem(props) {
+  console.log("props in trainersitem", props);
   const classes = useStyles();
 
-  
+  const handleSubscribe = (evt, id) => {
+    evt.preventDefault();
+
+    axios
+      .post(`http://localhost:8080/subscriptions/subscribe`, {
+        trainer_id: id,
+        student_id: props.studentData.id
+      })
+      .then(res => {
+        alert("new StudentRequest being sent to Trainer");
+      });
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -135,7 +145,11 @@ export default function StudentsItem(props) {
                     <Typography>{card.about}</Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
+                    <Button
+                      onClick={evt => handleSubscribe(evt, card.id)}
+                      size="small"
+                      color="primary"
+                    >
                       Subscribe
                     </Button>
                     <Button size="small" color="primary">
