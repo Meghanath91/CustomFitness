@@ -1,4 +1,4 @@
-import React ,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import CameraIcon from "@material-ui/icons/PhotoCamera";
@@ -60,39 +60,22 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-// const cards = [1, 2, 3, 4, 5, 6];
-
-
-
-
-
-
-
 
 export default function StudentsItem(props) {
-  console.log("props in trainersitem",props)
+  console.log("props in trainersitem", props);
   const classes = useStyles();
-  // const [trainer,setTrainer] = useState("")
 
-  // useEffect(() => {
-  //  setTrainer();
-  // }, [setTrainer]);
-
-
-  const handleSubscribe = (evt,id) => {
+  const handleSubscribe = (evt, id) => {
     evt.preventDefault();
-    
-    axios.post(`http://localhost:8080/custom_plans/create`, {
-      trainer_id: id,
-      student_id: props.studentData.id,
-    })
-    .then(res => {
-  
-      console.log(res.data)
-  
-      alert("new StudentRequest being sent to Trainer");
-    });
-    
+
+    axios
+      .post(`http://localhost:8080/custom_plans/create`, {
+        trainer_id: id,
+        student_id: props.studentData.id
+      })
+      .then(res => {
+        alert("new StudentRequest being sent to Trainer");
+      });
   };
 
   return (
@@ -162,12 +145,11 @@ export default function StudentsItem(props) {
                     <Typography>{card.about}</Typography>
                   </CardContent>
                   <CardActions>
-                    <Button  
-                    onClick={(evt)=>handleSubscribe(evt,card.id)} 
-                    // setTrainer={setTrainer(card.id)}
-
-                    size="small" 
-                    color="primary">
+                    <Button
+                      onClick={evt => handleSubscribe(evt, card.id)}
+                      size="small"
+                      color="primary"
+                    >
                       Subscribe
                     </Button>
                     <Button size="small" color="primary">
