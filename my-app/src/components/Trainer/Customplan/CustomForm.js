@@ -45,6 +45,24 @@ export default function CustomPlanForm(props) {
         Custom Plan Details
       </Typography>
       <section className="custom-form">
+
+      <FormControl>
+          <InputLabel id="demo-simple-select-label">Select Student</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={student}
+            onChange={handleStudent}
+          >
+            {props.myStudents.map(student=>(
+                
+              <MenuItem value={student.id}>{student.name}</MenuItem>
+
+            ))
+            }
+          </Select>
+        </FormControl>
+
         <TextField
           required
           id="standard-required"
@@ -91,24 +109,7 @@ export default function CustomPlanForm(props) {
           </Select>
         </FormControl>
 
-        <FormControl>
-          <InputLabel id="demo-simple-select-label">Select Student</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={student}
-            onChange={handleStudent}
-          >
-            {props.myStudents.map(student=>(
-                
-            <MenuItem value={student.id}>{student.name}</MenuItem>
-
-            ))
-            }
-            
-          
-          </Select>
-        </FormControl>
+      
 
         <TextField
           required
