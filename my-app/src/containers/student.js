@@ -5,7 +5,6 @@ import "./student.scss";
 import StudentDashboard from "../components/Student/StudentDashboard";
 import StudentExercise from "../containers/studentExercise";
 import Trainers from "../components/Student/Dashboard/Trainers";
-// import StudentCustomPlan from "../components/Student/StudentCustomplan"
 import {
   BrowserRouter as Router,
   Switch,
@@ -48,7 +47,10 @@ export default function Student(props) {
           </Route>
 
           <Route path="/student/trainers">
-            <Trainers allTrainers={allTrainers} />
+            <Trainers
+              allTrainers={allTrainers}
+              studentData={props.studentData}
+            />
           </Route>
         </Switch>
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import CameraIcon from "@material-ui/icons/PhotoCamera";
@@ -13,7 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
-import Axios from "axios";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -63,23 +63,22 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-// const cards = [1, 2, 3, 4, 5, 6];
-
 export default function StudentsItem(props) {
+  console.log("props in trainersitem", props);
   const classes = useStyles();
 
-  // const handleSubscribe = evt => {
-  //   evt.preventDefault();
-  //   debugger;
-  //   Axios.post(`http://localhost:8080/custom_plans/create`, {
-  //     trainer_id: props.trainerData.id,
-  //     student_id: student
-  //   }).then(res => {
-  //     console.log(res.data);
+  const handleSubscribe = (evt, id) => {
+    evt.preventDefault();
 
-  //     alert("new StudentRequest being sent to Trainer");
-  //   });
-  // };
+    axios
+      .post(`http://localhost:8080/subscriptions/subscribe`, {
+        trainer_id: id,
+        student_id: props.studentData.id
+      })
+      .then(res => {
+        alert("new StudentRequest being sent to Trainer");
+      });
+  };
 
   return (
     <React.Fragment>
@@ -146,7 +145,7 @@ export default function StudentsItem(props) {
                   </CardContent>
                   <CardActions>
                     <Button
-                      // onClick={handleSubscribe}
+                      onClick={evt => handleSubscribe(evt, card.id)}
                       size="small"
                       color="primary"
                     >

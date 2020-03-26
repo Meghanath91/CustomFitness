@@ -118,7 +118,10 @@ export default function Students(props) {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={10}>
             {/* Students Images */}
-            <TrainersItem allTrainers={props.allTrainers} />
+            <TrainersItem
+              allTrainers={props.allTrainers}
+              studentData={props.studentData}
+            />
           </Grid>
           <Box pt={4}>
             <Copyright />

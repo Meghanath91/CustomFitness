@@ -28,9 +28,6 @@ function Copyright() {
   );
 }
 
-const currentUser = {
-  isStudent: false
-};
 
 const useStyles = makeStyles(theme => ({
   root: {

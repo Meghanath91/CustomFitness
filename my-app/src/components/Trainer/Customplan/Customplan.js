@@ -19,19 +19,6 @@ export default function CustomPlan(props) {
 
   const handleCreatePlan = evt => {
     evt.preventDefault();
-
-  //   const [myStudents, setMyStudents] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:8080//${props.trainerData.id}/students`)
-  //     .then(res => {
-  //       const students = res.data;
-
-  //       console.log("mystudents on trainer", students);
-  //       setMyStudents(students);
-  //     });
-  // }, [props.trainerData.id]);
-
     axios.post(`http://localhost:8080/custom_plans/create`, {
         trainer_id: props.trainerData.id,
         student_id: student,
