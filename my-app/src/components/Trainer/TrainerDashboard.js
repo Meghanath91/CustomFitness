@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -25,7 +25,7 @@ import Money from "./Dashboard/Money";
 import StudentTable from "./Dashboard/Table";
 import Chart from "./Dashboard/Chart";
 import StudentRequest from "./Dashboard/StudentRequests";
-
+import axios from "axios";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -119,14 +119,27 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function TrainerDashboard() {
+export default function TrainerDashboard(props) {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+  const [subscriptions, setSubscriptions] = useState([]);
+
+  useEffect(() => {
+
+  axios
+  .get(`http://localhost:8080/trainer/${props.trainerData.id}/subscriptions`)
+    .then(res => {
+      const subscriptions = res.data;
+      console.log("subscriptions", subscriptions);
+      setSubscriptions(subscriptions);
+    });
+  }, [props.trainerData.id]);
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <TrainerAppSideBar />
+      <TrainerAppSideBar subscriptions={subscriptions}/>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
@@ -143,9 +156,9 @@ export default function TrainerDashboard() {
               </Paper>
             </Grid>
           </Grid>
-          {/* <Box pt={4}>
-            <StudentRequest /> 
-          </Box> */}
+          <Box pt={4}>
+            <StudentRequest subscriptions={subscriptions}/>
+          </Box>
           <Box pt={4}>
             <Copyright />
           </Box>

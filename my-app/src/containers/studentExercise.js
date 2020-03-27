@@ -110,17 +110,17 @@ export default function StudentExercise(props) {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  const [state, setState] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8080/student/${props.studentData.id}/exercises`)
-      .then(res => {
-        console.log("res.data=====>", res.data);
-        const exercises = res.data;
+  // const [state, setState] = useState([]);
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:8080/student/${props.studentData.id}/exercises`)
+  //     .then(res => {
+  //       console.log("res.data=====>", res.data);
+  //       const exercises = res.data;
 
-        setState(exercises);
-      });
-  }, [props.studentData.id]);
+  //       setState(exercises);
+  //     });
+  // }, [props.studentData.id]);
 
   return (
     <div className={classes.root}>
@@ -132,7 +132,7 @@ export default function StudentExercise(props) {
           <Grid container spacing={10}>
             {/* Students Images */}
             <Grid item xs={12} md={12} lg={20}>
-              <StudentCustomPlan exerciseData={state} />
+              <StudentCustomPlan studentData={props.studentData}  />
             </Grid>
           </Grid>
           <Box pt={4}>
