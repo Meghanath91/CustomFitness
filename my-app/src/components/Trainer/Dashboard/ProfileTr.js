@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Dashboard.scss";
+import UpdateProfile from "./UpdateProfile";
 
 // import Avatar from '@material-ui/core/Avatar';
 
@@ -17,9 +18,7 @@ export default function ProfileTr(props) {
       <p className="years-experience">
         Years of experience: {props.trainerData.experience}
       </p>
-      <form>
-        <button className="update-profile">Update Profile</button>
-      </form>
+      <UpdateProfile />
     </section>
   );
 }

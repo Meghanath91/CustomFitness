@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../Student.scss";
+import StudentUpdateProfile from "./StudentUpdateProfile";
 
 // import Avatar from '@material-ui/core/Avatar';
 
@@ -27,9 +28,7 @@ export default function Profile(props) {
           703
         ).toFixed(2)}
       </p>
-      <form>
-        <button className="update-profile">Update Profile</button>
-      </form>
+      <StudentUpdateProfile />
     </section>
   );
 }
