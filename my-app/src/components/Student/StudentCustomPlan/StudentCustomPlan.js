@@ -5,7 +5,7 @@ import StudentCustomForm from "./StudentCustomForm";
 export default function StudentCustomPlan(props) {
   return (
     <section className="custom-plan">
-      <StudentCustomForm className="custom-form" />
+      <StudentCustomForm studentData={props.studentData}className="custom-form" />
       <StudentExerciseList exerciseData={props.exerciseData} />
     </section>
   );

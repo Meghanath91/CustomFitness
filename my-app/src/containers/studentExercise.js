@@ -132,7 +132,7 @@ export default function StudentExercise(props) {
           <Grid container spacing={10}>
             {/* Students Images */}
             <Grid item xs={12} md={12} lg={20}>
-              <StudentCustomPlan exerciseData={state} />
+              <StudentCustomPlan studentData={props.studentData} exerciseData={state} />
             </Grid>
           </Grid>
           <Box pt={4}>
