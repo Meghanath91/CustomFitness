@@ -160,9 +160,6 @@ export default function StudentsItem(props) {
                     <Button onClick={handleSubscribe} size="small" color="primary">
                       Subscribe
                     </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
                   </CardActions>
                 </Card>
               </Grid>
