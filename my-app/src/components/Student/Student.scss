@@ -55,7 +55,7 @@ label {
   flex-direction: column;
   border: 5px solid black;
   border-radius: 8px;
-  width: 100%;
+  // width: 20rem;
   height: 70vh;
 }
 
@@ -69,8 +69,6 @@ label {
   height: 7%;
   width: 90%;
   margin-left: 2%;
-
-
 }
 
 .student-custom-form button {
@@ -92,4 +90,10 @@ label {
   color: rgb(1, 248, 248);
   background-color: rgb(0, 0, 0);
   border: 1px solid rgb(1, 248, 248);
+}
+
+.student-custom-plan {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }

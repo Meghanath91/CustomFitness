@@ -1,68 +1,119 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Student.scss";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import axios from "axios";
 
 export default function StudentCustomForm(props) {
-  console.log("props on customform", props.myStudents);
-  const [difficulty, setDifficulty] = useState("beginner");
-  const [type, setType] = useState("weightloss");
-  const [student, setStudent] = useState({});
+  console.log("props on customform", props.setCustomPlanID);
 
-  const handleDifficulty = event => {
-    props.setDifficulty(() => event.target.value);
-    setDifficulty(event.target.value);
-  };
-  const handleType = event => {
-    props.setType(() => event.target.value);
-    setType(event.target.value);
+  const [myCustomPlans, setMyCustomPlans] = useState([]);
+  const [plan, setPlan] = useState("");
+  const [title, setTitle] = useState("Work out Title");
+  const [sets, setSets] = useState("Number of sets");
+  const [reps, setReps] = useState("Number of reps");
+  const [difficulty, setDifficulty] = useState("Difficulty level");
+  const [description, setDescription] = useState("Explanation");
+  const [type, setType] = useState("Type");
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/student/${props.studentData.id}/custom_plans`)
+      .then(res => {
+        const customPlans = res.data;
+
+        console.log("mystudents on trainer", customPlans);
+        setMyCustomPlans(customPlans);
+      });
+  }, [props.studentData.id]);
+
+  const handlePlan = event => {
+    // set(() => event.target.value);
+    console.log("plan id", event.target.value);
+    props.setCustomId(event.target.value);
+    setPlan(prev => {
+      const selectedPlan = myCustomPlans.filter(
+        p => p.id === event.target.value
+      )[0];
+      //selectedPlan._______
+      setTitle(selectedPlan.title);
+      setDescription(selectedPlan.description);
+      setSets(selectedPlan.sets);
+      setReps(selectedPlan.reps);
+      setDifficulty(selectedPlan.difficulty);
+      setType(selectedPlan.type);
+      return event.target.value;
+    });
   };
 
-  const handleStudent = event => {
-    props.setStudent(() => event.target.value);
-    setStudent(event.target.value);
-  };
-
+  console.log("custom plan details ------>??? ", myCustomPlans);
   return (
     <form
-      // onSubmit={props.handleCreatePlan}
       className="student-custom-form"
       noValidate
       autoComplete="off"
+      style={{ width: "100%" }}
     >
       <p className="form-title">My custom plan</p>
+      <FormControl>
+        <InputLabel id="demo-simple-select-label">Select Your Plan</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={plan}
+          onChange={handlePlan}
+        >
+          {myCustomPlans.map(plan => (
+            <MenuItem value={plan.id}>{plan.title}</MenuItem>
+          ))}
+        </Select>
+      </FormControl>
       <label for="workout-title">Workout Title:</label>
       <input
         className="student-form-data"
         disabled
-        value="Work out Title"
-        name="workoutTitle"
+        value={title}
+        name={plan.title}
       />
       <label for="explanation">Exercise direction:</label>
       <input
         className="student-form-data"
         disabled
-        value="Lorem ejslfjklwekjf fnwerlkfghlsehf"
-        name="explanation"
+        value={description}
+        name={plan.description}
+      />
+      <label for="type"># Type:</label>
+      <input
+        className="student-form-data"
+        disabled
+        value={type}
+        name={plan.type}
       />
       <label for="sets"># of sets:</label>
       <input
         className="student-form-data"
         disabled
-        value="Number of sets"
-        name="sets"
+        value={sets}
+        name={plan.sets}
       />
       <label for="reps"># of reps:</label>
       <input
         className="student-form-data"
         disabled
-        value="Number of reps"
-        name="reps"
+        value={reps}
+        name={plan.reps}
       />
       <label for="difficulty">Difficulty Level:</label>
       <input
         className="student-form-data"
         disabled
-        value="Difficulty level"
-        name="difficulty"
+        value={difficulty}
+        name={plan.difficulty}
       />
       <button className="completePlan">Complete plan</button>
     </form>
