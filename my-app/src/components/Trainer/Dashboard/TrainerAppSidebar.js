@@ -102,7 +102,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function TrainerAppSideBar() {
+export default function TrainerAppSideBar(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -151,11 +151,11 @@ export default function TrainerAppSideBar() {
           >
             Trainer Dashboard
           </Typography>
-          <IconButton color="inherit">
+          {/* <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />
             </Badge>
-          </IconButton>
+          </IconButton> */}
         </Toolbar>
       </AppBar>
       <Drawer
