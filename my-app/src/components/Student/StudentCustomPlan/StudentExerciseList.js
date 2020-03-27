@@ -64,7 +64,15 @@ export default function StudentExerciseList(props) {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        height: "100%",
+
+        marginLeft: "2%"
+      }}
+    >
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
@@ -81,12 +89,20 @@ export default function StudentExerciseList(props) {
             >
               <h2
                 style={{
-                  color: "black"
+                  color: "black",
+                  textDecoration: "underline",
+                  fontSize: "1.6rem"
                 }}
               >
                 {column.name}
               </h2>
-              <div style={{ margin: 8 }}>
+              <div
+                style={{
+                  margin: "2%",
+                  width: "30rem",
+                  alignContent: "center"
+                }}
+              >
                 <Droppable droppableId={columnId} key={columnId}>
                   {(provided, snapshot) => {
                     return (
@@ -94,12 +110,18 @@ export default function StudentExerciseList(props) {
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                         style={{
+                          display: "grid",
+                          gridTemplateColumns: "repeat(3, 1fr)",
+                          gridTemplateRows: "repeat(4, 1fr)",
                           background: snapshot.isDraggingOver
                             ? "#B7B7B7"
                             : "#3F3F3F",
                           padding: 4,
-                          width: 250,
-                          minHeight: 500
+                          margin: "3%",
+                          width: "90%",
+                          height: "50rem",
+                          textAlign: "center",
+                          borderRadius: "8px"
                         }}
                       >
                         {column.items.map((item, index) => {
@@ -130,6 +152,7 @@ export default function StudentExerciseList(props) {
                                         ? "#828282"
                                         : "#FFFFFF",
                                       color: "#000000",
+                                      fontSize: "0.9rem",
                                       ...provided.draggableProps.style
                                     }}
                                   >
@@ -139,8 +162,6 @@ export default function StudentExerciseList(props) {
                                       className="student-exercise-gif"
                                       src={item.thumbnail_photo_url}
                                     />
-                                    <br />
-                                    {item.explanation}
                                     <br />
                                     {item.body_part}
                                     <br />

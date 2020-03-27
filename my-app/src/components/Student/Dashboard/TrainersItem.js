@@ -139,9 +139,6 @@ export default function StudentsItem(props) {
                     title={card.name}
                   />
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
                     <Typography
                       style={{
                         fontWeight: "700",

@@ -20,9 +20,12 @@
   color: white;
   width: 100%;
   padding: 3%;
-  border: 1px solid black;
+  border: 5px solid #3F3F3F;
   border-radius: 8px;
   height: 100%;
+  margin-top: 7%;
+  box-shadow: lighten;
+
 }
 
 
@@ -48,6 +51,6 @@
 }
 
 .exercise-gif {
-  width: 10rem;
-  height: 9rem;
+  width: 6rem;
+  height: 5rem;
 }

@@ -29,7 +29,7 @@ export default function Student(props) {
         style={{
           marginTop: "5%",
           padding: "10px",
-          background: "#f0f0f0",
+
           width: "100%"
         }}
       >

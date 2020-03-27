@@ -8,30 +8,27 @@ function Navbar(props) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    console.log('user: ', user);
-    if(props.trainerData && props.trainerData.name) {
+    console.log("user: ", user);
+    if (props.trainerData && props.trainerData.name) {
       setUser(props.trainerData.name);
     }
 
-    if(props.studentData && props.studentData.name) {
+    if (props.studentData && props.studentData.name) {
       setUser(props.studentData.name);
     }
   }, [props, user]);
-  
 
-  const handleLogout = async (evt) => {
+  const handleLogout = async evt => {
     evt.preventDefault();
-    console.log('props inside of handleLogout', props);
+    console.log("props inside of handleLogout", props);
 
     await axios
       .post(`http://localhost:8080/logout`, { user_id: props.trainerData.id })
       .then(res => {
-        
-       
         props.setStudent({});
         props.setTrainer({});
         setUser(null);
-        props.history.push('/');
+        props.history.push("/");
       });
   };
 
@@ -42,7 +39,7 @@ function Navbar(props) {
       </Link>
       {user ? (
         <>
-          <p className="user-name navbar-grid-login">Loggedin as: {user} </p>
+          <p className="user-name navbar-grid-login">Welcome, {user} </p>
           <Link
             onClick={handleLogout}
             className="logout navbar-grid-register"

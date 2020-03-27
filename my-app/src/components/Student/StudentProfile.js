@@ -28,7 +28,6 @@ function Copyright() {
   );
 }
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex"
@@ -90,8 +89,7 @@ const useStyles = makeStyles(theme => ({
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: "100vh",
-    overflow: "auto"
+    height: "100vh"
   },
   container: {
     paddingTop: theme.spacing(4),
@@ -100,7 +98,7 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     display: "flex",
-    overflow: "auto",
+
     flexDirection: "column"
   },
   fixedHeight: {

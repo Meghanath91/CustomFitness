@@ -95,7 +95,11 @@ export default function ExerciseList(props) {
                 {column.name}
               </h2>
               <div
-                style={{ margin: "2%", width: "100%", alignContent: "center" }}
+                style={{
+                  margin: "2%",
+                  width: "30rem",
+                  alignContent: "center"
+                }}
               >
                 <Droppable droppableId={columnId} key={columnId}>
                   {(provided, snapshot) => {
@@ -104,14 +108,18 @@ export default function ExerciseList(props) {
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                         style={{
+                          display: "grid",
+                          gridTemplateColumns: "repeat(3, 1fr)",
+                          gridTemplateRows: "repeat(4, 1fr)",
                           background: snapshot.isDraggingOver
                             ? "#B7B7B7"
                             : "#3F3F3F",
                           padding: 4,
                           margin: "3%",
-                          width: "60%",
-                          minHeight: 768,
-                          textAlign: "center"
+                          width: "90%",
+                          height: "50rem",
+                          textAlign: "center",
+                          borderRadius: "8px"
                         }}
                       >
                         {column.items.map((item, index) => {
@@ -142,6 +150,7 @@ export default function ExerciseList(props) {
                                         ? "#828282"
                                         : "#FFFFFF",
                                       color: "#000000",
+
                                       ...provided.draggableProps.style
                                     }}
                                   >

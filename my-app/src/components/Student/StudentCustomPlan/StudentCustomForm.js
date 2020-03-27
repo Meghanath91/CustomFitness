@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-// import "./CustomPlan.scss";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
+import "../Student.scss";
 
 export default function StudentCustomForm(props) {
   console.log("props on customform", props.myStudents);
@@ -30,24 +24,46 @@ export default function StudentCustomForm(props) {
   return (
     <form
       // onSubmit={props.handleCreatePlan}
-      className="custom-form"
+      className="student-custom-form"
       noValidate
       autoComplete="off"
     >
+      <p className="form-title">My custom plan</p>
       <label for="workout-title">Workout Title:</label>
-      <input disabled value="Work out Title" name="workoutTitle" />
+      <input
+        className="student-form-data"
+        disabled
+        value="Work out Title"
+        name="workoutTitle"
+      />
       <label for="explanation">Exercise direction:</label>
       <input
+        className="student-form-data"
         disabled
-        value="Lorem ejslfjklwekjf fnwerlkfghlsehf fnlerghjkerjhfg gndrgklhdrklg"
+        value="Lorem ejslfjklwekjf fnwerlkfghlsehf"
         name="explanation"
       />
       <label for="sets"># of sets:</label>
-      <input disabled value="Number of sets" name="sets" />
+      <input
+        className="student-form-data"
+        disabled
+        value="Number of sets"
+        name="sets"
+      />
       <label for="reps"># of reps:</label>
-      <input disabled value="Number of reps" name="reps" />
+      <input
+        className="student-form-data"
+        disabled
+        value="Number of reps"
+        name="reps"
+      />
       <label for="difficulty">Difficulty Level:</label>
-      <input disabled value="Difficulty level" name="difficulty" />
+      <input
+        className="student-form-data"
+        disabled
+        value="Difficulty level"
+        name="difficulty"
+      />
       <button className="completePlan">Complete plan</button>
     </form>
   );
