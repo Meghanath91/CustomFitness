@@ -9,7 +9,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import axios from "axios";
 export default function StudentCustomForm(props) {
-  console.log("props on customform", props.myStudents);
+  console.log("props on customform", props.setCustomPlanID);
 
   const [myCustomPlans, setMyCustomPlans] = useState([]);
   const [plan,setPlan] = useState("")
@@ -19,6 +19,7 @@ export default function StudentCustomForm(props) {
   const [difficulty, setDifficulty] = useState('Difficulty level');
   const [description, setDescription] = useState('Explanation');
   const [type,setType] = useState("Type")
+
   useEffect(() => {
     axios
       .get(`http://localhost:8080/student/${props.studentData.id}/custom_plans`)
@@ -35,6 +36,7 @@ export default function StudentCustomForm(props) {
   const handlePlan = event => {
     // set(() => event.target.value);
     console.log("plan id",event.target.value)
+    props.setCustomId(event.target.value);
     setPlan(prev => {
       const selectedPlan = myCustomPlans.filter( p => p.id === event.target.value)[0]
       //selectedPlan._______
