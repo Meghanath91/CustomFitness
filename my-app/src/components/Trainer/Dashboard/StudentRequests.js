@@ -13,10 +13,10 @@ const StyledBadge = withStyles(theme => ({
   },
 }))(Badge);
 
-export default function StudentRequest() {
+export default function StudentRequest(props) {
   return (
     <IconButton aria-label="cart">
-      <StyledBadge badgeContent={4} color="secondary">
+      <StyledBadge badgeContent={props.number} color="secondary">
         <GroupIcon  style={{fontSize: 100}}/>
       </StyledBadge>
     </IconButton>
