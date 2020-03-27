@@ -143,9 +143,9 @@ export default function TrainerDashboard() {
               </Paper>
             </Grid>
           </Grid>
-          <Box pt={4}>
-            <StudentRequest />
-          </Box>
+          {/* <Box pt={4}>
+            <StudentRequest /> 
+          </Box> */}
           <Box pt={4}>
             <Copyright />
           </Box>

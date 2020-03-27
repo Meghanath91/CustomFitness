@@ -19,6 +19,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems, secondaryListItems } from "./listItems";
+import StudentRequest from "./StudentRequests";
 
 const drawerWidth = 240;
 
@@ -151,11 +152,7 @@ export default function TrainerAppSideBar() {
           >
             Trainer Dashboard
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
+            <StudentRequest number={10}/> 
         </Toolbar>
       </AppBar>
       <Drawer
