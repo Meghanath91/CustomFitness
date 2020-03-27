@@ -14,6 +14,10 @@ export default function StudentCustomForm(props) {
   const [myCustomPlans, setMyCustomPlans] = useState([]);
   const [plan,setPlan] = useState("")
   const [title, setTitle] = useState('Work out Title');
+  const [sets, setSets] = useState('Number of sets');
+  const [reps, setReps] = useState('Number of reps');
+  const [difficulty, setDifficulty] = useState('Difficulty level');
+  const [description, setDescription] = useState('Explanation');
   useEffect(() => {
     axios
       .get(`http://localhost:8080/student/${props.studentData.id}/custom_plans`)
@@ -34,7 +38,10 @@ export default function StudentCustomForm(props) {
       const selectedPlan = myCustomPlans.filter( p => p.id === event.target.value)[0]
       //selectedPlan._______
       setTitle(selectedPlan.title)
-
+      setDescription(selectedPlan.description)
+      setSets(selectedPlan.sets)
+      setReps(selectedPlan.reps)
+      setDifficulty(selectedPlan.difficulty)
       return event.target.value;
     });
   };
@@ -67,15 +74,15 @@ console.log("custom plan details ------>??? ",myCustomPlans)
       <label for="explanation">Exercise direction:</label>
       <input
         disabled
-        value={plan.description}
-        name="explanation"
+        value={description}
+        name={plan.description}
       />
       <label for="sets"># of sets:</label>
-      <input disabled value="Number of sets" name={plan.sets} />
+      <input disabled value={sets} name={plan.sets} />
       <label for="reps"># of reps:</label>
-      <input disabled value="Number of reps" name={plan.reps} />
+      <input disabled value={reps} name={plan.reps} />
       <label for="difficulty">Difficulty Level:</label>
-      <input disabled value="Difficulty level" name={plan.difficulty} />
+      <input disabled value={difficulty} name={plan.difficulty} />
       <button className="completePlan">Complete plan</button>
     </form>
   );
