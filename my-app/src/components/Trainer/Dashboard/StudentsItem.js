@@ -161,8 +161,19 @@ export default function StudentsItem(props) {
                           <DialogTitle id="responsive-dialog-title">{"Use Google's location service?"}</DialogTitle>
                           <DialogContent>
                             <DialogContentText>
-                              Let Google help apps determine location. This means sending anonymous location data to
-                              Google, even when no apps are running.
+                              {card.goal}
+                            </DialogContentText>
+                            <DialogContentText>
+                              Age: {card.age}
+                            </DialogContentText>
+                            <DialogContentText>
+                            Height: {card.height}
+                            </DialogContentText>
+                            <DialogContentText>
+                            Weight: {card.weight}
+                            </DialogContentText>
+                            <DialogContentText>
+                              BMI: Calculate BMI HERE
                             </DialogContentText>
                           </DialogContent>
                         </Dialog>
