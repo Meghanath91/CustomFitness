@@ -115,7 +115,7 @@ export default function TrainerProfile(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <TrainerAppSideBar />
+      <TrainerAppSideBar trainerData={props.trainerData} />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>

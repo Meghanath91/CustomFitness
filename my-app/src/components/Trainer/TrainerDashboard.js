@@ -174,7 +174,7 @@ export default function TrainerDashboard(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <TrainerAppSideBar subscriptions={subscriptions} />
+      <TrainerAppSideBar trainerData={props.trainerData} subscriptions={subscriptions} />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>

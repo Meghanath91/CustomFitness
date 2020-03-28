@@ -49,7 +49,7 @@ export default function Trainer(props) {
           </Route>
 
           <Route path="/trainer/students">
-            <Students myStudents={myStudents} cards={cards} />
+            <Students myStudents={myStudents} cards={cards} trainerData={props.trainerData} />
           </Route>
 
           <Route path="/trainer/create_plan">

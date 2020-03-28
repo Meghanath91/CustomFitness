@@ -109,7 +109,7 @@ export default function Exercise(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <TrainerAppSideBar />
+      <TrainerAppSideBar trainerData={props.trainerData} />
       <main className={classes.content}>
         <Grid item xs={12} md={12} lg={20}>
           <CustomPlan
