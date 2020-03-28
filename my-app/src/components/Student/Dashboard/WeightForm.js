@@ -24,25 +24,16 @@ export default function WeightForm() {
         Click Here To Update Weight
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+        <DialogTitle id="form-dialog-title">Weight</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Please enter your new weight below along with a date in the format of MM/DD  E.g. 02/23 = Feb 23.
+            Please enter your new weight below
           </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="Date"
-            
-            fullWidth
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="number"
-            label="Weight"
-            
+            label="Weight (lbs)"
             fullWidth
           />
         </DialogContent>

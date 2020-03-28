@@ -43,7 +43,7 @@ export default function Student(props) {
           </Route>
 
           <Route path="/student/dashboard">
-            <StudentDashboard />
+            <StudentDashboard studentData={props.studentData} />
           </Route>
 
           <Route path="/student/trainers">
