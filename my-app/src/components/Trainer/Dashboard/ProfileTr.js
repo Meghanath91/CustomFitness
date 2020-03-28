@@ -18,7 +18,7 @@ export default function ProfileTr(props) {
       <p className="years-experience">
         Years of experience: {props.trainerData.experience}
       </p>
-      <UpdateProfile />
+      <UpdateProfile trainerData={props.trainerData} />
     </section>
   );
 }
