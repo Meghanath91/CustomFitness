@@ -115,8 +115,8 @@ export default function Students(props) {
       <StudentAppSideBar studentData={props.studentData} />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={10}>
+        <Container maxWidth="xl" className={classes.container}>
+          <Grid item xs={12} md={10} lg={10}>
             {/* Students Images */}
             <TrainersItem
               allTrainers={props.allTrainers}

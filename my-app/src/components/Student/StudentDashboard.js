@@ -10,8 +10,8 @@ import Paper from "@material-ui/core/Paper";
 import Link from "@material-ui/core/Link";
 import StudentTable from "./Dashboard/Table";
 import Chart from "./Dashboard/Chart";
-import WeightForm from "./Dashboard/WeightForm"
-import StudentAppSideBar from "./Dashboard/StudentAppSideBar"
+import WeightForm from "./Dashboard/WeightForm";
+import StudentAppSideBar from "./Dashboard/StudentAppSideBar";
 
 function Copyright() {
   return (
@@ -106,20 +106,21 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function StudentDashboard(props) {
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
-
     // axios fetch here
-    setData([{time: '00:00', amount: 0}, {time: '03:00', amount: 300}])
-  },[])
+    setData([
+      { time: "00:00", amount: 0 },
+      { time: "03:00", amount: 300 }
+    ]);
+  }, []);
 
   const classes = useStyles();
-  
+
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-    return (
+  return (
     <div className={classes.root}>
       <CssBaseline />
       <StudentAppSideBar studentData={props.studentData} />
@@ -128,11 +129,28 @@ export default function StudentDashboard(props) {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart on weight */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Chart  data={data}/>
-                <WeightForm />
+            <Grid
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                width: "100%"
+              }}
+            >
+              <Paper
+                className={fixedHeightPaper}
+                style={{
+                  width: "98%",
+                  marginRight: "2%"
+                }}
+              >
+                <Chart
+                  data={data}
+                  style={{
+                    width: "60rem"
+                  }}
+                />
               </Paper>
+              <WeightForm />
             </Grid>
             {/* Available Funds */}
             {/* <Grid item xs={12} md={4} lg={3}> */}
