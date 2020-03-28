@@ -21,6 +21,8 @@ export default function UpdateProfile(props) {
     setOpen(false);
   };
 
+  
+
   const handleUpdate = evt => {
     evt.preventDefault();
     axios
@@ -28,7 +30,6 @@ export default function UpdateProfile(props) {
         name: name,
         about: about,
         experience: experience,
-
         id: props.trainerData.Id
       })
       .then(res => {
