@@ -28,7 +28,7 @@ export default function Profile(props) {
           703
         ).toFixed(2)}
       </p>
-      <StudentUpdateProfile />
+      <StudentUpdateProfile studentData={props.studentData}/>
     </section>
   );
 }
