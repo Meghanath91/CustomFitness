@@ -30,7 +30,7 @@ export default function UpdateProfile(props) {
         name: name,
         about: about,
         experience: experience,
-        id: props.trainerData.Id
+        id: props.trainerData.id
       })
       .then(res => {
         alert("Trainer Details completed");
