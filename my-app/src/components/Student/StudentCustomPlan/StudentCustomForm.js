@@ -126,7 +126,7 @@ export default function StudentCustomForm(props) {
           name={plan.difficulty}
         />
       </section>
-      <button className="completePlan">Complete plan</button>
+      <button onClick={handleComplete} className="completePlan">Complete plan</button>
     </form>
   );
 }
