@@ -40,7 +40,7 @@ export default function StudentUpdateProfile(props) {
         id: props.studentData.id
       })
       .then(res => {
-        alert("Custom plan completed");
+        alert("Student details updated");
         handleClose();
       });
   };
