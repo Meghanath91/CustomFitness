@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -121,8 +121,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
-
 // // Generate Sales Data
 // function createData(time, amount) {
 //   return { time, amount };
@@ -144,10 +142,17 @@ export default function TrainerDashboard(props) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-
     // axios fetch here
-    setData([{time: 'Monday', amount: 0}, {time: 'Tuesday', amount: 300}, {time: 'Wednesday', amount: 600},{time: 'Thursday', amount: 1500}, {time: 'Friday', amount: 1000}, {time: 'Saturday', amount: 0}, {time: 'Sunday', amount: 100} ])
-  },[])
+    setData([
+      { time: "Monday", amount: 0 },
+      { time: "Tuesday", amount: 300 },
+      { time: "Wednesday", amount: 600 },
+      { time: "Thursday", amount: 1500 },
+      { time: "Friday", amount: 1000 },
+      { time: "Saturday", amount: 0 },
+      { time: "Sunday", amount: 100 }
+    ]);
+  }, []);
 
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
@@ -155,29 +160,39 @@ export default function TrainerDashboard(props) {
   const [subscriptions, setSubscriptions] = useState([]);
 
   useEffect(() => {
-
-  axios
-  .get(`http://localhost:8080/trainer/${props.trainerData.id}/subscriptions`)
-    .then(res => {
-      const subscriptions = res.data;
-      console.log("subscriptions", subscriptions);
-      setSubscriptions(subscriptions);
-    });
+    axios
+      .get(
+        `http://localhost:8080/trainer/${props.trainerData.id}/subscriptions`
+      )
+      .then(res => {
+        const subscriptions = res.data;
+        console.log("subscriptions", subscriptions);
+        setSubscriptions(subscriptions);
+      });
   }, [props.trainerData.id]);
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <TrainerAppSideBar subscriptions={subscriptions}/>
+      <TrainerAppSideBar subscriptions={subscriptions} />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
+            <Grid
+              item
+              xs={12}
+              md={8}
+              lg={10}
+              style={{
+                display: "flex"
+              }}
+            >
+              <Paper className={fixedHeightPaper} style={{ width: "100%" }}>
                 <Chart data={data} />
               </Paper>
+              <StudentRequest subscriptions={subscriptions} />
             </Grid>
             <Grid item xs={12}>
               <Paper className={classes.paper}>
@@ -185,9 +200,6 @@ export default function TrainerDashboard(props) {
               </Paper>
             </Grid>
           </Grid>
-          <Box pt={4}>
-            <StudentRequest subscriptions={subscriptions}/>
-          </Box>
           <Box pt={4}>
             <Copyright />
           </Box>

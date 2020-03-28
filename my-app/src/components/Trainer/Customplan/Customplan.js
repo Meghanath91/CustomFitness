@@ -7,7 +7,7 @@ import { Redirect } from "react-router-dom";
 import CustomForm from "./CustomForm";
 
 export default function CustomPlan(props) {
-  console.log("props on customplan=========>",props)
+  console.log("props on customplan=========>", props);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [difficulty, setDifficulty] = useState("");
@@ -15,11 +15,12 @@ export default function CustomPlan(props) {
   const [sets, setSets] = useState(0);
   const [reps, setReps] = useState(0);
   const [exerciseIdArray, setExerciseIdArray] = useState("");
-  const [student,setStudent] = useState("");
+  const [student, setStudent] = useState("");
 
   const handleCreatePlan = evt => {
     evt.preventDefault();
-    axios.post(`http://localhost:8080/custom_plans/create`, {
+    axios
+      .post(`http://localhost:8080/custom_plans/create`, {
         trainer_id: props.trainerData.id,
         student_id: student,
         title: title,
@@ -33,17 +34,19 @@ export default function CustomPlan(props) {
         const workoutExercises = exerciseIdArray;
 
         for (let exerciseID of workoutExercises) {
-          
-          axios.post(`http://localhost:8080/workout_exercises/create`, {
-            custom_plan_id: parseInt(res.data),
-            exercise_id: parseInt(exerciseID.id)
-            
-          }).then(res=>{
-            alert("new workoutExercise  created");
-          })
+          axios
+            .post(`http://localhost:8080/workout_exercises/create`, {
+              custom_plan_id: parseInt(res.data),
+              exercise_id: parseInt(exerciseID.id),
+              sets: sets,
+              reps: reps
+            })
+            .then(res => {
+              alert("new workoutExercise  created");
+            });
         }
       });
-      alert("new CustomPlan  created");
+    alert("new CustomPlan  created");
   };
 
   return (
@@ -63,7 +66,6 @@ export default function CustomPlan(props) {
       <ExerciseList
         exerciseData={props.exerciseData}
         setExerciseIdArray={setExerciseIdArray}
-
       />
     </section>
   );

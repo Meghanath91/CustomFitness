@@ -97,7 +97,7 @@ export default function ExerciseList(props) {
               <div
                 style={{
                   margin: "2%",
-                  width: "30rem",
+                  width: "32rem",
                   alignContent: "center"
                 }}
               >

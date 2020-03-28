@@ -53,7 +53,8 @@ const useStyles = makeStyles(theme => ({
   card: {
     height: "100%",
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    alignItems: "center"
   },
   cardMedia: {
     paddingTop: "56.25%",
@@ -138,7 +139,16 @@ export default function StudentsItem(props) {
           {/* End hero unit */}
           <Grid container spacing={4}>
             {props.myStudents.map(card => (
-              <Grid item key={card.id} xs={12} sm={6} md={3}>
+              <Grid
+                item
+                key={card.id}
+                xs={12}
+                sm={6}
+                md={3}
+                style={{
+                  textAlign: "center"
+                }}
+              >
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
