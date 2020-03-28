@@ -121,7 +121,7 @@ export default function Students(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <TrainerAppSideBar />
+      <TrainerAppSideBar trainerData={props.trainerData} />
       <main className={classes.content}>
         <Grid item xs={12} md={12} lg={20}>
           <StudentsItem myStudents={props.myStudents} />

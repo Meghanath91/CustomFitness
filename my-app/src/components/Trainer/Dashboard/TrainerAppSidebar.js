@@ -149,13 +149,8 @@ export default function TrainerAppSideBar(props) {
             noWrap
             className={classes.title}
           >
-            Trainer Dashboard
+            Hello {props.trainerData.name} ......... Welcome To Your Trainer Dashboard 💪💪💪
           </Typography>
-          {/* <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton> */}
         </Toolbar>
       </AppBar>
       <Drawer
