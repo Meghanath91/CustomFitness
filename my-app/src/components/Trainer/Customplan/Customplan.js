@@ -25,7 +25,9 @@ export default function CustomPlan(props) {
         title: title,
         description: description,
         difficulty: difficulty,
-        type: type
+        type: type,
+        sets: sets,
+        reps: reps
       })
       .then(res => {
         const workoutExercises = exerciseIdArray;
@@ -34,9 +36,8 @@ export default function CustomPlan(props) {
           
           axios.post(`http://localhost:8080/workout_exercises/create`, {
             custom_plan_id: parseInt(res.data),
-            exercise_id: parseInt(exerciseID.id),
-            sets: sets,
-            reps: reps
+            exercise_id: parseInt(exerciseID.id)
+            
           }).then(res=>{
             alert("new workoutExercise  created");
           })
