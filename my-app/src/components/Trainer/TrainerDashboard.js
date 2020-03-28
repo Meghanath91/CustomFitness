@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -25,6 +25,7 @@ import Money from "./Dashboard/Money";
 import StudentTable from "./Dashboard/Table";
 import Chart from "./Dashboard/Chart";
 import StudentRequest from "./Dashboard/StudentRequests";
+import WeightForm from "./Dashboard/WeightForm"
 
 function Copyright() {
   return (
@@ -114,12 +115,41 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     display: "flex",
-    overflow: "auto",
     flexDirection: "column"
+  },
+  fixedHeight: {
+    height: 240
   }
 }));
 
+
+
+// // Generate Sales Data
+// function createData(time, amount) {
+//   return { time, amount };
+// }
+
+// const data = [
+//   createData('00:00', 0),
+//   createData('03:00', 300),
+//   createData('06:00', 600),
+//   createData('09:00', 800),
+//   createData('12:00', 1500),
+//   createData('15:00', 2000),
+//   createData('18:00', 2400),
+//   createData('21:00', 2400),
+//   createData('24:00', undefined),
+// ];
+
 export default function TrainerDashboard() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+
+    // axios fetch here
+    setData([{time: '00:00', amount: 0}, {time: '03:00', amount: 300}])
+  },[])
+
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -134,7 +164,7 @@ export default function TrainerDashboard() {
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
-                <Chart />
+                <Chart data={data} />
               </Paper>
             </Grid>
             <Grid item xs={12}>
@@ -143,9 +173,9 @@ export default function TrainerDashboard() {
               </Paper>
             </Grid>
           </Grid>
-          {/* <Box pt={4}>
-            <StudentRequest /> 
-          </Box> */}
+          <Box pt={4}>
+            <WeightForm /> 
+          </Box>
           <Box pt={4}>
             <Copyright />
           </Box>
