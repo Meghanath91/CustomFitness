@@ -53,10 +53,22 @@ label {
 .student-custom-form {
   display: flex;
   flex-direction: column;
-  border: 5px solid black;
+  border: 5px solid #3F3F3F;
   border-radius: 8px;
   // width: 20rem;
   height: 70vh;
+}
+
+.student-custom-form-data {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 100%;
+  padding: 3%;
+  height: 100%;
+  margin-top: 7%;
+  box-shadow: lighten;
+
 }
 
 .student-form-data {
@@ -66,7 +78,7 @@ label {
   font-family: 'Raleway',
     sans-serif;
   word-wrap: break-word;
-  height: 7%;
+  // height: 7%;
   width: 90%;
   margin-left: 2%;
 }

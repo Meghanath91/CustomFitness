@@ -59,62 +59,66 @@ export default function StudentCustomForm(props) {
       autoComplete="off"
       style={{ width: "100%" }}
     >
-      <p className="form-title">My custom plan</p>
-      <FormControl>
-        <InputLabel id="demo-simple-select-label">Select Your Plan</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={plan}
-          onChange={handlePlan}
-        >
-          {myCustomPlans.map(plan => (
-            <MenuItem value={plan.id}>{plan.title}</MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <label for="workout-title">Workout Title:</label>
-      <input
-        className="student-form-data"
-        disabled
-        value={title}
-        name={plan.title}
-      />
-      <label for="explanation">Exercise direction:</label>
-      <input
-        className="student-form-data"
-        disabled
-        value={description}
-        name={plan.description}
-      />
-      <label for="type"># Type:</label>
-      <input
-        className="student-form-data"
-        disabled
-        value={type}
-        name={plan.type}
-      />
-      <label for="sets"># of sets:</label>
-      <input
-        className="student-form-data"
-        disabled
-        value={sets}
-        name={plan.sets}
-      />
-      <label for="reps"># of reps:</label>
-      <input
-        className="student-form-data"
-        disabled
-        value={reps}
-        name={plan.reps}
-      />
-      <label for="difficulty">Difficulty Level:</label>
-      <input
-        className="student-form-data"
-        disabled
-        value={difficulty}
-        name={plan.difficulty}
-      />
+      <h2 className="form-title">My custom plan</h2>
+      <section className="student-custom-form-data">
+        <FormControl>
+          <InputLabel id="demo-simple-select-label">
+            Select Your Plan
+          </InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={plan}
+            onChange={handlePlan}
+          >
+            {myCustomPlans.map(plan => (
+              <MenuItem value={plan.id}>{plan.title}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <label for="workout-title">Workout Title:</label>
+        <input
+          className="student-form-data"
+          disabled
+          value={title}
+          name={plan.title}
+        />
+        <label for="explanation">Exercise direction:</label>
+        <input
+          className="student-form-data"
+          disabled
+          value={description}
+          name={plan.description}
+        />
+        <label for="type"># Type:</label>
+        <input
+          className="student-form-data"
+          disabled
+          value={type}
+          name={plan.type}
+        />
+        <label for="sets"># of sets:</label>
+        <input
+          className="student-form-data"
+          disabled
+          value={sets}
+          name={plan.sets}
+        />
+        <label for="reps"># of reps:</label>
+        <input
+          className="student-form-data"
+          disabled
+          value={reps}
+          name={plan.reps}
+        />
+        <label for="difficulty">Difficulty Level:</label>
+        <input
+          className="student-form-data"
+          disabled
+          value={difficulty}
+          name={plan.difficulty}
+        />
+      </section>
       <button className="completePlan">Complete plan</button>
     </form>
   );
