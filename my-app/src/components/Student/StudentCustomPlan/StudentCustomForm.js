@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../Student.scss";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import axios from "axios";
 
 export default function StudentCustomForm(props) {
-  console.log("props on customform", props.setCustomPlanID);
-
   const [myCustomPlans, setMyCustomPlans] = useState([]);
   const [plan, setPlan] = useState("");
   const [title, setTitle] = useState("Work out Title");
@@ -20,6 +15,7 @@ export default function StudentCustomForm(props) {
   const [difficulty, setDifficulty] = useState("Difficulty level");
   const [description, setDescription] = useState("Explanation");
   const [type, setType] = useState("Type");
+  const [customId, setCustomId] = useState("");
 
   useEffect(() => {
     axios
@@ -27,20 +23,19 @@ export default function StudentCustomForm(props) {
       .then(res => {
         const customPlans = res.data;
 
-        console.log("mystudents on trainer", customPlans);
         setMyCustomPlans(customPlans);
       });
   }, [props.studentData.id]);
 
   const handlePlan = event => {
-    // set(() => event.target.value);
     console.log("plan id", event.target.value);
     props.setCustomId(event.target.value);
+    setCustomId(event.target.value);
     setPlan(prev => {
       const selectedPlan = myCustomPlans.filter(
         p => p.id === event.target.value
       )[0];
-      //selectedPlan._______
+
       setTitle(selectedPlan.title);
       setDescription(selectedPlan.description);
       setSets(selectedPlan.sets);
@@ -51,7 +46,19 @@ export default function StudentCustomForm(props) {
     });
   };
 
-  console.log("custom plan details ------>??? ", myCustomPlans);
+  const handleComplete = event => {
+    event.preventDefault();
+
+    axios
+      .put(`http://localhost:8080/custom_plans`, {
+        complete: true,
+        id: customId
+      })
+      .then(res => {
+        alert("Custom plan completed");
+      });
+  };
+
   return (
     <form
       className="student-custom-form"
@@ -87,21 +94,21 @@ export default function StudentCustomForm(props) {
         value={description}
         name={plan.description}
       />
-      <label for="type"># Type:</label>
+      <label for="type">Type:</label>
       <input
         className="student-form-data"
         disabled
         value={type}
         name={plan.type}
       />
-      <label for="sets"># of sets:</label>
+      <label for="sets">Number of sets:</label>
       <input
         className="student-form-data"
         disabled
         value={sets}
         name={plan.sets}
       />
-      <label for="reps"># of reps:</label>
+      <label for="reps">Number of reps:</label>
       <input
         className="student-form-data"
         disabled
@@ -115,7 +122,9 @@ export default function StudentCustomForm(props) {
         value={difficulty}
         name={plan.difficulty}
       />
-      <button className="completePlan">Complete plan</button>
+      <button onClick={handleComplete} className="completePlan">
+        Complete plan
+      </button>
     </form>
   );
 }
