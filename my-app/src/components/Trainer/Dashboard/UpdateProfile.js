@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -10,31 +10,32 @@ import axios from "axios";
 
 export default function UpdateProfile(props) {
   const [open, setOpen] = useState(false);
- const[name,setName]= useState("");
- const[experience,setExperience]=useState("");
- const[about,setAbout]=useState("");
+  const [name, setName] = useState("");
+  const [experience, setExperience] = useState("");
+  const [about, setAbout] = useState("");
   const handleClickOpen = () => {
     setOpen(true);
   };
-console.log("id trainer--",props.trainerData.id)
+  console.log("id trainer--", props.trainerData.id);
   const handleClose = () => {
     setOpen(false);
   };
 
   const handleUpdate = evt => {
     evt.preventDefault();
-    axios.put(`http://localhost:8080/trainers`, {
-      name:name,
-      about:about,
-      experience:experience,
+    axios
+      .put(`http://localhost:8080/trainers`, {
+        name: name,
+        about: about,
+        experience: experience,
 
-      id: props.trainerData.Id
-    })
-    .then(res => {
-      alert("Trainer Details completed");
-      handleClose();
-    });
-  }
+        id: props.trainerData.Id
+      })
+      .then(res => {
+        alert("Trainer Details completed");
+        handleClose();
+      });
+  };
 
   return (
     <div>
@@ -79,7 +80,7 @@ console.log("id trainer--",props.trainerData.id)
             type="Text"
             fullWidth
           />
-         
+
           <TextField
             autoFocus
             margin="dense"
