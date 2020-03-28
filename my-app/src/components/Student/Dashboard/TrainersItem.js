@@ -21,6 +21,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import TrainerView from "./TrainerView"
 
 
 function Copyright() {
@@ -170,7 +171,8 @@ export default function StudentsItem(props) {
                     <Typography>{card.about}</Typography>
                   </CardContent>
                   <CardActions>
-                  <Button
+                  <TrainerView allTrainers={props.allTrainers} trainerId={card.id}/>
+                  {/* <Button
                       size="small"
                       color="primary"
                       onClick={handleClickOpen}
@@ -201,7 +203,7 @@ export default function StudentsItem(props) {
                           Experience: {card.experience}
                         </DialogContentText>
                       </DialogContent>
-                    </Dialog>
+                    </Dialog> */}
 
                     <Button
                       onClick={evt => handleSubscribe(evt, card.id)}
