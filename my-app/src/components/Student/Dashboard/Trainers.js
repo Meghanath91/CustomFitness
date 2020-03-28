@@ -112,7 +112,7 @@ export default function Students(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <StudentAppSideBar />
+      <StudentAppSideBar studentData={props.studentData} />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
