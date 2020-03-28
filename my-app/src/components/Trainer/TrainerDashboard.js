@@ -140,14 +140,14 @@ const useStyles = makeStyles(theme => ({
 //   createData('24:00', undefined),
 // ];
 
-export default function TrainerDashboard() {
-  // const [data, setData] = useState([]);
+export default function TrainerDashboard(props) {
+  const [data, setData] = useState([]);
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   // axios fetch here
-  //   setData([{time: '00:00', amount: 0}, {time: '03:00', amount: 300}])
-  // },[])
+    // axios fetch here
+    setData([{time: 'Monday', amount: 0}, {time: 'Tuesday', amount: 300}, {time: 'Wednesday', amount: 600},{time: 'Thursday', amount: 1500}, {time: 'Friday', amount: 1000}, {time: 'Saturday', amount: 0}, {time: 'Sunday', amount: 100} ])
+  },[])
 
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
