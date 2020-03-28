@@ -114,12 +114,41 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     display: "flex",
-
     flexDirection: "column"
+  },
+  fixedHeight: {
+    height: 240
   }
 }));
 
+
+
+// // Generate Sales Data
+// function createData(time, amount) {
+//   return { time, amount };
+// }
+
+// const data = [
+//   createData('00:00', 0),
+//   createData('03:00', 300),
+//   createData('06:00', 600),
+//   createData('09:00', 800),
+//   createData('12:00', 1500),
+//   createData('15:00', 2000),
+//   createData('18:00', 2400),
+//   createData('21:00', 2400),
+//   createData('24:00', undefined),
+// ];
+
 export default function TrainerDashboard(props) {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+
+    // axios fetch here
+    setData([{time: 'Monday', amount: 0}, {time: 'Tuesday', amount: 300}, {time: 'Wednesday', amount: 600},{time: 'Thursday', amount: 1500}, {time: 'Friday', amount: 1000}, {time: 'Saturday', amount: 0}, {time: 'Sunday', amount: 100} ])
+  },[])
+
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -147,7 +176,7 @@ export default function TrainerDashboard(props) {
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
-                <Chart />
+                <Chart data={data} />
               </Paper>
             </Grid>
             <Grid item xs={12}>
