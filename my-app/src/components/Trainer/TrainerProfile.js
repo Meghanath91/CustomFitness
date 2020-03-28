@@ -122,9 +122,7 @@ export default function TrainerProfile(props) {
           <Grid container spacing={10}>
             {/* Students Images */}
             <Grid item xs={12} md={12} lg={20}>
-              <Paper>
-                <ProfileTr trainerData={props.trainerData} />
-              </Paper>
+              <ProfileTr trainerData={props.trainerData} />
             </Grid>
           </Grid>
           <Box pt={4}>

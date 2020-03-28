@@ -6,6 +6,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import "../Dashboard/Dashboard.scss";
 
 export default function UpdateProfile() {
   const [open, setOpen] = React.useState(false);
@@ -38,8 +39,12 @@ export default function UpdateProfile() {
         >
           Update your profile
         </DialogTitle>
-        <DialogContent>
+        <DialogContent style={{}}>
           <TextField
+            className="update-profile-input"
+            style={{
+              paddingTop: "1rem"
+            }}
             required
             autoFocus
             margin="dense"
@@ -49,6 +54,10 @@ export default function UpdateProfile() {
             fullWidth
           />
           <TextField
+            style={{
+              paddingTop: "1rem"
+            }}
+            className="update-profile-input"
             required
             autoFocus
             margin="dense"
@@ -58,6 +67,10 @@ export default function UpdateProfile() {
             fullWidth
           />
           <TextField
+            style={{
+              paddingTop: "1rem"
+            }}
+            className="update-profile-input"
             required
             autoFocus
             margin="dense"
@@ -67,6 +80,10 @@ export default function UpdateProfile() {
             fullWidth
           />
           <TextField
+            style={{
+              paddingTop: "1rem"
+            }}
+            className="update-profile-input"
             autoFocus
             margin="dense"
             id="name"

@@ -44,7 +44,7 @@ export default function StudentRequest(props) {
   return (
     <IconButton onClick={handleNotifications} aria-label="cart">
       <StyledBadge badgeContent={notification} color="secondary">
-        <GroupIcon style={{ fontSize: "1.8rem" }} />
+        <GroupIcon style={{ fontSize: "6rem" }} />
       </StyledBadge>
     </IconButton>
   );
