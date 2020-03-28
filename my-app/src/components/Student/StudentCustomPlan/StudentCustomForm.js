@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../Student.scss";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import axios from "axios";
@@ -33,14 +30,13 @@ export default function StudentCustomForm(props) {
   }, [props.studentData.id]);
 
   const handlePlan = event => {
-    // set(() => event.target.value);
     console.log("plan id", event.target.value);
     props.setCustomId(event.target.value);
     setPlan(prev => {
       const selectedPlan = myCustomPlans.filter(
         p => p.id === event.target.value
       )[0];
-      //selectedPlan._______
+
       setTitle(selectedPlan.title);
       setDescription(selectedPlan.description);
       setSets(selectedPlan.sets);
