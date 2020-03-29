@@ -12,6 +12,7 @@ import StudentTable from "./Dashboard/Table";
 import Chart from "./Dashboard/Chart";
 import WeightForm from "./Dashboard/WeightForm";
 import StudentAppSideBar from "./Dashboard/StudentAppSideBar";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -109,11 +110,17 @@ export default function StudentDashboard(props) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // axios fetch here
-    setData([
-      { time: "00:00", amount: 0 },
-      { time: "03:00", amount: 300 }
-    ]);
+    axios
+    .get(`http://localhost:8080/student/${props.studentData.id}/weights`) 
+
+    .then(res => {
+      console.log("response",res.data)
+      const datafromdb= res.data
+      const formattedData = datafromdb.map(({id, student_id, created_at, ...item}) => item)
+      console.log("formattedData", formattedData)
+      setData(formattedData);
+      
+    })
   }, []);
 
   const classes = useStyles();
@@ -150,15 +157,8 @@ export default function StudentDashboard(props) {
                   }}
                 />
               </Paper>
-              <WeightForm />
+              <WeightForm studentData={props.studentData} />
             </Grid>
-            {/* Available Funds */}
-            {/* <Grid item xs={12} md={4} lg={3}> */}
-            {/* <Paper className={fixedHeightPaper}> */}
-            {/* <Money /> */}
-            {/* </Paper> */}
-            {/* </Grid> */}
-            {/* Recent Stats */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <StudentTable />
