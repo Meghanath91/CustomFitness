@@ -174,7 +174,10 @@ export default function TrainerDashboard(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <TrainerAppSideBar trainerData={props.trainerData} subscriptions={subscriptions} />
+      <TrainerAppSideBar
+        trainerData={props.trainerData}
+        subscriptions={subscriptions}
+      />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
@@ -186,13 +189,19 @@ export default function TrainerDashboard(props) {
               md={8}
               lg={10}
               style={{
-                display: "flex"
+                display: "flex",
+                alignItems: "center"
               }}
             >
               <Paper className={fixedHeightPaper} style={{ width: "100%" }}>
                 <Chart data={data} />
               </Paper>
-              <StudentRequest subscriptions={subscriptions} />
+              <StudentRequest
+                subscriptions={subscriptions}
+                style={{
+                  marginLeft: "10%"
+                }}
+              />
             </Grid>
             <Grid item xs={12}>
               <Paper className={classes.paper}>

@@ -14,7 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 
-import StudentView from "./StudentView"
+import StudentView from "./StudentView";
 
 function Copyright() {
   return (
@@ -70,7 +70,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function StudentsItem(props) {
   const classes = useStyles();
-  
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -149,7 +149,10 @@ export default function StudentsItem(props) {
                     </Typography>
                     <Typography>{card.goal}</Typography>
                   </CardContent>
-                <StudentView myStudents={props.myStudents} studentId={card.id}/>
+                  <StudentView
+                    myStudents={props.myStudents}
+                    studentId={card.id}
+                  />
                 </Card>
               </Grid>
             ))}
