@@ -121,7 +121,7 @@ export default function StudentDashboard(props) {
       setData(formattedData);
       
     })
-  }, []);
+  }, [props.studentData.id]);
 
   const classes = useStyles();
 
