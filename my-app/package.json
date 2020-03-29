@@ -26,6 +26,10 @@
     "recharts": "^1.8.5",
     "uuid": "^7.0.2"
   },
+  "engines": {
+    "node": "10.16.1",
+    "npm": "6.9.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
