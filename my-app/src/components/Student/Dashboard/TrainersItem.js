@@ -17,8 +17,7 @@ import axios from "axios";
 
 import { useTheme } from "@material-ui/core/styles";
 
-import TrainerView from "./TrainerView"
-
+import TrainerView from "./TrainerView";
 
 function Copyright() {
   return (
@@ -82,14 +81,11 @@ export default function StudentsItem(props) {
         student_id: props.studentData.id
       })
       .then(res => {
-        alert("new StudentRequest being sent to Trainer");
+        alert("Thank you for your Subscription ");
       });
   };
 
   const theme = useTheme();
- 
-
- 
 
   return (
     <React.Fragment>
@@ -160,39 +156,10 @@ export default function StudentsItem(props) {
                     <Typography>{card.about}</Typography>
                   </CardContent>
                   <CardActions>
-                  <TrainerView allTrainers={props.allTrainers} trainerId={card.id}/>
-                  {/* <Button
-                      size="small"
-                      color="primary"
-                      onClick={handleClickOpen}
-                    >
-                      View
-                    </Button>
-                    <Dialog
-                      fullScreen={fullScreen}
-                      open={open}
-                      onClose={handleClose}
-                      aria-labelledby="responsive-dialog-title"
-                    >
-                      <DialogTitle id="responsive-dialog-title">
-                        {"Use Google's location service?"}
-                      </DialogTitle>
-                      <DialogContent>
-                        <DialogContentText>{card.name}</DialogContentText>
-                        <DialogContentText>
-                          <img
-                            className={classes.modoCard}
-                            src={card.avatar}
-                          ></img>{" "}
-                        </DialogContentText>
-                        <DialogContentText>{card.about}
-                        </DialogContentText>
-                        <DialogContentText>Phone #: {card.phone}</DialogContentText>
-                        <DialogContentText>
-                          Experience: {card.experience}
-                        </DialogContentText>
-                      </DialogContent>
-                    </Dialog> */}
+                    <TrainerView
+                      allTrainers={props.allTrainers}
+                      trainerId={card.id}
+                    />
 
                     <Button
                       onClick={evt => handleSubscribe(evt, card.id)}

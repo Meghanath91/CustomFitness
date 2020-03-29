@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Dashboard.scss";
 import UpdateProfile from "./UpdateProfile";
 
-// import Avatar from '@material-ui/core/Avatar';
+
 
 export default function ProfileTr(props) {
   return (

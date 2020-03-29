@@ -14,7 +14,7 @@ import {
 } from "react-router-dom";
 
 export default function Trainer(props) {
-  console.log("id on trianer-------->", props.trainerData.id);
+ 
 
   const [myStudents, setMyStudents] = useState([]);
   useEffect(() => {
@@ -22,8 +22,6 @@ export default function Trainer(props) {
       .get(`http://localhost:8080/trainer/${props.trainerData.id}/students`)
       .then(res => {
         const students = res.data;
-
-        console.log("mystudents on trainer", students);
         setMyStudents(students);
       });
   }, [props.trainerData.id]);
