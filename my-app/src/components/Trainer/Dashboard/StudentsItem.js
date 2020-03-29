@@ -181,6 +181,9 @@ export default function StudentsItem(props) {
                       open={open}
                       onClose={handleClose}
                       aria-labelledby="responsive-dialog-title"
+                      style={{
+                        textAlign: "center"
+                      }}
                     >
                       <DialogTitle id="responsive-dialog-title">
                         {"Use Google's location service?"}
@@ -202,7 +205,12 @@ export default function StudentsItem(props) {
                           Weight: {card.weight}
                         </DialogContentText>
                         <DialogContentText>
-                          BMI: Calculate BMI HERE
+                          BMI:
+                          {(
+                            (card.weight /
+                              (card.height * 0.39 * card.height * 0.39)) *
+                            703
+                          ).toFixed(2)}
                         </DialogContentText>
                       </DialogContent>
                     </Dialog>
