@@ -62,6 +62,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullname] = useState("");
+  const [ phone,setPhone]=useState("");
   const [experience, setExperience] = useState("");
   const [about, setAbout] = useState("");
   const [age, setAge] = useState(0);
@@ -80,6 +81,7 @@ export default function Register() {
           name: fullName,
           email: email,
           password: password,
+          phone:phone,
           experience: experience,
           about: about,
           expertise:expertise
@@ -93,6 +95,7 @@ export default function Register() {
           name: fullName,
           email: email,
           password: password,
+          phone:phone,
           age: age,
           height: height,
           weight: weight,
@@ -161,6 +164,20 @@ export default function Register() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="phone"
+                value={phone}
+                onChange={evt => setPhone(evt.target.value)}
+                label="Phone Number"
+                type="phone"
+                id="phone"
+                autoComplete="phone"
               />
             </Grid>
             <Grid>
