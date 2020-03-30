@@ -43,7 +43,7 @@ export default function CustomPlan(props) {
               
             })
             .then(res => {
-              alert("new CustomPlan  created");
+             
               console.log("new exercise added",res)
             });
         }
