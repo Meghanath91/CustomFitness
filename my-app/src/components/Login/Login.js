@@ -92,6 +92,7 @@ export default function Login(props) {
       return <Redirect to="/student/dashboard" />;
     }
   }
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />

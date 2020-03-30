@@ -14,7 +14,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import CustomizedRadios from "./Radio-button";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
+import Login from "../Login/Login";
+import AlertDialog from "./AlertDialog";
 
 function Copyright() {
   return (
@@ -66,7 +68,8 @@ export default function Register() {
     evt.preventDefault();
 
     if (user === "trainer") {
-      axios.post(`http://localhost:8080/trainers/register`, {
+      axios
+        .post(`http://localhost:8080/trainers/register`, {
           name: fullName,
           email: email,
           password: password,
@@ -74,13 +77,11 @@ export default function Register() {
           about: about
         })
         .then(res => {
-          alert("new trainer registered, please login");
-          console.log("i get to this point with user from======>>>", res.data);
           return <Redirect to="/login" />;
-          
         });
     } else {
-      axios.post(`http://localhost:8080/students/register`, {
+      axios
+        .post(`http://localhost:8080/students/register`, {
           name: fullName,
           email: email,
           password: password,
@@ -90,9 +91,12 @@ export default function Register() {
           goal: goal
         })
         .then(res => {
-          alert("new student registered,please login");
-          console.log("i get to this point with user from======>>>", res.data);
-          return <Redirect to="/login" />;
+          return (
+            <Route path="/login">
+              <Login />
+              <Redirect to="/login" />
+            </Route>
+          );
         });
     }
   };
@@ -169,13 +173,14 @@ export default function Register() {
             </Grid>
           </Grid>
           <Button
+            to="./login"
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
           >
-            Create account
+            <AlertDialog style={{ width: "100%" }} />
           </Button>
           <Grid container justify="flex-end">
             <Grid item>

@@ -7,10 +7,11 @@ import axios from "axios";
 
 const StyledBadge = withStyles(theme => ({
   badge: {
-    right: -3,
-    top: 13,
+    right: 0,
+    top: 11,
     border: `2px solid ${theme.palette.background.paper}`,
-    padding: "0 4px"
+    padding: "17% 10%",
+    fontSize: "2rem"
   }
 }))(Badge);
 
@@ -53,7 +54,7 @@ export default function StudentRequest(props) {
         badgeContent={notification}
         color="secondary"
         style={{
-          fontSize: "4rem"
+          fontSize: "6rem"
         }}
       >
         <GroupIcon

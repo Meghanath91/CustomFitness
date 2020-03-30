@@ -10,7 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
-import { mainListItems} from "./listItems";
+import { mainListItems } from "./listItems";
 
 const drawerWidth = 240;
 
@@ -103,7 +103,7 @@ export default function TrainerAppSideBar(props) {
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-    return (
+  return (
     <div className={classes.root}>
       {/* <Students /> */}
 
@@ -141,10 +141,10 @@ export default function TrainerAppSideBar(props) {
               color: "black"
             }}
           >
-            Hello {props.studentData.name} Welcome To Your Dashboard 🤯 🤯 🤯 🤯
+            Welcome, {props.studentData.name}!
           </Typography>
           {/* <IconButton color="inherit"> */}
-            {/* <Badge badgeContent={4} color="secondary">
+          {/* <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />
             </Badge> */}
           {/* </IconButton> */}

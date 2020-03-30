@@ -149,7 +149,7 @@ export default function TrainerAppSideBar(props) {
             noWrap
             className={classes.title}
           >
-            Welcome, {props.trainerData.name} 💪💪💪
+            Welcome, {props.trainerData.name}!
           </Typography>
         </Toolbar>
       </AppBar>

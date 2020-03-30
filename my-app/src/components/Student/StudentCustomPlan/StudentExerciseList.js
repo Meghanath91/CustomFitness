@@ -118,7 +118,7 @@ export default function StudentExerciseList(props) {
                             : "#3F3F3F",
                           padding: 4,
                           margin: "3%",
-                          width: "90%",
+                          width: "95%",
                           height: "50rem",
                           textAlign: "center",
                           borderRadius: "8px"

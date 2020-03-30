@@ -9,8 +9,6 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 
 export default function StudentView(props) {
-  
-
   const [open, setOpen] = React.useState(false);
   const [student, setStudent] = React.useState({});
   const theme = useTheme();
@@ -43,23 +41,69 @@ export default function StudentView(props) {
           <DialogTitle id="responsive-dialog-title">
             {"Use Google's location service?"}
           </DialogTitle>
-          <DialogContent>
-            <DialogContentText>{student.name}</DialogContentText>
-            <DialogContentText>
-              <img src={student.avatar}></img>{" "}
+          <DialogContent
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center"
+            }}
+          >
+            <DialogContentText
+              style={{
+                fontSize: "1.6rem",
+                fontWeight: "700",
+                color: "black"
+              }}
+            >
+              {student.name}
             </DialogContentText>
-            <DialogContentText>Goal: {student.goal}</DialogContentText>
-            <DialogContentText>Age: {student.age}</DialogContentText>
-            <DialogContentText>Height: {student.height}</DialogContentText>
-            <DialogContentText>Weight: {student.weight}</DialogContentText>
             <DialogContentText>
-              BMI:{" "}
+              <img
+                style={{
+                  height: "35%",
+                  width: "35%",
+                  marginLeft: "32%"
+                }}
+                src={student.avatar}
+              ></img>{" "}
+            </DialogContentText>
+            <DialogContentText
+              style={{
+                color: "black"
+              }}
+            >
+              <strong>Goal: </strong> {student.goal}
+            </DialogContentText>
+            <DialogContentText
+              style={{
+                color: "black"
+              }}
+            >
+              <strong>Age: </strong> {student.age}
+            </DialogContentText>
+            <DialogContentText
+              style={{
+                color: "black"
+              }}
+            >
+              <strong>Height: </strong> {student.height}
+            </DialogContentText>
+            <DialogContentText
+              style={{
+                color: "black"
+              }}
+            >
+              <strong>Weight: </strong> {student.weight}
+            </DialogContentText>
+            <DialogContentText
+              style={{
+                color: "black"
+              }}
+            >
+              <strong>BMI: </strong>{" "}
               {(
                 (student.weight /
-                  (student.height *
-                    0.39 *
-                    student.height *
-                    0.39)) *
+                  (student.height * 0.39 * student.height * 0.39)) *
                 703
               ).toFixed(2)}
             </DialogContentText>

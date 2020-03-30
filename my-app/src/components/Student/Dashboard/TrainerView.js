@@ -9,8 +9,6 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 
 export default function TrainerView(props) {
-  
-
   const [open, setOpen] = React.useState(false);
   const [trainer, setTrainer] = React.useState({});
   const theme = useTheme();
@@ -43,14 +41,57 @@ export default function TrainerView(props) {
           <DialogTitle id="responsive-dialog-title">
             {"Use Google's location service?"}
           </DialogTitle>
-          <DialogContent>
-            <DialogContentText>{trainer.name}</DialogContentText>
-            <DialogContentText>
-              <img src={trainer.avatar}></img>{" "}
+          <DialogContent
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center"
+            }}
+          >
+            <DialogContentText
+              style={{
+                fontSize: "1.6rem",
+                fontWeight: "700",
+                color: "black"
+              }}
+            >
+              {trainer.name}
             </DialogContentText>
-            <DialogContentText>About me : {trainer.about}</DialogContentText>
-            <DialogContentText>Phone : {trainer.phone}</DialogContentText>
-            <DialogContentText>Experience : {trainer.experience}</DialogContentText>
+            <DialogContentText>
+              <img
+                style={{
+                  height: "35%",
+                  width: "35%",
+                  marginLeft: "32%"
+                }}
+                src={trainer.avatar}
+              />
+            </DialogContentText>
+            <DialogContentText
+              style={{
+                color: "black"
+              }}
+            >
+              {" "}
+              <strong>About me: </strong>
+              {trainer.about}
+            </DialogContentText>
+            <DialogContentText
+              style={{
+                color: "black"
+              }}
+            >
+              <strong>Phone: </strong>
+              {trainer.phone}
+            </DialogContentText>
+            <DialogContentText
+              style={{
+                color: "black"
+              }}
+            >
+              <strong>Experience: </strong>
+              {trainer.experience}
+            </DialogContentText>
           </DialogContent>
         </Dialog>
       </CardActions>
