@@ -16,6 +16,9 @@ import CustomizedRadios from "./Radio-button";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
+
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -76,6 +79,7 @@ export default function Register() {
         .then(res => {
           alert("new trainer registered, please login");
           console.log("i get to this point with user from======>>>", res.data);
+         
           return <Redirect to="/login" />;
           
         });
@@ -92,7 +96,9 @@ export default function Register() {
         .then(res => {
           alert("new student registered,please login");
           console.log("i get to this point with user from======>>>", res.data);
+        
           return <Redirect to="/login" />;
+         
         });
     }
   };

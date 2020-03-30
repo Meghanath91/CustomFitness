@@ -78,7 +78,8 @@ export default function StudentsItem(props) {
     axios
       .post(`http://localhost:8080/subscriptions/subscribe`, {
         trainer_id: id,
-        student_id: props.studentData.id
+        student_id: props.studentData.id,
+        student_name: props.studentData.name
       })
       .then(res => {
         alert("Thank you for your Subscription ");

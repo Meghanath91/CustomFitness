@@ -28,7 +28,8 @@ export default function CustomPlan(props) {
         difficulty: difficulty,
         type: type,
         sets: sets,
-        reps: reps
+        reps: reps,
+        trainer_name:props.trainerData.name
       })
       .then(res => {
         const workoutExercises = exerciseIdArray;
@@ -42,7 +43,7 @@ export default function CustomPlan(props) {
               reps: reps
             })
             .then(res => {
-              alert("new workoutExercise  created");
+              console.log("new exercise added")
             });
         }
       });

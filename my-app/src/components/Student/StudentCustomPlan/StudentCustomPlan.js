@@ -5,7 +5,7 @@ import axios from "axios";
 import "../Student.scss";
 
 export default function StudentCustomPlan(props) {
-  console.log("props on StudentCustomPlan", props.exerciseData);
+
 
   const [customId, setCustomId] = useState([]);
 
@@ -14,7 +14,7 @@ export default function StudentCustomPlan(props) {
     axios
       .get(`http://localhost:8080/custom_plan/${customId}/exercises`)
       .then(res => {
-        console.log("res.data in studentcustomplan=====>", res.data);
+        
         const exercises = res.data;
 
         setState(exercises);
