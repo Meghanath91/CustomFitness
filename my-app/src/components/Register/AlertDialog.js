@@ -25,27 +25,46 @@ export default function AlertDialog(props) {
         style={{ color: "white", border: "none", width: "100%" }}
         onClick={handleClickOpen}
       >
-        Register
+        CREATE ACCOUNT
       </Button>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
-        style={{
-          fontSize: "1rem"
-        }}
       >
         <DialogTitle id="alert-dialog-title">
           {"Use Google's location service?"}
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
+          <DialogContentText
+            id="alert-dialog-description"
+            style={{
+              color: "black",
+              fontSize: "1rem"
+            }}
+          >
             New account has been created. Please login to continue.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Link to="./login" onClick={handleClose} color="primary" autoFocus>
+          <Link
+            to="./login"
+            onClick={handleClose}
+            color="primary"
+            autoFocus
+            style={{
+              backgroundColor: "rgb(1, 248, 248)",
+              color: "black",
+              textDecoration: "none",
+              padding: "1%",
+              marginRight: "2%",
+              borderRadius: "8px",
+              width: "20%",
+              textAlign: "center",
+              color: "black"
+            }}
+          >
             Login
           </Link>
         </DialogActions>

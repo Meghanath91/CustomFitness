@@ -53,9 +53,12 @@ export default function StudentCustomForm(props) {
       .put(`http://localhost:8080/custom_plans`, {
         complete: true,
         id: customId
+       
       })
       .then(res => {
+
         alert("Custom plan completed");
+        
       });
   };
 
@@ -126,7 +129,9 @@ export default function StudentCustomForm(props) {
           name={plan.difficulty}
         />
       </section>
-      <button onClick={handleComplete} className="completePlan">Complete plan</button>
+      <button onClick={handleComplete} className="completePlan">
+        Complete plan
+      </button>
     </form>
   );
 }

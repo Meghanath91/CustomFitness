@@ -60,9 +60,9 @@ export default function TrainerView(props) {
             <DialogContentText>
               <img
                 style={{
-                  height: "35%",
-                  width: "35%",
-                  marginLeft: "32%"
+                  height: "50%",
+                  width: "50%",
+                  marginLeft: "27%"
                 }}
                 src={trainer.avatar}
               />
