@@ -32,6 +32,7 @@ export default function CustomPlan(props) {
         trainer_name:props.trainerData.name
       })
       .then(res => {
+
         const workoutExercises = exerciseIdArray;
 
         for (let exerciseID of workoutExercises) {
@@ -39,11 +40,11 @@ export default function CustomPlan(props) {
             .post(`http://localhost:8080/workout_exercises/create`, {
               custom_plan_id: parseInt(res.data),
               exercise_id: parseInt(exerciseID.id),
-              sets: sets,
-              reps: reps
+              
             })
             .then(res => {
-              console.log("new exercise added")
+              alert("new CustomPlan  created");
+              console.log("new exercise added",res)
             });
         }
       });
