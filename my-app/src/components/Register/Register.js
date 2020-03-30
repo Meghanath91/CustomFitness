@@ -18,6 +18,11 @@ import { Redirect, Route } from "react-router-dom";
 import Login from "../Login/Login";
 import AlertDialog from "./AlertDialog";
 
+
+
+
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -63,6 +68,7 @@ export default function Register() {
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
   const [goal, setGoal] = useState("");
+  const [expertise, setExpertise] = useState("");
 
   const handleRegister = evt => {
     evt.preventDefault();
@@ -74,7 +80,8 @@ export default function Register() {
           email: email,
           password: password,
           experience: experience,
-          about: about
+          about: about,
+          expertise:expertise
         })
         .then(res => {
           return <Redirect to="/login" />;
@@ -163,6 +170,7 @@ export default function Register() {
                 setHeight={setHeight}
                 setWeight={setWeight}
                 setGoal={setGoal}
+                setExpertise={setExpertise}
               />
             </Grid>
             <Grid item xs={12}>
