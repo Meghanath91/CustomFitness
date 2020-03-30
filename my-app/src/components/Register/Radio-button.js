@@ -87,10 +87,14 @@ function StyledRadio(props) {
 export default function CustomizedRadios(props) {
   const [state, setState] = useState("");
   const [expertise, setExpertise] = useState("");
-
+  const [focus,setFocus]= useState("");
   const handleExpertise = event => {
     props.setExpertise(() => event.target.value);
     setExpertise(event.target.value);
+  };
+  const handleFocus = event => {
+    props.setFocus(() => event.target.value);
+    setFocus(event.target.value);
   };
 
   const cb = e => {
@@ -221,6 +225,25 @@ export default function CustomizedRadios(props) {
                 onChange={evt => props.setGoal(evt.target.value)}
                 autoComplete="goal"
               />
+                <FormControl
+                style={{
+                  padding: "10px 0px"
+                }}
+              >
+                <InputLabel id="demo-simple-select-label">Focus</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={focus}
+                  onChange={handleFocus}
+                >
+                  <MenuItem value="weightloss">Weight loss</MenuItem>
+                  <MenuItem value="weightgain">Weight gain</MenuItem>
+                  <MenuItem value="overall">Overall wellbeing</MenuItem>
+                  <MenuItem value="yoga">Yoga</MenuItem>
+                  <MenuItem value="mediatation">Meditation</MenuItem>
+                </Select>
+              </FormControl>{" "}
             </div>
           )}
         </Grid>

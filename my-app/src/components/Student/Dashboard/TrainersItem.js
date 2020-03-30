@@ -78,7 +78,7 @@ export default function StudentsItem(props) {
     evt.preventDefault();
     
     const getTrainersArr = props.allTrainers.filter(
-      item => item.expertise === "weightgain"
+      item => item.expertise === props.studentData.focus
     );
     
     setTrainers(getTrainersArr)
@@ -133,7 +133,7 @@ export default function StudentsItem(props) {
               color="textSecondary"
               paragraph
             >
-              Below is a list of all of your Trainers, click on each Trainer to
+              Below is a list of all of our Trainers, click on each Trainer to
               see their information
             </Typography>
             <div className={classes.heroButtons}>

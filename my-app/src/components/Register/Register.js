@@ -69,6 +69,7 @@ export default function Register() {
   const [weight, setWeight] = useState(0);
   const [goal, setGoal] = useState("");
   const [expertise, setExpertise] = useState("");
+  const [focus, setFocus]= useState("");
 
   const handleRegister = evt => {
     evt.preventDefault();
@@ -95,7 +96,8 @@ export default function Register() {
           age: age,
           height: height,
           weight: weight,
-          goal: goal
+          goal: goal,
+          focus:focus
         })
         .then(res => {
           return (
@@ -171,6 +173,7 @@ export default function Register() {
                 setWeight={setWeight}
                 setGoal={setGoal}
                 setExpertise={setExpertise}
+                setFocus={setFocus}
               />
             </Grid>
             <Grid item xs={12}>
