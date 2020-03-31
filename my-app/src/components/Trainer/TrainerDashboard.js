@@ -22,7 +22,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import TrainerAppSideBar from "./Dashboard/TrainerAppSidebar";
 import Students from "./Dashboard/Students";
 import Money from "./Dashboard/Money";
-import StudentTable from "./Dashboard/Table";
+import StudentTable from "./Dashboard/StudentTable";
 import Chart from "./Dashboard/Chart";
 import StudentRequest from "./Dashboard/StudentRequests";
 import axios from "axios";
@@ -215,7 +215,7 @@ export default function TrainerDashboard(props) {
             </Grid>
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <StudentTable />
+                <StudentTable myStudents= {props.myStudents}/>
               </Paper>
             </Grid>
           </Grid>

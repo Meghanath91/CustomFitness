@@ -40,7 +40,7 @@ export default function Trainer(props) {
           </Route>
 
           <Route path="/trainer/dashboard">
-            <TrainerDashboard trainerData={props.trainerData} />
+            <TrainerDashboard myStudents={myStudents} trainerData={props.trainerData}/>
           </Route>
 
           <Route path="/trainer/students">

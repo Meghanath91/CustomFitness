@@ -100,7 +100,7 @@ export default function StudentsItem(props) {
               Below is a list of all of your students, click on each student to
               see their information
             </Typography>
-            <div className={classes.heroButtons}>
+            {/* <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
                   <Button variant="contained" color="primary">
@@ -113,7 +113,7 @@ export default function StudentsItem(props) {
                   </Button>
                 </Grid>
               </Grid>
-            </div>
+            </div> */}
           </Container>
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
