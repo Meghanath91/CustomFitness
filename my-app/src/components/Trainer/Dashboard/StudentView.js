@@ -60,9 +60,9 @@ export default function StudentView(props) {
             <DialogContentText>
               <img
                 style={{
-                  height: "35%",
-                  width: "35%",
-                  marginLeft: "32%"
+                  height: "50%",
+                  width: "50%",
+                  marginLeft: "28%"
                 }}
                 src={student.avatar}
               ></img>{" "}
@@ -73,6 +73,13 @@ export default function StudentView(props) {
               }}
             >
               <strong>Goal: </strong> {student.goal}
+            </DialogContentText>
+            <DialogContentText
+              style={{
+                color: "black"
+              }}
+            >
+              <strong>Focus: </strong> {student.focus}
             </DialogContentText>
             <DialogContentText
               style={{
