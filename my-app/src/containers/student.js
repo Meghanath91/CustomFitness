@@ -52,6 +52,10 @@ export default function Student(props) {
               studentData={props.studentData}
             />
           </Route>
+
+          {/* <Route path="/student/feedback">
+            <StudentFeedback studentData={props.studentData} />
+          </Route> */}
         </Switch>
       </div>
 

@@ -53,6 +53,10 @@ export default function Trainer(props) {
           <Route path="/trainer/create_plan">
             <Exercise myStudents={myStudents} trainerData={props.trainerData}/>
           </Route>
+
+          {/* <Route path="/trainer/feedback">
+            <Exercise myStudents={myStudents} trainerData={props.trainerData}/>
+          </Route> */}
         </Switch>
       </div>
 
