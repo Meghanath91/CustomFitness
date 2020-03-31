@@ -19,7 +19,8 @@ const useStyles = makeStyles(theme => ({
     display: "flex"
   },
   toolbar: {
-    paddingRight: 24 // keep right padding when drawer closed
+    paddingRight: 24
+    // keep right padding when drawer closed
   },
   toolbarIcon: {
     display: "flex",
@@ -33,7 +34,8 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
-    })
+    }),
+    background: "#c7d4d69c"
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -59,7 +61,8 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen
-    })
+    }),
+    background: "#c7d4d6"
   },
   drawerPaperClose: {
     overflowX: "hidden",
@@ -86,13 +89,10 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
 
     flexDirection: "column"
-  },
-  fixedHeight: {
-    height: 240
   }
 }));
 
-export default function TrainerAppSideBar(props) {
+export default function StudentAppSideBar(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -101,19 +101,14 @@ export default function TrainerAppSideBar(props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
-      {/* <Students /> */}
-
-      {/* <StudentTable /> */}
-
       <AppBar
         style={{
           marginTop: "4%",
           color: "black",
-          backgroundColor: "#E0E0E0",
+          backgroundColor: "#c7d4d6",
           position: "fixed"
         }}
         position="absolute"
@@ -143,11 +138,6 @@ export default function TrainerAppSideBar(props) {
           >
             Welcome, {props.studentData.name}!
           </Typography>
-          {/* <IconButton color="inherit"> */}
-          {/* <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge> */}
-          {/* </IconButton> */}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -162,10 +152,7 @@ export default function TrainerAppSideBar(props) {
             <ChevronLeftIcon />
           </IconButton>
         </div>
-        {/* <Divider /> */}
         <List>{mainListItems}</List>
-        {/* <Divider /> */}
-        {/* <List>{secondaryListItems}</List> */}
       </Drawer>
     </div>
   );

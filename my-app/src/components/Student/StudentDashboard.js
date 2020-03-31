@@ -17,10 +17,8 @@ import axios from "axios";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Custom Fitness
-      </Link>{" "}
+      {"Copyright © Custom Fitness "}
+
       {new Date().getFullYear()}
       {"."}
     </Typography>
@@ -34,7 +32,8 @@ const useStyles = makeStyles(theme => ({
     display: "flex"
   },
   toolbar: {
-    paddingRight: 24 // keep right padding when drawer closed
+    paddingRight: 24, // keep right padding when drawer closed,
+    backgroundColor: "#c7d4d69c"
   },
   toolbarIcon: {
     display: "flex",
@@ -48,7 +47,9 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
-    })
+    }),
+
+    background: "#c7d4d6"
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -111,16 +112,17 @@ export default function StudentDashboard(props) {
 
   useEffect(() => {
     axios
-    .get(`http://localhost:8080/student/${props.studentData.id}/weights`) 
+      .get(`http://localhost:8080/student/${props.studentData.id}/weights`)
 
-    .then(res => {
-      console.log("response",res.data)
-      const datafromdb= res.data
-      const formattedData = datafromdb.map(({id, student_id, created_at, ...item}) => item)
-      console.log("formattedData", formattedData)
-      setData(formattedData);
-      
-    })
+      .then(res => {
+        console.log("response", res.data);
+        const datafromdb = res.data;
+        const formattedData = datafromdb.map(
+          ({ id, student_id, created_at, ...item }) => item
+        );
+        console.log("formattedData", formattedData);
+        setData(formattedData);
+      });
   }, [props.studentData.id]);
 
   const classes = useStyles();
@@ -131,7 +133,16 @@ export default function StudentDashboard(props) {
     <div className={classes.root}>
       <CssBaseline />
       <StudentAppSideBar studentData={props.studentData} />
-      <main className={classes.content}>
+      <main
+        className={classes.content}
+        style={{
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
+          backgroundBlendMode: "overlay",
+          backgroundImage: "url('https://wallpapercave.com/wp/wp2639536.jpg')",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat"
+        }}
+      >
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
@@ -147,7 +158,7 @@ export default function StudentDashboard(props) {
                 className={fixedHeightPaper}
                 style={{
                   width: "98%",
-                  marginRight: "2%"
+                  marginRight: "4%"
                 }}
               >
                 <Chart

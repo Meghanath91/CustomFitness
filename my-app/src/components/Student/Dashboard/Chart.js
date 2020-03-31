@@ -1,11 +1,17 @@
-import React from 'react';
-import { useTheme } from '@material-ui/core/styles';
-import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
-import Title from './Title';
-
+import React from "react";
+import { useTheme } from "@material-ui/core/styles";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Label,
+  ResponsiveContainer
+} from "recharts";
+import Title from "./Title";
 
 export default function Chart(props) {
-  console.log("data for chart", props.data)
+  console.log("data for chart", props.data);
   const theme = useTheme();
 
   return (
@@ -18,7 +24,7 @@ export default function Chart(props) {
             top: 16,
             right: 16,
             bottom: 0,
-            left: 24,
+            left: 24
           }}
         >
           <XAxis dataKey="date" stroke={theme.palette.text.secondary} />
@@ -26,12 +32,17 @@ export default function Chart(props) {
             <Label
               angle={270}
               position="left"
-              style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
+              style={{ textAnchor: "middle", fill: theme.palette.text.primary }}
             >
               Weight (lbs)
             </Label>
           </YAxis>
-          <Line type="monotone" dataKey="weight" stroke={theme.palette.primary.main} dot={false} />
+          <Line
+            type="monotone"
+            dataKey="weight"
+            stroke={theme.palette.primary.main}
+            dot={false}
+          />
         </LineChart>
       </ResponsiveContainer>
     </React.Fragment>

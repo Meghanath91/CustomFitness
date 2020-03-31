@@ -28,11 +28,9 @@ import StudentRequest from "./Dashboard/StudentRequests";
 import axios from "axios";
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Custom Fitness
-      </Link>{" "}
+    <Typography variant="body2" style={{ color: "white" }} align="center">
+      {"Copyright ©  Custom Fitness "}
+
       {new Date().getFullYear()}
       {"."}
     </Typography>
@@ -44,7 +42,8 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    width: "100%"
+    width: "100%",
+    height: "100vh"
   },
   toolbar: {
     paddingRight: 24 // keep right padding when drawer closed
@@ -102,6 +101,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   appBarSpacer: theme.mixins.toolbar,
+
   content: {
     flexGrow: 1,
     height: "100vh",
@@ -178,7 +178,17 @@ export default function TrainerDashboard(props) {
         trainerData={props.trainerData}
         subscriptions={subscriptions}
       />
-      <main className={classes.content}>
+      <main
+        className={classes.content}
+        style={{
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
+          backgroundBlendMode: "overlay",
+
+          backgroundImage: "url('https://wallpapercave.com/wp/wp2639536.jpg')",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat"
+        }}
+      >
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
@@ -210,7 +220,7 @@ export default function TrainerDashboard(props) {
             </Grid>
           </Grid>
           <Box pt={4}>
-            <Copyright />
+            <Copyright style={{ color: "white" }} />
           </Box>
         </Container>
       </main>

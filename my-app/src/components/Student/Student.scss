@@ -3,10 +3,22 @@
   height: 50%;
 }
 
+.student-update-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.student-header {
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
 .student-profile {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 1.5rem;
 }
 
 .student-profile button {
@@ -17,7 +29,7 @@
   padding: 1%;
   font-family: 'Raleway',
     sans-serif;
-  font-size: 0.8rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -29,8 +41,8 @@
 }
 
 .student-avatar {
-  height: 15%;
-  width: 15%;
+  height: 35%;
+  width: 35%;
   margin-bottom: 2%;
 }
 
@@ -115,4 +127,17 @@ label {
   display: flex;
   justify-content: space-between;
   width: 85rem;
+}
+
+.update-weight {
+  background-color: #3F3F3F;
+  color: white;
+  border-radius: 8px;
+  margin-top: 2%;
+  padding: 1%;
+  font-family: 'Raleway',
+    sans-serif;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: 700;
 }

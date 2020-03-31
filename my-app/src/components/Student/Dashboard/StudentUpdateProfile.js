@@ -1,4 +1,4 @@
-import React ,{useState}from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -14,7 +14,7 @@ export default function StudentUpdateProfile(props) {
   const [goal, setGoal] = useState("");
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
- 
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -25,18 +25,18 @@ export default function StudentUpdateProfile(props) {
 
   const handleComplete = event => {
     event.preventDefault();
-    console.log("props.student.id",props.studentData.id)
-    console.log("typeof",typeof(props.studentData.id))
-    console.log("height",height)
-    console.log("weight",weight)
-    console.log("typeof",typeof(height))
+    console.log("props.student.id", props.studentData.id);
+    console.log("typeof", typeof props.studentData.id);
+    console.log("height", height);
+    console.log("weight", weight);
+    console.log("typeof", typeof height);
 
     axios
       .put(`http://localhost:8080/students`, {
         name: name,
-        goal:goal,
-        height:parseInt(height),
-        weight:parseInt(weight),
+        goal: goal,
+        height: parseInt(height),
+        weight: parseInt(weight),
         id: props.studentData.id
       })
       .then(res => {
@@ -45,10 +45,19 @@ export default function StudentUpdateProfile(props) {
       });
   };
 
-
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button
+        className="update-weight"
+        variant="outlined"
+        color="primary"
+        onClick={handleClickOpen}
+        style={{
+          ": hover": {
+            backgroundColor: "black"
+          }
+        }}
+      >
         Update Profile
       </Button>
       <Dialog

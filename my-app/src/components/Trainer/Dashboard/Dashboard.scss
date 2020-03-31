@@ -2,11 +2,11 @@
   background-color: #3F3F3F;
   color: white;
   border-radius: 8px;
-  margin-top: 2%;
-  padding: 1%;
+  margin-top: 5%;
+  padding: 3%;
   font-family: 'Raleway',
     sans-serif;
-  font-size: 0.8rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -18,16 +18,29 @@
 }
 
 .trainer-avatar {
-  height: 15%;
-  width: 15%;
+  height: 35%;
+  width: 35%;
   margin-bottom: 2%;
 }
 
 .trainer-profile {
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .update-profile-input {
   font-size: 1.3rem;
   margin: 2%
+}
+
+.trainer-profile-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.trainer-header {
+  font-size: 1.6rem;
+  text-decoration: underline;
+  text-transform: uppercase;
 }

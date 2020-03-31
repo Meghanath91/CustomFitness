@@ -28,8 +28,6 @@ export default function Student(props) {
       <div
         style={{
           marginTop: "5%",
-          padding: "10px",
-
           width: "100%"
         }}
       >
@@ -54,8 +52,6 @@ export default function Student(props) {
           </Route>
         </Switch>
       </div>
-
-      <div style={{ flex: 1, padding: "10px" }}></div>
     </div>
   );
 }

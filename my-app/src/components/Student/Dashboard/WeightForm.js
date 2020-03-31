@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -10,38 +10,41 @@ import axios from "axios";
 
 export default function WeightForm(props) {
   const [open, setOpen] = React.useState(false);
-  const [weight, setWeight] = useState("")
-  const [date, setDate] = useState("MM/DD")
+  const [weight, setWeight] = useState("");
+  const [date, setDate] = useState("MM/DD");
 
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
-  }; 
+  };
 
   const handleWeight = evt => {
     evt.preventDefault();
     axios
-    .post(`http://localhost:8080/weights/create`, {
-      date: date,
-      weight: parseInt(weight),
-      student_id: props.studentData.id
-    })
-    .then(res => {
-      alert("Student Weight & Date added to DB");
-      handleClose()
-    });
+      .post(`http://localhost:8080/weights/create`, {
+        date: date,
+        weight: parseInt(weight),
+        student_id: props.studentData.id
+      })
+      .then(res => {
+        alert("Student Weight & Date added to DB");
+        handleClose();
+      });
   };
 
   return (
-    <div>
+    <div style={{ marginTop: "5%" }}>
       <Button
         variant="outlined"
         color="primary"
         onClick={handleClickOpen}
         style={{
-          fontSize: "1.5rem"
+          fontSize: "1.5rem",
+          color: "white",
+          border: "1px solid white",
+          borderRadius: "8px"
         }}
       >
         Update Weight
@@ -54,7 +57,7 @@ export default function WeightForm(props) {
         <DialogTitle id="form-dialog-title">Weight</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Please enter your new weight below and date 
+            Please enter your new weight below and date
           </DialogContentText>
           <TextField
             autoFocus

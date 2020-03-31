@@ -10,8 +10,8 @@ const StyledBadge = withStyles(theme => ({
     right: 0,
     top: 11,
     border: `2px solid ${theme.palette.background.paper}`,
-    padding: "17% 10%",
-    fontSize: "2rem"
+    padding: "14% 8%",
+    fontSize: "1.5rem"
   }
 }))(Badge);
 
@@ -60,7 +60,8 @@ export default function StudentRequest(props) {
         <GroupIcon
           style={{
             fontSize: "8rem",
-            textAlign: "center"
+            textAlign: "center",
+            color: "white"
           }}
         />
       </StyledBadge>

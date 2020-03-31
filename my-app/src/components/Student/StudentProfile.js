@@ -11,7 +11,7 @@ import StudentAppSideBar from "./Dashboard/StudentAppSideBar";
 import Box from "@material-ui/core/Box";
 
 function Copyright() {
-  return ( 
+  return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">

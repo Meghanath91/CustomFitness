@@ -14,8 +14,6 @@ import {
 } from "react-router-dom";
 
 export default function Trainer(props) {
- 
-
   const [myStudents, setMyStudents] = useState([]);
   useEffect(() => {
     axios
@@ -31,8 +29,7 @@ export default function Trainer(props) {
     <div style={{ display: "flex" }}>
       <div
         style={{
-          marginTop: "5%",
-          padding: "10px",
+          marginTop: "4%",
           background: "#ffffff",
           width: "100%"
         }}
@@ -43,20 +40,22 @@ export default function Trainer(props) {
           </Route>
 
           <Route path="/trainer/dashboard">
-            <TrainerDashboard trainerData={props.trainerData}/>
+            <TrainerDashboard trainerData={props.trainerData} />
           </Route>
 
           <Route path="/trainer/students">
-            <Students myStudents={myStudents} cards={cards} trainerData={props.trainerData} />
+            <Students
+              myStudents={myStudents}
+              cards={cards}
+              trainerData={props.trainerData}
+            />
           </Route>
 
           <Route path="/trainer/create_plan">
-            <Exercise myStudents={myStudents} trainerData={props.trainerData}/>
+            <Exercise myStudents={myStudents} trainerData={props.trainerData} />
           </Route>
         </Switch>
       </div>
-
-      <div style={{ flex: 1, padding: "10px" }}></div>
     </div>
   );
 }
