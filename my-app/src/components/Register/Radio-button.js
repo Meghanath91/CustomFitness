@@ -8,6 +8,9 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
 
 const useStyles = makeStyles({
   root: {
@@ -68,7 +71,7 @@ const useStyles = makeStyles({
 // Inspired by blueprintjs
 function StyledRadio(props) {
   const classes = useStyles();
- 
+
   return (
     <Radio
       className={classes.root}
@@ -82,10 +85,21 @@ function StyledRadio(props) {
 }
 
 export default function CustomizedRadios(props) {
-  const [state,setState] = useState("");
+  const [state, setState] = useState("");
+  const [expertise, setExpertise] = useState("");
+  const [focus,setFocus]= useState("");
+  const handleExpertise = event => {
+    props.setExpertise(() => event.target.value);
+    setExpertise(event.target.value);
+  };
+  const handleFocus = event => {
+    props.setFocus(() => event.target.value);
+    setFocus(event.target.value);
+  };
+
   const cb = e => {
-    props.setUser(()=>e.target.value)
-   setState(e.target.value)
+    props.setUser(() => e.target.value);
+    setState(e.target.value);
   };
   const classes = useStyles();
   return (
@@ -124,7 +138,7 @@ export default function CustomizedRadios(props) {
                 id="experience"
                 label="Years of Experience"
                 value={props.experience}
-                onChange={evt=>props.setExperience(evt.target.value)}
+                onChange={evt => props.setExperience(evt.target.value)}
                 name="experience"
                 autoComplete="experience"
               />
@@ -137,9 +151,28 @@ export default function CustomizedRadios(props) {
                 label="About you"
                 name="about"
                 value={props.about}
-                onChange={evt=>props.setAbout(evt.target.value)}
+                onChange={evt => props.setAbout(evt.target.value)}
                 autoComplete="about"
               />
+              <FormControl
+                style={{
+                  padding: "10px 0px"
+                }}
+              >
+                <InputLabel id="demo-simple-select-label">Expertise</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={expertise}
+                  onChange={handleExpertise}
+                >
+                  <MenuItem value="weightloss">Weight loss</MenuItem>
+                  <MenuItem value="weightgain">Weight gain</MenuItem>
+                  <MenuItem value="overall">Overall wellbeing</MenuItem>
+                  <MenuItem value="yoga">Yoga</MenuItem>
+                  <MenuItem value="mediatation">Meditation</MenuItem>
+                </Select>
+              </FormControl>{" "}
             </div>
           ) : (
             <div>
@@ -153,7 +186,7 @@ export default function CustomizedRadios(props) {
                   label="Age"
                   name="age"
                   value={props.age}
-                  onChange={evt=>props.setAge(evt.target.value)}
+                  onChange={evt => props.setAge(evt.target.value)}
                   autoComplete="age"
                 />
                 <TextField
@@ -164,7 +197,7 @@ export default function CustomizedRadios(props) {
                   label="Height"
                   name="height"
                   value={props.height}
-                  onChange={evt=>props.setHeight(evt.target.value)}
+                  onChange={evt => props.setHeight(evt.target.value)}
                   autoComplete="height"
                 />
                 <TextField
@@ -176,7 +209,7 @@ export default function CustomizedRadios(props) {
                   label="Weight"
                   name="weight"
                   value={props.weight}
-                  onChange={evt=>props.setWeight(evt.target.value)}
+                  onChange={evt => props.setWeight(evt.target.value)}
                   autoComplete="weight"
                 />
               </Grid>
@@ -189,9 +222,28 @@ export default function CustomizedRadios(props) {
                 label="Your goal"
                 name="goal"
                 value={props.goal}
-                onChange={evt=>props.setGoal(evt.target.value)}
+                onChange={evt => props.setGoal(evt.target.value)}
                 autoComplete="goal"
               />
+                <FormControl
+                style={{
+                  padding: "10px 0px"
+                }}
+              >
+                <InputLabel id="demo-simple-select-label">Focus</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={focus}
+                  onChange={handleFocus}
+                >
+                  <MenuItem value="weightloss">Weight loss</MenuItem>
+                  <MenuItem value="weightgain">Weight gain</MenuItem>
+                  <MenuItem value="overall">Overall wellbeing</MenuItem>
+                  <MenuItem value="yoga">Yoga</MenuItem>
+                  <MenuItem value="mediatation">Meditation</MenuItem>
+                </Select>
+              </FormControl>{" "}
             </div>
           )}
         </Grid>

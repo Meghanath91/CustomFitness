@@ -70,7 +70,25 @@ const useStyles = makeStyles(theme => ({
 
 export default function StudentsItem(props) {
   console.log("props in trainers item", props);
+  const[trainers, setTrainers]=useState(props.allTrainers)
   const classes = useStyles();
+  // const [state,setState]=useState()
+
+  const handleButton = evt => {
+    evt.preventDefault();
+    
+    const getTrainersArr = props.allTrainers.filter(
+      item => item.expertise === props.studentData.focus
+    );
+    
+    setTrainers(getTrainersArr)
+   
+  };
+
+  const handleBack = evt => {
+    evt.preventDefault();
+    setTrainers(props.allTrainers);
+  }
 
   const handleSubscribe = (evt, id) => {
     evt.preventDefault();
@@ -115,19 +133,23 @@ export default function StudentsItem(props) {
               color="textSecondary"
               paragraph
             >
-              Below is a list of all of your Trainers, click on each Trainer to
+              Below is a list of all of our Trainers, click on each Trainer to
               see their information
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
+                  <Button
+                    onClick={handleButton}
+                    variant="contained"
+                    color="primary"
+                  >
+                    Find your Custom Fit
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
+                  <Button onClick= {handleBack} variant="outlined" color="primary">
+                    Random Fit
                   </Button>
                 </Grid>
               </Grid>
@@ -137,7 +159,7 @@ export default function StudentsItem(props) {
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {props.allTrainers.map(card => (
+            {trainers.map(card => (
               <Grid item key={card.id} xs={12} sm={6} md={3}>
                 <Card className={classes.card}>
                   <CardMedia

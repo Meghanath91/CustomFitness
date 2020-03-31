@@ -18,6 +18,11 @@ import { Redirect, Route } from "react-router-dom";
 import Login from "../Login/Login";
 import AlertDialog from "./AlertDialog";
 
+
+
+
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -57,12 +62,15 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullname] = useState("");
+  const [ phone,setPhone]=useState("");
   const [experience, setExperience] = useState("");
   const [about, setAbout] = useState("");
   const [age, setAge] = useState(0);
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
   const [goal, setGoal] = useState("");
+  const [expertise, setExpertise] = useState("");
+  const [focus, setFocus]= useState("");
 
   const handleRegister = evt => {
     evt.preventDefault();
@@ -73,8 +81,10 @@ export default function Register() {
           name: fullName,
           email: email,
           password: password,
+          phone:phone,
           experience: experience,
-          about: about
+          about: about,
+          expertise:expertise
         })
         .then(res => {
           return <Redirect to="/login" />;
@@ -85,10 +95,12 @@ export default function Register() {
           name: fullName,
           email: email,
           password: password,
+          phone:phone,
           age: age,
           height: height,
           weight: weight,
-          goal: goal
+          goal: goal,
+          focus:focus
         })
         .then(res => {
           return (
@@ -154,6 +166,20 @@ export default function Register() {
                 autoComplete="current-password"
               />
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="phone"
+                value={phone}
+                onChange={evt => setPhone(evt.target.value)}
+                label="Phone Number"
+                type="phone"
+                id="phone"
+                autoComplete="phone"
+              />
+            </Grid>
             <Grid>
               <CustomizedRadios
                 setUser={setUser}
@@ -163,6 +189,8 @@ export default function Register() {
                 setHeight={setHeight}
                 setWeight={setWeight}
                 setGoal={setGoal}
+                setExpertise={setExpertise}
+                setFocus={setFocus}
               />
             </Grid>
             <Grid item xs={12}>
