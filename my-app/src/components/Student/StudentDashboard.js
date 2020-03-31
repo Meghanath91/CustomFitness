@@ -170,9 +170,15 @@ export default function StudentDashboard(props) {
               </Paper>
               <WeightForm studentData={props.studentData} />
             </Grid>
-            <Grid item xs={12}>
+            <Grid
+              item
+              xs={12}
+              style={{
+                padding: "12px 0px"
+              }}
+            >
               <Paper className={classes.paper}>
-                <StudentTable studentData={props.studentData} data={data}/>
+                <StudentTable studentData={props.studentData} data={data} />
               </Paper>
             </Grid>
           </Grid>

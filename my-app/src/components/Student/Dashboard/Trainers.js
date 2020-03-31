@@ -116,7 +116,7 @@ export default function Students(props) {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="xl" className={classes.container}>
-          <Grid item xs={12} md={10} lg={10}>
+          <Grid item xs={12} md={10} lg={12}>
             {/* Students Images */}
             <TrainersItem
               allTrainers={props.allTrainers}
