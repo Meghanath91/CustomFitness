@@ -87,7 +87,7 @@ function StyledRadio(props) {
 export default function CustomizedRadios(props) {
   const [state, setState] = useState("");
   const [expertise, setExpertise] = useState("");
-  const [focus,setFocus]= useState("");
+  const [focus, setFocus] = useState("");
   const handleExpertise = event => {
     props.setExpertise(() => event.target.value);
     setExpertise(event.target.value);
@@ -156,7 +156,8 @@ export default function CustomizedRadios(props) {
               />
               <FormControl
                 style={{
-                  padding: "10px 0px"
+                  padding: "10px 0px",
+                  width: "100%"
                 }}
               >
                 <InputLabel id="demo-simple-select-label">Expertise</InputLabel>
@@ -225,9 +226,10 @@ export default function CustomizedRadios(props) {
                 onChange={evt => props.setGoal(evt.target.value)}
                 autoComplete="goal"
               />
-                <FormControl
+              <FormControl
                 style={{
-                  padding: "10px 0px"
+                  padding: "10px 0px",
+                  width: "100%"
                 }}
               >
                 <InputLabel id="demo-simple-select-label">Focus</InputLabel>

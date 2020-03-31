@@ -18,11 +18,6 @@ import { Redirect, Route } from "react-router-dom";
 import Login from "../Login/Login";
 import AlertDialog from "./AlertDialog";
 
-
-
-
-
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -62,7 +57,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullname] = useState("");
-  const [ phone,setPhone]=useState("");
+  const [phone, setPhone] = useState("");
   const [experience, setExperience] = useState("");
   const [about, setAbout] = useState("");
   const [age, setAge] = useState(0);
@@ -70,7 +65,7 @@ export default function Register() {
   const [weight, setWeight] = useState(0);
   const [goal, setGoal] = useState("");
   const [expertise, setExpertise] = useState("");
-  const [focus, setFocus]= useState("");
+  const [focus, setFocus] = useState("");
 
   const handleRegister = evt => {
     evt.preventDefault();
@@ -81,10 +76,10 @@ export default function Register() {
           name: fullName,
           email: email,
           password: password,
-          phone:phone,
+          phone: phone,
           experience: experience,
           about: about,
-          expertise:expertise
+          expertise: expertise
         })
         .then(res => {
           return <Redirect to="/login" />;
@@ -95,12 +90,12 @@ export default function Register() {
           name: fullName,
           email: email,
           password: password,
-          phone:phone,
+          phone: phone,
           age: age,
           height: height,
           weight: weight,
           goal: goal,
-          focus:focus
+          focus: focus
         })
         .then(res => {
           return (
@@ -114,7 +109,7 @@ export default function Register() {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="md">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -124,75 +119,101 @@ export default function Register() {
           Register
         </Typography>
         <form onSubmit={handleRegister} className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="name"
-                name="name"
-                value={fullName}
-                onChange={evt => setFullname(evt.target.value)}
-                variant="outlined"
-                required
-                fullWidth
-                id="name"
-                label="Full Name"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                value={email}
-                onChange={evt => setEmail(evt.target.value)}
-                autoComplete="email"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                value={password}
-                onChange={evt => setPassword(evt.target.value)}
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="phone"
-                value={phone}
-                onChange={evt => setPhone(evt.target.value)}
-                label="Phone Number"
-                type="phone"
-                id="phone"
-                autoComplete="phone"
-              />
-            </Grid>
-            <Grid>
-              <CustomizedRadios
-                setUser={setUser}
-                setExperience={setExperience}
-                setAbout={setAbout}
-                setAge={setAge}
-                setHeight={setHeight}
-                setWeight={setWeight}
-                setGoal={setGoal}
-                setExpertise={setExpertise}
-                setFocus={setFocus}
-              />
-            </Grid>
+          <Grid container spacing={6}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-evenly"
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  paddingTop: "4%"
+                }}
+              >
+                <Grid item xs={12}>
+                  <TextField
+                    autoComplete="name"
+                    name="name"
+                    value={fullName}
+                    onChange={evt => setFullname(evt.target.value)}
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="name"
+                    label="Full Name"
+                    autoFocus
+                    style={{
+                      paddingBottom: "2%"
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    value={email}
+                    onChange={evt => setEmail(evt.target.value)}
+                    autoComplete="email"
+                    style={{
+                      paddingBottom: "2%"
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="password"
+                    value={password}
+                    onChange={evt => setPassword(evt.target.value)}
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                    style={{
+                      paddingBottom: "2%"
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="phone"
+                    value={phone}
+                    onChange={evt => setPhone(evt.target.value)}
+                    label="Phone Number"
+                    type="phone"
+                    id="phone"
+                    autoComplete="phone"
+                    style={{
+                      paddingBottom: "2%"
+                    }}
+                  />
+                </Grid>
+              </div>
+              <Grid>
+                <CustomizedRadios
+                  setUser={setUser}
+                  setExperience={setExperience}
+                  setAbout={setAbout}
+                  setAge={setAge}
+                  setHeight={setHeight}
+                  setWeight={setWeight}
+                  setGoal={setGoal}
+                  setExpertise={setExpertise}
+                  setFocus={setFocus}
+                />
+              </Grid>
+            </div>
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
