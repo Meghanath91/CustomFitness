@@ -31,9 +31,9 @@ export default function StudentTable(props) {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>name</TableCell>
-            <TableCell>phone</TableCell>
-            <TableCell>focus</TableCell>
+            <TableCell>Name</TableCell>
+            <TableCell>Phone</TableCell>
+            <TableCell>Focus</TableCell>
             <TableCell>Payment Method</TableCell>
             <TableCell align="right">Training Fee</TableCell>
           </TableRow>
@@ -52,7 +52,7 @@ export default function StudentTable(props) {
       </Table>
       <div className={classes.seeMore}>
         <Link color="primary" href="#" onClick={preventDefault}>
-          See more orders
+          See more Students
         </Link>
       </div>
     </React.Fragment>

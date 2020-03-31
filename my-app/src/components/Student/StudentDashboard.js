@@ -172,7 +172,7 @@ export default function StudentDashboard(props) {
             </Grid>
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <StudentTable />
+                <StudentTable studentData={props.studentData} data={data}/>
               </Paper>
             </Grid>
           </Grid>
