@@ -60,7 +60,7 @@ export default function StudentView(props) {
             <DialogContentText>
               <img
                 style={{
-                  height: "50%",
+                  height: "85%",
                   width: "50%",
                   marginLeft: "28%"
                 }}

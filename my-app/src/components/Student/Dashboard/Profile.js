@@ -36,7 +36,10 @@ export default function Profile(props) {
             703
           ).toFixed(2)}
         </p>
-        <StudentUpdateProfile studentData={props.studentData} />
+        <StudentUpdateProfile
+          className="update-weight"
+          studentData={props.studentData}
+        />
       </div>
     </section>
   );

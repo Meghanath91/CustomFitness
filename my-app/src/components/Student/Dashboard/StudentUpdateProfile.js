@@ -52,11 +52,6 @@ export default function StudentUpdateProfile(props) {
         variant="outlined"
         color="primary"
         onClick={handleClickOpen}
-        style={{
-          ": hover": {
-            backgroundColor: "black"
-          }
-        }}
       >
         Update Profile
       </Button>
@@ -77,6 +72,9 @@ export default function StudentUpdateProfile(props) {
         </DialogTitle>
         <DialogContent>
           <TextField
+            style={{
+              paddingTop: "1rem"
+            }}
             required
             autoFocus
             margin="dense"
@@ -88,6 +86,9 @@ export default function StudentUpdateProfile(props) {
             fullWidth
           />
           <TextField
+            style={{
+              paddingTop: "1rem"
+            }}
             required
             margin="dense"
             id="goal"
@@ -98,6 +99,9 @@ export default function StudentUpdateProfile(props) {
             fullWidth
           />
           <TextField
+            style={{
+              paddingTop: "1rem"
+            }}
             required
             margin="dense"
             id="height"
@@ -108,6 +112,9 @@ export default function StudentUpdateProfile(props) {
             fullWidth
           />
           <TextField
+            style={{
+              paddingTop: "1rem"
+            }}
             required
             margin="dense"
             id="weight"
