@@ -7,13 +7,12 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import Grid from "@material-ui/core/Grid";
-// import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles({
   root: {
     "&:hover": {
-      backgroundColor: "transparent"
-    }
+      backgroundColor: "transparent",
+    },
   },
   icon: {
     borderRadius: "50%",
@@ -26,15 +25,15 @@ const useStyles = makeStyles({
       "linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))",
     "$root.Mui-focusVisible &": {
       outline: "2px auto rgba(19,124,189,.6)",
-      outlineOffset: 2
+      outlineOffset: 2,
     },
     "input:hover ~ &": {
-      backgroundColor: "#ebf1f5"
+      backgroundColor: "#ebf1f5",
     },
     "input:disabled ~ &": {
       boxShadow: "none",
-      background: "rgba(206,217,224,.5)"
-    }
+      background: "rgba(206,217,224,.5)",
+    },
   },
   checkedIcon: {
     backgroundColor: "#137cbd",
@@ -45,28 +44,27 @@ const useStyles = makeStyles({
       width: 16,
       height: 16,
       backgroundImage: "radial-gradient(#fff,#fff 28%,transparent 32%)",
-      content: '""'
+      content: '""',
     },
     "input:hover ~ &": {
-      backgroundColor: "#106ba3"
-    }
+      backgroundColor: "#106ba3",
+    },
   },
   paper: {
-    margin: "0% 1%"
+    margin: "0% 1%",
   },
   rock: {
-    margin: "5%"
+    margin: "5%",
   },
   details: {
-    display: "flex"
+    display: "flex",
   },
   goal: {
-    margin: "3% 0%"
-  }
+    margin: "3% 0%",
+  },
 });
 
 function StyledRadio(props) {
-  // console.log("props===>", props);
   const classes = useStyles();
 
   return (
@@ -84,10 +82,10 @@ function StyledRadio(props) {
 export default function LoginRadioButton(props) {
   const classes = useStyles();
 
-  const cb = e => {
+  const cb = (e) => {
     props.setUser(e.target.value);
   };
-  
+
   return (
     <FormControl className={classes.rock} component="fieldset">
       <FormLabel className={classes.paper} component="legend">

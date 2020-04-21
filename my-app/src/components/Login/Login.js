@@ -66,7 +66,7 @@ export default function Login(props) {
 
     axios
       .post(
-        `http://localhost:8080/${
+        `/${
           user === "trainer" ? "trainers" : "students"
         }/login`,
         {
