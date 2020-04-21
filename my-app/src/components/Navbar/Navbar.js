@@ -8,7 +8,7 @@ function Navbar(props) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    console.log("user: ", user);
+   
     if (props.trainerData && props.trainerData.name) {
       setUser(props.trainerData.name);
     }
@@ -20,10 +20,9 @@ function Navbar(props) {
 
   const handleLogout = async evt => {
     evt.preventDefault();
-    console.log("props inside of handleLogout", props);
-
+  
     await axios
-      .post(`http://localhost:8080/logout`, { user_id: props.trainerData.id })
+      .post(`/logout`, { user_id: props.trainerData.id })
       .then(res => {
         props.setStudent({});
         props.setTrainer({});
