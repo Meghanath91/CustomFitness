@@ -19,7 +19,7 @@ export default function StudentCustomForm(props) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/student/${props.studentData.id}/custom_plans`)
+      .get(`/student/${props.studentData.id}/custom_plans`)
       .then(res => {
         const customPlans = res.data;
 
@@ -50,7 +50,7 @@ export default function StudentCustomForm(props) {
     event.preventDefault();
 
     axios
-      .put(`http://localhost:8080/custom_plans`, {
+      .put(`/custom_plans`, {
         complete: true,
         id: customId
        

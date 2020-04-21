@@ -24,7 +24,7 @@ export default function StudentExerciseList(props) {
     });
   }, [props.exerciseData]);
 
-  console.log("selected is ---->", columns.selected.items);
+  
 
   const onDragEnd = (result, columns, setColumns) => {
     if (!result.destination) return;

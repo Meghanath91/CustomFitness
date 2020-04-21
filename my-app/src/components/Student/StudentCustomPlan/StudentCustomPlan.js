@@ -12,7 +12,7 @@ export default function StudentCustomPlan(props) {
   const [state, setState] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/custom_plan/${customId}/exercises`)
+      .get(`/custom_plan/${customId}/exercises`)
       .then(res => {
         
         const exercises = res.data;

@@ -32,7 +32,7 @@ export default function StudentUpdateProfile(props) {
     console.log("typeof", typeof height);
 
     axios
-      .put(`http://localhost:8080/students`, {
+      .put(`/students`, {
         name: name,
         goal: goal,
         height: parseInt(height),

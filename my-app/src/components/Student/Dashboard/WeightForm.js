@@ -13,6 +13,18 @@ export default function WeightForm(props) {
   const [weight, setWeight] = useState("");
   const [date, setDate] = useState("MM/DD");
 
+  // useEffect(() => {
+   
+  //   if (props.trainerData && props.trainerData.name) {
+  //     setUser(props.trainerData.name);
+  //   }
+
+  //   if (props.studentData && props.studentData.name) {
+  //     setUser(props.studentData.name);
+  //   }
+  // }, [props, user]);
+
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -23,7 +35,7 @@ export default function WeightForm(props) {
   const handleWeight = evt => {
     evt.preventDefault();
     axios
-      .post(`http://localhost:8080/weights/create`, {
+      .post(`/weights/create`, {
         date: date,
         weight: parseInt(weight),
         student_id: props.studentData.id

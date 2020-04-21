@@ -114,7 +114,7 @@ export default function StudentProfile(props) {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          {/* Students Images */}
+        
           <Grid item xs={12} md={12} lg={20}>
             <Profile studentData={props.studentData} />
           </Grid>

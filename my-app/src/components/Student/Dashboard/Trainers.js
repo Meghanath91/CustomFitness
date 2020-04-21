@@ -10,7 +10,6 @@ import Paper from "@material-ui/core/Paper";
 import Link from "@material-ui/core/Link";
 import StudentAppSideBar from "./StudentAppSideBar";
 import TrainersItem from "./TrainersItem";
-// import StudentTable from "./StudentTable";
 import Chart from "./Chart";
 import Box from "@material-ui/core/Box";
 
@@ -105,8 +104,6 @@ const useStyles = makeStyles(theme => ({
 const drawerWidth = 240;
 
 export default function Students(props) {
-  console.log("props all trainers shiv==>", props);
-
   const classes = useStyles();
 
   return (
@@ -117,7 +114,6 @@ export default function Students(props) {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="xl" className={classes.container}>
           <Grid item xs={12} md={10} lg={12}>
-            {/* Students Images */}
             <TrainersItem
               allTrainers={props.allTrainers}
               studentData={props.studentData}

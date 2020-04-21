@@ -69,10 +69,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function StudentsItem(props) {
-  console.log("props in trainers item", props);
+  
   const[trainers, setTrainers]=useState(props.allTrainers)
   const classes = useStyles();
-  // const [state,setState]=useState()
+  
 
   const handleButton = evt => {
     evt.preventDefault();
@@ -94,7 +94,7 @@ export default function StudentsItem(props) {
     evt.preventDefault();
 
     axios
-      .post(`http://localhost:8080/subscriptions/subscribe`, {
+      .post(`/subscriptions/subscribe`, {
         trainer_id: id,
         student_id: props.studentData.id,
         student_name: props.studentData.name

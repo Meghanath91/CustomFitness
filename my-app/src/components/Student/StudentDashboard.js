@@ -112,15 +112,15 @@ export default function StudentDashboard(props) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/student/${props.studentData.id}/weights`)
+      .get(`/student/${props.studentData.id}/weights`)
 
       .then(res => {
-        console.log("response", res.data);
+        
         const datafromdb = res.data;
         const formattedData = datafromdb.map(
           ({ id, student_id, created_at, ...item }) => item
         );
-        console.log("formattedData", formattedData);
+       
         setData(formattedData);
       });
   }, [props.studentData.id]);
