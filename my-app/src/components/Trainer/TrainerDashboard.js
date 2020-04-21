@@ -137,11 +137,11 @@ export default function TrainerDashboard(props) {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/trainer/${props.trainerData.id}/subscriptions`
+        `/trainer/${props.trainerData.id}/subscriptions`
       )
       .then(res => {
         const subscriptions = res.data;
-        console.log("subscriptions", subscriptions);
+        
         setSubscriptions(subscriptions);
       });
   }, [props.trainerData.id]);

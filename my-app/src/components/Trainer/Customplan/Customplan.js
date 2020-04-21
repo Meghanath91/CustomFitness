@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import ExerciseList from "./ExerciseList";
 import "./CustomPlan.scss";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+
 
 import CustomForm from "./CustomForm";
 
 export default function CustomPlan(props) {
-  console.log("props on customplan=========>", props);
+ 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [difficulty, setDifficulty] = useState("");
@@ -20,7 +20,7 @@ export default function CustomPlan(props) {
   const handleCreatePlan = evt => {
     evt.preventDefault();
     axios
-      .post(`http://localhost:8080/custom_plans/create`, {
+      .post(`/custom_plans/create`, {
         trainer_id: props.trainerData.id,
         student_id: student,
         title: title,
@@ -37,7 +37,7 @@ export default function CustomPlan(props) {
 
         for (let exerciseID of workoutExercises) {
           axios
-            .post(`http://localhost:8080/workout_exercises/create`, {
+            .post(`/workout_exercises/create`, {
               custom_plan_id: parseInt(res.data),
               exercise_id: parseInt(exerciseID.id),
               

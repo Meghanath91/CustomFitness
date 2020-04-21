@@ -17,7 +17,7 @@ export default function Trainer(props) {
   const [myStudents, setMyStudents] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/trainer/${props.trainerData.id}/students`)
+      .get(`/trainer/${props.trainerData.id}/students`)
       .then(res => {
         const students = res.data;
         setMyStudents(students);

@@ -8,7 +8,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
 export default function CustomPlanForm(props) {
-  console.log("props on customform", props.myStudents);
+ 
   const [difficulty, setDifficulty] = useState("beginner");
   const [type, setType] = useState("weightloss");
   const [student, setStudent] = useState({});

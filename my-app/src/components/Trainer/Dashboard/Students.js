@@ -11,10 +11,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 import TrainerAppSideBar from "./TrainerAppSidebar";
 import StudentsItem from "./StudentsItem";
-// import StudentTable from "./StudentTable";
-import Chart from "./Chart";
-import Box from "@material-ui/core/Box";
-import StudentRequest from "./StudentRequests";
 
 function Copyright() {
   return (

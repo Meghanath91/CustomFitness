@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-// import uuid from "uuid/v4";
+
 
 export default function ExerciseList(props) {
   const columnsFromBackend = {

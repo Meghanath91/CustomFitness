@@ -16,11 +16,9 @@ const StyledBadge = withStyles(theme => ({
 }))(Badge);
 
 export default function StudentRequest(props) {
-  console.log("subs in stdrqst=>", props.subscriptions);
+  
 
   const [notification, setNotifications] = useState(props.subscriptions.length);
-  console.log("-===> props.sub", props.subscriptions.length);
-  console.log(">", notification);
 
   useEffect(() => setNotifications(props.subscriptions.length), [
     props.subscriptions.length
@@ -31,13 +29,11 @@ export default function StudentRequest(props) {
 
     for (let subscription of props.subscriptions) {
       axios
-        .put(`http://localhost:8080/subscriptions/${subscription.id}`, {
+        .put(`/subscriptions/${subscription.id}`, {
           seen: true
         })
         .then(res => {
           setNotifications(0);
-          // console.log("subscriptions", subscriptions);
-          // setSubscriptions(subscriptions);
         });
     }
   };

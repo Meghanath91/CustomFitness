@@ -15,7 +15,7 @@ export default function UpdateProfile(props) {
   const handleClickOpen = () => {
     setOpen(true);
   };
-  console.log("id trainer--", props.trainerData.id);
+  
   const handleClose = () => {
     setOpen(false);
   };
@@ -25,14 +25,14 @@ export default function UpdateProfile(props) {
   const handleUpdate = evt => {
     evt.preventDefault();
     axios
-      .put(`http://localhost:8080/trainers`, {
+      .put(`/trainers`, {
         name: name,
         about: about,
         experience: experience,
         id: props.trainerData.id
       })
       .then(res => {
-        alert("Trainer Details completed");
+        alert("Trainer Details updated");
         handleClose();
       });
   };

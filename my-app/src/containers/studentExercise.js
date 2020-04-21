@@ -108,19 +108,6 @@ const drawerWidth = 240;
 export default function StudentExercise(props) {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
-  // const [state, setState] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:8080/student/${props.studentData.id}/exercises`)
-  //     .then(res => {
-  //       console.log("res.data=====>", res.data);
-  //       const exercises = res.data;
-
-  //       setState(exercises);
-  //     });
-  // }, [props.studentData.id]);
-
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -129,7 +116,7 @@ export default function StudentExercise(props) {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={10}>
-            {/* Students Images */}
+            
             <Grid item xs={12} md={12} lg={20}>
               <StudentCustomPlan studentData={props.studentData} />
             </Grid>
