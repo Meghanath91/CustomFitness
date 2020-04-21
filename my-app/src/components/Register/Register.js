@@ -72,7 +72,7 @@ export default function Register() {
 
     if (user === "trainer") {
       axios
-        .post(`http://localhost:8080/trainers/register`, {
+        .post(`/trainers/register`, {
           name: fullName,
           email: email,
           password: password,
@@ -86,7 +86,7 @@ export default function Register() {
         });
     } else {
       axios
-        .post(`http://localhost:8080/students/register`, {
+        .post(`/students/register`, {
           name: fullName,
           email: email,
           password: password,

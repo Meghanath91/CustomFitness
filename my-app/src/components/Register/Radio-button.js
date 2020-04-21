@@ -68,7 +68,7 @@ const useStyles = makeStyles({
   }
 });
 
-// Inspired by blueprintjs
+
 function StyledRadio(props) {
   const classes = useStyles();
 
