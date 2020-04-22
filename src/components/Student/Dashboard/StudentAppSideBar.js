@@ -10,7 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
-import { mainListItems } from "./listItems";
+import { SideBar } from "./SideBar/SideBar";
 
 const drawerWidth = 240;
 
@@ -153,7 +153,7 @@ export default function StudentAppSideBar(props) {
             <ChevronLeftIcon />
           </IconButton>
         </div>
-        <List>{mainListItems}</List>
+        <List>{SideBar}</List>
       </Drawer>
     </div>
   );

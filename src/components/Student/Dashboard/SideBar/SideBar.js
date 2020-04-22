@@ -9,7 +9,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { Link } from "react-router-dom";
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 
-export const mainListItems = (
+export const SideBar = (
   <div>
     <Link
       to="/student/dashboard"
