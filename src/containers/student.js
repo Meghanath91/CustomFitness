@@ -4,7 +4,7 @@ import StudentProfile from "../components/Student/My_profile/StudentProfile";
 import "./student.scss";
 import StudentDashboard from "../components/Student/Dashboard/StudentDashboard";
 import StudentExercise from "../containers/studentExercise";
-import Trainers from "../components/Student/Dashboard/Trainers/Trainers";
+import Trainers from "../components/Student/Trainers/Trainers";
 import { Switch, Route } from "react-router-dom";
 
 export default function Student(props) {

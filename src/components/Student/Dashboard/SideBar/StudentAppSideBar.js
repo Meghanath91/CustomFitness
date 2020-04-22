@@ -10,7 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
-import { SideBar } from "./SideBar/SideBar";
+import { SideBar } from "./SideBar";
 
 const drawerWidth = 240;
 
