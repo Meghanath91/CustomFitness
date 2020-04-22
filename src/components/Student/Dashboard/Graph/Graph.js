@@ -8,10 +8,10 @@ import {
   Label,
   ResponsiveContainer
 } from "recharts";
-import Title from "./Title";
+import Title from "../Title";
 
-export default function Chart(props) {
-  console.log("data for chart", props.data);
+export default function Graph(props) {
+  
   const theme = useTheme();
 
   return (
