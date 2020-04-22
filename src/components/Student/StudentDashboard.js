@@ -9,7 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import StudentTable from "./Dashboard/Table";
 import Chart from "./Dashboard/Chart";
-import WeightForm from "./Dashboard/WeightForm";
+import WeightForm from "./Dashboard/WeightForm/WeightForm";
 import StudentAppSideBar from "./Dashboard/StudentAppSideBar";
 import axios from "axios";
 
