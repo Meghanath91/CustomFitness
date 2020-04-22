@@ -11,7 +11,7 @@ import Paper from "@material-ui/core/Paper";
 import StudentTable from "./WeightTable/WeightTable";
 import Graph from "./Graph/Graph";
 import WeightForm from "./WeightForm/WeightForm";
-import StudentAppSideBar from "./SideBar/StudentAppSideBar";
+import StudentAppSideBar from "../SideBar/StudentAppSideBar";
 import axios from "axios";
 
 function Copyright() {

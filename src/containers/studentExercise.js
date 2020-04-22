@@ -6,7 +6,7 @@ import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import StudentAppSideBar from "../components/Student/Dashboard/SideBar/StudentAppSideBar";
+import StudentAppSideBar from "../components/Student/SideBar/StudentAppSideBar";
 import StudentCustomPlan from "../components/Student/StudentCustomPlan/StudentCustomPlan";
 
 function Copyright() {
