@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import StudentProfile from "../components/Student/StudentProfile";
+import StudentProfile from "../components/Student/My_profile/StudentProfile";
 import "./student.scss";
 import StudentDashboard from "../components/Student/StudentDashboard";
 import StudentExercise from "../containers/studentExercise";

@@ -1,6 +1,6 @@
 import React from "react";
-import "../../Student.scss";
-import StudentUpdateProfile from "../StudentUpdateProfile";
+import "../Student.scss";
+import StudentUpdateProfile from "./StudentUpdateProfile/StudentUpdateProfile";
 
 export default function Profile(props) {
   return (

@@ -2,11 +2,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-import Profile from "./Dashboard/My_profile/Profile";
+import Profile from "./Profile";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
-import StudentAppSideBar from "./Dashboard/StudentAppSideBar";
+import StudentAppSideBar from "../Dashboard/StudentAppSideBar";
 import Box from "@material-ui/core/Box";
 
 function Copyright() {
