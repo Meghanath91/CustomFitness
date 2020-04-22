@@ -7,8 +7,9 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import StudentTable from "./Dashboard/Table";
-import Chart from "./Dashboard/Graph/Graph";
+
+import StudentTable from "./Dashboard/WeightTable/WeightTable";
+import Graph from "./Dashboard/Graph/Graph";
 import WeightForm from "./Dashboard/WeightForm/WeightForm";
 import StudentAppSideBar from "./Dashboard/StudentAppSideBar";
 import axios from "axios";
@@ -159,7 +160,7 @@ export default function StudentDashboard(props) {
                   marginRight: "4%",
                 }}
               >
-                <Chart
+                <Graph
                   data={data}
                   style={{
                     width: "60rem",
