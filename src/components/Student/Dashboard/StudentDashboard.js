@@ -8,10 +8,10 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 
-import StudentTable from "./Dashboard/WeightTable/WeightTable";
-import Graph from "./Dashboard/Graph/Graph";
-import WeightForm from "./Dashboard/WeightForm/WeightForm";
-import StudentAppSideBar from "./Dashboard/StudentAppSideBar";
+import StudentTable from "./WeightTable/WeightTable";
+import Graph from "./Graph/Graph";
+import WeightForm from "./WeightForm/WeightForm";
+import StudentAppSideBar from "./StudentAppSideBar";
 import axios from "axios";
 
 function Copyright() {
