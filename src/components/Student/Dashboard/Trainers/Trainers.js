@@ -8,7 +8,7 @@ import Link from "@material-ui/core/Link";
 import Box from "@material-ui/core/Box";
 
 import StudentAppSideBar from "../StudentAppSideBar";
-import TrainersItem from "../TrainersItem";
+import TrainersItem from "./TrainersItem/TrainersItem";
 
 function Copyright() {
   return (
