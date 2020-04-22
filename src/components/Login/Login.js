@@ -72,7 +72,7 @@ export default function Login(props) {
         localforage.setItem("user", res.data, () => {
           localforage.setItem("usertype", user);
           setLoggedin(true);
-          console.log("i get to this point with user from======>>>", res.data);
+          
           user === "trainer"
             ? props.setTrainer(res.data)
             : props.setStudent(res.data);
