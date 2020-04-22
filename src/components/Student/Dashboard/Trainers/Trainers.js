@@ -5,9 +5,10 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
-import StudentAppSideBar from "./StudentAppSideBar";
-import TrainersItem from "./TrainersItem";
 import Box from "@material-ui/core/Box";
+
+import StudentAppSideBar from "../StudentAppSideBar";
+import TrainersItem from "../TrainersItem";
 
 function Copyright() {
   return (
@@ -99,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
 
 const drawerWidth = 240;
 
-export default function Students(props) {
+export default function Trainers(props) {
   const classes = useStyles();
 
   return (
