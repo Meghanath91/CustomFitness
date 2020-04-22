@@ -13,7 +13,7 @@ import Paper from "@material-ui/core/Paper";
 
 import TrainerAppSideBar from "./Dashboard/TrainerAppSidebar";
 import StudentTable from "./Dashboard/StudentTable";
-import Chart from "./Dashboard/Chart";
+import Graph from "./Dashboard/Graph/Graph";
 import StudentRequest from "./Dashboard/StudentRequests";
 import axios from "axios";
 function Copyright() {
@@ -173,7 +173,7 @@ export default function TrainerDashboard(props) {
               }}
             >
               <Paper className={fixedHeightPaper} style={{ width: "100%" }}>
-                <Chart data={data} />
+                <Graph data={data} />
               </Paper>
               <StudentRequest
                 subscriptions={subscriptions}
