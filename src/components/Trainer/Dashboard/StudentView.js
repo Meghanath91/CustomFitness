@@ -14,10 +14,10 @@ export default function StudentView(props) {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const handleClickOpen = evt => {
+  const handleClickOpen = (evt) => {
     evt.preventDefault();
     const iStudent = props.myStudents.filter(
-      student => student.id === props.studentId
+      (student) => student.id === props.studentId
     );
     setStudent(iStudent[0]);
     setOpen(true);
@@ -45,14 +45,14 @@ export default function StudentView(props) {
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center"
+              alignItems: "center",
             }}
           >
             <DialogContentText
               style={{
                 fontSize: "1.6rem",
                 fontWeight: "700",
-                color: "black"
+                color: "black",
               }}
             >
               {student.name}
@@ -62,49 +62,50 @@ export default function StudentView(props) {
                 style={{
                   height: "85%",
                   width: "50%",
-                  marginLeft: "28%"
+                  marginLeft: "28%",
                 }}
                 src={student.avatar}
+                alt="student"
               ></img>{" "}
             </DialogContentText>
             <DialogContentText
               style={{
-                color: "black"
+                color: "black",
               }}
             >
               <strong>Goal: </strong> {student.goal}
             </DialogContentText>
             <DialogContentText
               style={{
-                color: "black"
+                color: "black",
               }}
             >
               <strong>Focus: </strong> {student.focus}
             </DialogContentText>
             <DialogContentText
               style={{
-                color: "black"
+                color: "black",
               }}
             >
               <strong>Age: </strong> {student.age}
             </DialogContentText>
             <DialogContentText
               style={{
-                color: "black"
+                color: "black",
               }}
             >
               <strong>Height: </strong> {student.height}
             </DialogContentText>
             <DialogContentText
               style={{
-                color: "black"
+                color: "black",
               }}
             >
               <strong>Weight: </strong> {student.weight}
             </DialogContentText>
             <DialogContentText
               style={{
-                color: "black"
+                color: "black",
               }}
             >
               <strong>BMI: </strong>{" "}

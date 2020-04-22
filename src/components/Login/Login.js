@@ -30,25 +30,24 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: "20%"
+    marginTop: "20%",
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1)
+    marginTop: theme.spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
-  }
+    margin: theme.spacing(3, 0, 2),
+  },
 }));
 
 export default function Login(props) {
@@ -61,20 +60,15 @@ export default function Login(props) {
 
   axios.defaults.withCredentials = true;
 
-  const handleLogin = evt => {
+  const handleLogin = (evt) => {
     evt.preventDefault();
 
     axios
-      .post(
-        `/${
-          user === "trainer" ? "trainers" : "students"
-        }/login`,
-        {
-          email: email,
-          password: password
-        }
-      )
-      .then(res => {
+      .post(`/${user === "trainer" ? "trainers" : "students"}/login`, {
+        email: email,
+        password: password,
+      })
+      .then((res) => {
         localforage.setItem("user", res.data, () => {
           localforage.setItem("usertype", user);
           setLoggedin(true);
@@ -113,7 +107,7 @@ export default function Login(props) {
             id="email"
             name="email"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             label="Email Address"
             autoComplete="email"
             autoFocus
@@ -125,7 +119,7 @@ export default function Login(props) {
             fullWidth
             name="password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             label="Password"
             type="password"
             id="password"

@@ -5,18 +5,12 @@ import "./student.scss";
 import StudentDashboard from "../components/Student/StudentDashboard";
 import StudentExercise from "../containers/studentExercise";
 import Trainers from "../components/Student/Dashboard/Trainers";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect
-} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 export default function Student(props) {
   const [allTrainers, setAllTrainers] = useState([]);
   useEffect(() => {
-    axios.get("/trainers").then(res => {
+    axios.get("/trainers").then((res) => {
       const trainers = res.data;
       setAllTrainers(trainers);
     });
@@ -27,7 +21,7 @@ export default function Student(props) {
       <div
         style={{
           marginTop: "5%",
-          width: "100%"
+          width: "100%",
         }}
       >
         <Switch>

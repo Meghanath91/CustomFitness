@@ -4,8 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 
 import localforage from "localforage";
@@ -23,8 +22,8 @@ function App() {
   const [trainer, setTrainer] = useState({});
 
   useEffect(() => {
-    localforage.getItem("usertype").then(type => {
-      localforage.getItem("user").then(storedUser => {
+    localforage.getItem("usertype").then((type) => {
+      localforage.getItem("user").then((storedUser) => {
         type === "trainer" ? setTrainer(storedUser) : setStudent(storedUser);
       });
     });

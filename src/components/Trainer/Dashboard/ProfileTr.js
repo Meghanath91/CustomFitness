@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Dashboard.scss";
 import UpdateProfile from "./UpdateProfile";
 
@@ -8,7 +8,7 @@ export default function ProfileTr(props) {
       <img
         className="trainer-avatar"
         src={props.trainerData.avatar}
-        alt="trainer-profile-picture"
+        alt="trainer-profile"
       />
       <div className="trainer-profile">
         <p className="trainer-header">My Profile</p>

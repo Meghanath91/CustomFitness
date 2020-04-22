@@ -14,10 +14,10 @@ export default function TrainerView(props) {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const handleClickOpen = evt => {
+  const handleClickOpen = (evt) => {
     evt.preventDefault();
     const iTrainer = props.allTrainers.filter(
-      trainer => trainer.id === props.trainerId
+      (trainer) => trainer.id === props.trainerId
     );
     setTrainer(iTrainer[0]);
     setOpen(true);
@@ -45,14 +45,14 @@ export default function TrainerView(props) {
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center"
+              alignItems: "center",
             }}
           >
             <DialogContentText
               style={{
                 fontSize: "1.6rem",
                 fontWeight: "700",
-                color: "black"
+                color: "black",
               }}
             >
               {trainer.name}
@@ -62,14 +62,15 @@ export default function TrainerView(props) {
                 style={{
                   height: "50%",
                   width: "50%",
-                  marginLeft: "27%"
+                  marginLeft: "27%",
                 }}
                 src={trainer.avatar}
+                alt="trainer"
               />
             </DialogContentText>
             <DialogContentText
               style={{
-                color: "black"
+                color: "black",
               }}
             >
               {" "}
@@ -78,7 +79,7 @@ export default function TrainerView(props) {
             </DialogContentText>
             <DialogContentText
               style={{
-                color: "black"
+                color: "black",
               }}
             >
               <strong>Phone: </strong>
@@ -86,7 +87,7 @@ export default function TrainerView(props) {
             </DialogContentText>
             <DialogContentText
               style={{
-                color: "black"
+                color: "black",
               }}
             >
               <strong>Experience: </strong>

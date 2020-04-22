@@ -5,26 +5,24 @@ export default function StudentExerciseList(props) {
   const columnsFromBackend = {
     select: {
       name: "In progress",
-      items: []
+      items: [],
     },
     selected: {
       name: "Completed",
-      items: []
-    }
+      items: [],
+    },
   };
   const [columns, setColumns] = useState(columnsFromBackend);
   useEffect(() => {
     const itemsFromBackend = props.exerciseData;
 
-    setColumns(prev => {
+    setColumns((prev) => {
       return {
         ...prev,
-        select: { name: "In Progress", items: itemsFromBackend }
+        select: { name: "In Progress", items: itemsFromBackend },
       };
     });
   }, [props.exerciseData]);
-
-  
 
   const onDragEnd = (result, columns, setColumns) => {
     if (!result.destination) return;
@@ -41,12 +39,12 @@ export default function StudentExerciseList(props) {
         ...columns,
         [source.droppableId]: {
           ...sourceColumn,
-          items: sourceItems
+          items: sourceItems,
         },
         [destination.droppableId]: {
           ...destColumn,
-          items: destItems
-        }
+          items: destItems,
+        },
       });
     } else {
       const column = columns[source.droppableId];
@@ -57,8 +55,8 @@ export default function StudentExerciseList(props) {
         ...columns,
         [source.droppableId]: {
           ...column,
-          items: copiedItems
-        }
+          items: copiedItems,
+        },
       });
     }
   };
@@ -70,11 +68,11 @@ export default function StudentExerciseList(props) {
         justifyContent: "center",
         height: "100%",
 
-        marginLeft: "2%"
+        marginLeft: "2%",
       }}
     >
       <DragDropContext
-        onDragEnd={result => onDragEnd(result, columns, setColumns)}
+        onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
       >
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
@@ -83,7 +81,7 @@ export default function StudentExerciseList(props) {
                 display: "flex",
                 justifyContent: "space-between",
                 flexDirection: "column",
-                alignItems: "center"
+                alignItems: "center",
               }}
               key={columnId}
             >
@@ -91,7 +89,7 @@ export default function StudentExerciseList(props) {
                 style={{
                   color: "black",
                   textDecoration: "underline",
-                  fontSize: "1.6rem"
+                  fontSize: "1.6rem",
                 }}
               >
                 {column.name}
@@ -100,7 +98,7 @@ export default function StudentExerciseList(props) {
                 style={{
                   margin: "2%",
                   width: "30rem",
-                  alignContent: "center"
+                  alignContent: "center",
                 }}
               >
                 <Droppable droppableId={columnId} key={columnId}>
@@ -121,7 +119,7 @@ export default function StudentExerciseList(props) {
                           width: "95%",
                           height: "50rem",
                           textAlign: "center",
-                          borderRadius: "8px"
+                          borderRadius: "8px",
                         }}
                       >
                         {column.items.map((item, index) => {
@@ -153,7 +151,7 @@ export default function StudentExerciseList(props) {
                                         : "#FFFFFF",
                                       color: "#000000",
                                       fontSize: "0.9rem",
-                                      ...provided.draggableProps.style
+                                      ...provided.draggableProps.style,
                                     }}
                                   >
                                     {item.name}
@@ -161,6 +159,7 @@ export default function StudentExerciseList(props) {
                                     <img
                                       className="student-exercise-gif"
                                       src={item.thumbnail_photo_url}
+                                      alt="exercise"
                                     />
                                     <br />
                                     {item.body_part}

@@ -41,7 +41,7 @@ export default function AlertDialog(props) {
             id="alert-dialog-description"
             style={{
               color: "black",
-              fontSize: "1rem"
+              fontSize: "1rem",
             }}
           >
             New account has been created. Please login to continue.
@@ -62,7 +62,6 @@ export default function AlertDialog(props) {
               borderRadius: "8px",
               width: "20%",
               textAlign: "center",
-              color: "black"
             }}
           >
             Login

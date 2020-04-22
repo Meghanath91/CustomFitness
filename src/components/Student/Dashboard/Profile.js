@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "../Student.scss";
 import StudentUpdateProfile from "./StudentUpdateProfile";
-
 
 export default function Profile(props) {
   return (
@@ -9,7 +8,7 @@ export default function Profile(props) {
       <img
         className="student-avatar"
         src={props.studentData.avatar}
-        alt="student-profile-picture"
+        alt="student-profile"
       />
       <div className="student-profile">
         <p className="student-header">My Profile</p>

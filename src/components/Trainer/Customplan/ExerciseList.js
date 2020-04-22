@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 
-
 export default function ExerciseList(props) {
   const columnsFromBackend = {
     select: {
       name: "Select Exercise(s)",
-      items: []
+      items: [],
     },
     selected: {
       name: "Selected Exercise(s)",
-      items: []
-    }
+      items: [],
+    },
   };
   const [columns, setColumns] = useState(columnsFromBackend);
   useEffect(() => {
     const itemsFromBackend = props.exerciseData;
-    setColumns(prev => {
+    setColumns((prev) => {
       return {
         ...prev,
-        select: { name: "Select Exercise(s)", items: itemsFromBackend }
+        select: { name: "Select Exercise(s)", items: itemsFromBackend },
       };
     });
   }, [props.exerciseData]);
@@ -40,12 +39,12 @@ export default function ExerciseList(props) {
         ...columns,
         [source.droppableId]: {
           ...sourceColumn,
-          items: sourceItems
+          items: sourceItems,
         },
         [destination.droppableId]: {
           ...destColumn,
-          items: destItems
-        }
+          items: destItems,
+        },
       });
     } else {
       const column = columns[source.droppableId];
@@ -56,8 +55,8 @@ export default function ExerciseList(props) {
         ...columns,
         [source.droppableId]: {
           ...column,
-          items: copiedItems
-        }
+          items: copiedItems,
+        },
       });
     }
   };
@@ -68,11 +67,11 @@ export default function ExerciseList(props) {
         display: "flex",
         justifyContent: "center",
         height: "100%",
-        width: "100%"
+        width: "100%",
       }}
     >
       <DragDropContext
-        onDragEnd={result => onDragEnd(result, columns, setColumns)}
+        onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
       >
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
@@ -82,14 +81,14 @@ export default function ExerciseList(props) {
                 justifyContent: "flex-start",
                 flexDirection: "column",
                 alignItems: "center",
-                width: "100%"
+                width: "100%",
               }}
               key={columnId}
             >
               <h2
                 style={{
                   color: "black",
-                  margin: 0
+                  margin: 0,
                 }}
               >
                 {column.name}
@@ -98,7 +97,7 @@ export default function ExerciseList(props) {
                 style={{
                   margin: "2%",
                   width: "32rem",
-                  alignContent: "center"
+                  alignContent: "center",
                 }}
               >
                 <Droppable droppableId={columnId} key={columnId}>
@@ -119,7 +118,7 @@ export default function ExerciseList(props) {
                           width: "90%",
                           height: "50rem",
                           textAlign: "center",
-                          borderRadius: "8px"
+                          borderRadius: "8px",
                         }}
                       >
                         {column.items.map((item, index) => {
@@ -151,7 +150,7 @@ export default function ExerciseList(props) {
                                         : "#FFFFFF",
                                       color: "#000000",
 
-                                      ...provided.draggableProps.style
+                                      ...provided.draggableProps.style,
                                     }}
                                   >
                                     {item.name}
@@ -159,6 +158,7 @@ export default function ExerciseList(props) {
                                     <img
                                       className="exercise-gif"
                                       src={item.thumbnail_photo_url}
+                                      alt="exercise"
                                     />
                                     <br />
                                     {item.body_part}

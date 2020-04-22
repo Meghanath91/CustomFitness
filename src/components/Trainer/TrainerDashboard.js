@@ -12,8 +12,6 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 
 import TrainerAppSideBar from "./Dashboard/TrainerAppSidebar";
-import Students from "./Dashboard/Students";
-import Money from "./Dashboard/Money";
 import StudentTable from "./Dashboard/StudentTable";
 import Chart from "./Dashboard/Chart";
 import StudentRequest from "./Dashboard/StudentRequests";
@@ -31,46 +29,46 @@ function Copyright() {
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     width: "100%",
-    height: "100vh"
+    height: "100vh",
   },
   toolbar: {
-    paddingRight: 24 // keep right padding when drawer closed
+    paddingRight: 24, // keep right padding when drawer closed
   },
   toolbarIcon: {
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
     padding: "0 8px",
-    ...theme.mixins.toolbar
+    ...theme.mixins.toolbar,
   },
   appBar: {
     zIndex: theme.zIndex.drawer - 10,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+      duration: theme.transitions.duration.leavingScreen,
     }),
-    backgroundColor: "rgb(0, 11, 14)"
+    backgroundColor: "rgb(0, 11, 14)",
   },
   appBarShift: {
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
+      duration: theme.transitions.duration.enteringScreen,
+    }),
   },
   menuButton: {
-    marginRight: 36
+    marginRight: 36,
   },
   menuButtonHidden: {
-    display: "none"
+    display: "none",
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   drawerPaper: {
     position: "relative",
@@ -78,39 +76,39 @@ const useStyles = makeStyles(theme => ({
     width: drawerWidth,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
+      duration: theme.transitions.duration.enteringScreen,
+    }),
   },
   drawerPaperClose: {
     overflowX: "hidden",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+      duration: theme.transitions.duration.leavingScreen,
     }),
     width: theme.spacing(7),
     [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9)
-    }
+      width: theme.spacing(9),
+    },
   },
   appBarSpacer: theme.mixins.toolbar,
 
   content: {
     flexGrow: 1,
     height: "100vh",
-    width: "100%"
+    width: "100%",
   },
   container: {
     paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4)
+    paddingBottom: theme.spacing(4),
   },
   paper: {
     padding: theme.spacing(2),
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
   },
   fixedHeight: {
-    height: 240
-  }
+    height: 240,
+  },
 }));
 
 export default function TrainerDashboard(props) {
@@ -125,7 +123,7 @@ export default function TrainerDashboard(props) {
       { time: "Thursday", amount: 1500 },
       { time: "Friday", amount: 1000 },
       { time: "Saturday", amount: 0 },
-      { time: "Sunday", amount: 100 }
+      { time: "Sunday", amount: 100 },
     ]);
   }, []);
 
@@ -135,15 +133,11 @@ export default function TrainerDashboard(props) {
   const [subscriptions, setSubscriptions] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(
-        `/trainer/${props.trainerData.id}/subscriptions`
-      )
-      .then(res => {
-        const subscriptions = res.data;
-        
-        setSubscriptions(subscriptions);
-      });
+    axios.get(`/trainer/${props.trainerData.id}/subscriptions`).then((res) => {
+      const subscriptions = res.data;
+
+      setSubscriptions(subscriptions);
+    });
   }, [props.trainerData.id]);
 
   return (
@@ -161,7 +155,7 @@ export default function TrainerDashboard(props) {
 
           backgroundImage: "url('https://wallpapercave.com/wp/wp2639536.jpg')",
           backgroundSize: "cover",
-          backgroundRepeat: "no-repeat"
+          backgroundRepeat: "no-repeat",
         }}
       >
         <div className={classes.appBarSpacer} />
@@ -175,7 +169,7 @@ export default function TrainerDashboard(props) {
               lg={10}
               style={{
                 display: "flex",
-                alignItems: "center"
+                alignItems: "center",
               }}
             >
               <Paper className={fixedHeightPaper} style={{ width: "100%" }}>
@@ -184,7 +178,7 @@ export default function TrainerDashboard(props) {
               <StudentRequest
                 subscriptions={subscriptions}
                 style={{
-                  marginLeft: "10%"
+                  marginLeft: "10%",
                 }}
               />
             </Grid>

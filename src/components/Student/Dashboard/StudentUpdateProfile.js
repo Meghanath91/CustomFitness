@@ -4,7 +4,6 @@ import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import axios from "axios";
 
@@ -23,7 +22,7 @@ export default function StudentUpdateProfile(props) {
     setOpen(false);
   };
 
-  const handleComplete = event => {
+  const handleComplete = (event) => {
     event.preventDefault();
     console.log("props.student.id", props.studentData.id);
     console.log("typeof", typeof props.studentData.id);
@@ -37,9 +36,9 @@ export default function StudentUpdateProfile(props) {
         goal: goal,
         height: parseInt(height),
         weight: parseInt(weight),
-        id: props.studentData.id
+        id: props.studentData.id,
       })
-      .then(res => {
+      .then((res) => {
         alert("Student details updated");
         handleClose();
       });
@@ -65,7 +64,7 @@ export default function StudentUpdateProfile(props) {
           style={{
             backgroundColor: "rgba(5, 5, 5, 0.73)",
             color: "white",
-            fontFamily: "'Raleway', sans-serif"
+            fontFamily: "'Raleway', sans-serif",
           }}
         >
           Update your profile
@@ -73,13 +72,13 @@ export default function StudentUpdateProfile(props) {
         <DialogContent>
           <TextField
             style={{
-              paddingTop: "1rem"
+              paddingTop: "1rem",
             }}
             required
             autoFocus
             margin="dense"
             value={name}
-            onChange={evt => setName(evt.target.value)}
+            onChange={(evt) => setName(evt.target.value)}
             id="name"
             label="Full Name"
             type="text"
@@ -87,40 +86,40 @@ export default function StudentUpdateProfile(props) {
           />
           <TextField
             style={{
-              paddingTop: "1rem"
+              paddingTop: "1rem",
             }}
             required
             margin="dense"
             id="goal"
             value={goal}
-            onChange={evt => setGoal(evt.target.value)}
+            onChange={(evt) => setGoal(evt.target.value)}
             label="Goal"
             type="Text"
             fullWidth
           />
           <TextField
             style={{
-              paddingTop: "1rem"
+              paddingTop: "1rem",
             }}
             required
             margin="dense"
             id="height"
             value={height}
-            onChange={evt => setHeight(evt.target.value)}
+            onChange={(evt) => setHeight(evt.target.value)}
             label="Height"
             type="text"
             fullWidth
           />
           <TextField
             style={{
-              paddingTop: "1rem"
+              paddingTop: "1rem",
             }}
             required
             margin="dense"
             id="weight"
             label="Weight"
             value={weight}
-            onChange={evt => setWeight(evt.target.value)}
+            onChange={(evt) => setWeight(evt.target.value)}
             type="text"
             fullWidth
           />

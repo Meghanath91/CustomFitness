@@ -1,17 +1,13 @@
-import React from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import React from "react";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import PeopleIcon from "@material-ui/icons/People";
+import BarChartIcon from "@material-ui/icons/BarChart";
 import { Link } from "react-router-dom";
-import ContactsIcon from '@material-ui/icons/Contacts';
-import NoteAddIcon from '@material-ui/icons/NoteAdd';
+import ContactsIcon from "@material-ui/icons/Contacts";
+import NoteAddIcon from "@material-ui/icons/NoteAdd";
 
 export const mainListItems = (
   <div>
@@ -19,47 +15,47 @@ export const mainListItems = (
       to="/trainer/dashboard"
       style={{
         textDecoration: "none",
-        color: "black"
-        }}
+        color: "black",
+      }}
     >
-    <ListItem button>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        <ListItemText primary="Dashboard" />
+      </ListItem>
     </Link>
 
-    <Link 
-        style={{
-          textDecoration: "none",
-        color:"black"
-        }}
-          to="/trainer/profile">
-
-    <ListItem button>
-      <ListItemIcon>
-        <ContactsIcon />
-      </ListItemIcon>
-      <ListItemText primary="My Profile" />
-    </ListItem>
+    <Link
+      style={{
+        textDecoration: "none",
+        color: "black",
+      }}
+      to="/trainer/profile"
+    >
+      <ListItem button>
+        <ListItemIcon>
+          <ContactsIcon />
+        </ListItemIcon>
+        <ListItemText primary="My Profile" />
+      </ListItem>
     </Link>
 
-    <Link 
-        style={{
-          textDecoration: "none",
-        color:"black"
-        }}
-          to="/trainer/students">
-
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Students" />
-    </ListItem>
+    <Link
+      style={{
+        textDecoration: "none",
+        color: "black",
+      }}
+      to="/trainer/students"
+    >
+      <ListItem button>
+        <ListItemIcon>
+          <PeopleIcon />
+        </ListItemIcon>
+        <ListItemText primary="Students" />
+      </ListItem>
     </Link>
-    
+
     <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
@@ -67,18 +63,19 @@ export const mainListItems = (
       <ListItemText primary="Feedback" />
     </ListItem>
 
-    <Link 
-        style={{
-          textDecoration: "none",
-        color:"black"
-        }}
-          to="/trainer/create_plan">
-    <ListItem button>
-      <ListItemIcon>
-        <NoteAddIcon />
-      </ListItemIcon>
-      <ListItemText primary="Create Plan" />
-    </ListItem>
+    <Link
+      style={{
+        textDecoration: "none",
+        color: "black",
+      }}
+      to="/trainer/create_plan"
+    >
+      <ListItem button>
+        <ListItemIcon>
+          <NoteAddIcon />
+        </ListItemIcon>
+        <ListItemText primary="Create Plan" />
+      </ListItem>
     </Link>
   </div>
 );
