@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import ContactsIcon from "@material-ui/icons/Contacts";
 import NoteAddIcon from "@material-ui/icons/NoteAdd";
 
-export const mainListItems = (
+export const Sidebar = (
   <div>
     <Link
       to="/trainer/dashboard"

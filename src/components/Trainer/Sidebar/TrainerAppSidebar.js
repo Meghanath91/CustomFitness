@@ -11,7 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import { mainListItems, secondaryListItems } from "./Sidebar";
+import { Sidebar } from "./Sidebar";
 
 const drawerWidth = 240;
 
@@ -154,9 +154,8 @@ export default function TrainerAppSideBar(props) {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+        <List>{Sidebar}</List>
         <Divider />
-        <List>{secondaryListItems}</List>
       </Drawer>
     </div>
   );
