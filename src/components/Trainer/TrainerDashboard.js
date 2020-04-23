@@ -14,7 +14,7 @@ import Paper from "@material-ui/core/Paper";
 import TrainerAppSideBar from "./Dashboard/TrainerAppSidebar";
 import StudentTable from "./Dashboard/StudentTable";
 import Graph from "./Dashboard/Graph/Graph";
-import StudentRequest from "./Dashboard/StudentRequests";
+import StudentRequest from "./Dashboard/Notification/StudentRequests";
 import axios from "axios";
 function Copyright() {
   return (

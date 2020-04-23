@@ -1,6 +1,6 @@
 import React from "react";
-import "./Dashboard.scss";
-import UpdateProfile from "./UpdateProfile";
+import "../../Dashboard/Dashboard.scss";
+import UpdateProfile from "./UpdateProfile/UpdateProfile";
 
 export default function ProfileTr(props) {
   return (
