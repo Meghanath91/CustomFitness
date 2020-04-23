@@ -4,13 +4,13 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-import ProfileTr from "./Dashboard/ProfileTr";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
-
-import TrainerAppSideBar from "../Dashboard/TrainerAppSidebar";
 import Box from "@material-ui/core/Box";
+
+import ProfileTr from "./ProfileTr/ProfileTr";
+import TrainerAppSideBar from "../Sidebar/TrainerAppSidebar";
 
 function Copyright() {
   return (

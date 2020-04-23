@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import ExerciseList from "./ExerciseList/ExerciseList";
 import "./CustomPlan.scss";
 import axios from "axios";
-
-
 import CustomForm from "./CustomForm/CustomForm";
 
 export default function CustomPlan(props) {

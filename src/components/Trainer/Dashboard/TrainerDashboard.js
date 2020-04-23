@@ -11,10 +11,10 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 
-import TrainerAppSideBar from "./Dashboard/TrainerAppSidebar";
-import StudentTable from "./Dashboard/StudentTable";
-import Graph from "./Dashboard/Graph/Graph";
-import StudentRequest from "./Dashboard/Notification/StudentRequests";
+import TrainerAppSideBar from "../Sidebar/TrainerAppSidebar";
+import StudentTable from "./StudentTable/StudentTable";
+import Graph from "./Graph/Graph";
+import StudentRequest from "./Notification/StudentRequests";
 import axios from "axios";
 function Copyright() {
   return (

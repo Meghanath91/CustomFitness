@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import TrainerAppSideBar from "../Dashboard/TrainerAppSidebar";
+import TrainerAppSideBar from "../Sidebar/TrainerAppSidebar";
 import StudentsItem from "./StudentsItem/StudentsItem";
 
 const useStyles = makeStyles((theme) => ({
