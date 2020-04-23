@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import TrainerProfile from "../components/Trainer/My_profile/ProfileTr/ProfileTr";
 import TrainerDashboard from "../components/Trainer/TrainerDashboard";
-import Students from "../components/Trainer/Dashboard/Students";
+import Students from "../components/Trainer/Students/Students";
 import Exercise from "../containers/exercise";
 
 import { Switch, Route } from "react-router-dom";
