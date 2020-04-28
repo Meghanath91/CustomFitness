@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React,{useState} from "react";
 import TextField from "@material-ui/core/TextField";
-import myfeedback from "./myfeedback.scss";
+import "./myfeedback.scss";
+import VideoComponent from "./Video/VideoComponent";
 
-export default function StudentFeedback(){
-  
-  return(
-    <form  className="feedback" noValidate autoComplete="off">
-    <TextField id="outlined-basic" label="upload video link" variant="outlined" />
-    <button className="createPlan">Create Plan</button>
-  </form>
-  )
+export default function StudentFeedback() {
+
+
+  return (
+    <section>
+      <form className="feedback" noValidate autoComplete="off">
+        <TextField id="outlined-basic" label="video link" variant="outlined" />
+        <button className="createPlan">UPLOAD</button>
+      </form>
+      <div>
+        <VideoComponent />
+      </div>
+    </section>
+  );
 }
