@@ -2,15 +2,15 @@ import React from "react";
 import ReactPlayer from "react-player"
 import "./video.scss";
 
-export default function VideoComponent(){
+export default function VideoComponent(props){
 
-  
+
   
   return(
     <div>
       <ReactPlayer
         className="video"
-        url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+        url={props.link}
       />
     </div>
   )
