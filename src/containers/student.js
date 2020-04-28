@@ -5,6 +5,7 @@ import "./student.scss";
 import StudentDashboard from "../components/Student/Dashboard/StudentDashboard";
 import StudentExercise from "../containers/studentExercise";
 import Trainers from "../components/Student/Trainers/Trainers";
+import StudentFeedback from "../components/Student/Myfeedback/MyFeedback"
 import { Switch, Route } from "react-router-dom";
 
 export default function Student(props) {
@@ -45,7 +46,7 @@ export default function Student(props) {
           </Route>
 
           <Route path="/student/feedback">
-            {/* <StudentFeedback studentData={props.studentData} /> */}
+            <StudentFeedback studentData={props.studentData} />
           </Route>
         </Switch>
       </div>
