@@ -16,7 +16,6 @@ export default function Trainer(props) {
     });
   }, [props.trainerData.id]);
 
-  const cards = [1, 2, 3, 4, 5, 6];
   return (
     <div style={{ display: "flex" }}>
       <div
@@ -41,7 +40,7 @@ export default function Trainer(props) {
           <Route path="/trainer/students">
             <Students
               myStudents={myStudents}
-              cards={cards}
+           
               trainerData={props.trainerData}
             />
           </Route>
