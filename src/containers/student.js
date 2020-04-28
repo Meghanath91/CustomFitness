@@ -10,13 +10,24 @@ import { Switch, Route } from "react-router-dom";
 
 export default function Student(props) {
   const [allTrainers, setAllTrainers] = useState([]);
+ const [myTrainers,setMyTrainers]= useState([]);
   useEffect(() => {
     axios.get("/trainers").then((res) => {
       const trainers = res.data;
       setAllTrainers(trainers);
     });
-  }, []);
 
+    axios.get(`/student/${props.studentData.id}/trainers`).then((res) => {
+      console.log("myTrainers====>",res.data)
+      const mytrainers = res.data;
+      setMyTrainers(mytrainers);
+    });
+
+    
+
+  }, [props.studentData.id]);
+
+  
   return (
     <div style={{ display: "flex" }}>
       <div
@@ -46,7 +57,9 @@ export default function Student(props) {
           </Route>
 
           <Route path="/student/feedback">
-            <StudentFeedback studentData={props.studentData} />
+            <StudentFeedback 
+             myTrainers={myTrainers}
+            studentData={props.studentData} />
           </Route>
         </Switch>
       </div>

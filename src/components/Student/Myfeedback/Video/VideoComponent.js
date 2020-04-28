@@ -10,7 +10,7 @@ export default function VideoComponent(props){
     <div>
       <ReactPlayer
         className="video"
-        url={props.link}
+        url={props.feedback_video}
       />
     </div>
   )
