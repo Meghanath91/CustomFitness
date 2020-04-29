@@ -56,6 +56,15 @@ export const Sidebar = (
       </ListItem>
     </Link>
 
+
+    <Link
+      style={{
+        textDecoration: "none",
+        color: "black",
+      }}
+      to="/trainer/feedback"
+    ></Link>
+
     <ListItem button>
       <ListItemIcon>
         <BarChartIcon />

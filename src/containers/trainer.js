@@ -5,6 +5,8 @@ import TrainerDashboard from "../components/Trainer/Dashboard/TrainerDashboard";
 import Students from "../components/Trainer/Students/Students";
 import Exercise from "../containers/exercise";
 
+import Feedback from "../components/Trainer/Feedback/Feedback"
+
 import { Switch, Route } from "react-router-dom";
 
 export default function Trainer(props) {
@@ -48,9 +50,10 @@ export default function Trainer(props) {
             <Exercise myStudents={myStudents} trainerData={props.trainerData} />
           </Route>
 
-          {/* <Route path="/trainer/feedback">
-            <Exercise myStudents={myStudents} trainerData={props.trainerData}/>
-          </Route> */}
+          <Route path="/trainer/feedback">
+            <Feedback myStudents={myStudents} trainerData={props.trainerData}/>
+          </Route>
+
         </Switch>
       </div>
     </div>
