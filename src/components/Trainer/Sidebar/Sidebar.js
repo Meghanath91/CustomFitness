@@ -63,14 +63,16 @@ export const Sidebar = (
         color: "black",
       }}
       to="/trainer/feedback"
-    ></Link>
-
-    <ListItem button>
+    >
+      <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="Feedback" />
     </ListItem>
+    </Link>
+
+    
 
     <Link
       style={{

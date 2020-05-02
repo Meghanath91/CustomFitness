@@ -22,9 +22,7 @@ export default function Student(props) {
       const mytrainers = res.data;
       setMyTrainers(mytrainers);
     });
-
     
-
   }, [props.studentData.id]);
 
   

@@ -10,7 +10,7 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 
 import ProfileTr from "./ProfileTr/ProfileTr";
-import TrainerAppSideBar from "../Sidebar/TrainerAppSidebar";
+import TrainerAppSideBar from "../Sidebar/TrainerAppSidebar"
 
 function Copyright() {
   return (
@@ -113,12 +113,12 @@ export default function TrainerProfile(props) {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={10}>
+          {/* <Grid container spacing={10}> */}
            
             <Grid item xs={12} md={12} lg={20}>
               <ProfileTr trainerData={props.trainerData} />
             </Grid>
-          </Grid>
+          {/* </Grid> */}
           <Box pt={4}>
             <Copyright />
           </Box>

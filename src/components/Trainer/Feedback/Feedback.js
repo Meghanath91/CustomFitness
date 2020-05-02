@@ -1,20 +1,14 @@
 import React, { useState } from "react";
-import TextField from "@material-ui/core/TextField";
-// import "./myfeedback.scss";
-// import VideoComponent from "./Video/VideoComponent";
-import axios from "axios"
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
 import Typography from "@material-ui/core/Typography";
+import TrainerAppSideBar from "../Sidebar/TrainerAppSidebar";
+
 
 export default function Feedback(props) {
-
-
-  
   return (
     <div>
+     
+      <TrainerAppSideBar trainerData={props.trainerData} />
+
     <Typography
     style={{
       color: "black",
