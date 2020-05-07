@@ -17,7 +17,7 @@ export default function Feedback(props) {
     component="h1"
     variant="h5"
   >
-    Custom Plan Details
+    Custom Plan Detail
   </Typography>
   </div>
    
