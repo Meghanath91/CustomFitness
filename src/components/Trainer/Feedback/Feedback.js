@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import Typography from "@material-ui/core/Typography";
-import TrainerAppSideBar from "../Sidebar/TrainerAppSidebar";
+// import TrainerAppSideBar from "../Sidebar/TrainerAppSidebar";
+import VideoContainer from "./Video/VideoContainer";
 
 
-export default function Feedback(props) {
+export default function Feedback() {
+
+  // useEffect(() => {
+  //   axios.get(`/feedbacks/${props.trainerData.id}`).then((res) => {
+  //     const exercises = res.data;
+  //     setState(exercises);
+  //   });
+  // }, []);
+  
   return (
     <div>
      
-      <TrainerAppSideBar trainerData={props.trainerData} />
+      {/* <TrainerAppSideBar trainerData={props.trainerData} /> */}
 
     <Typography
     style={{
@@ -19,6 +28,7 @@ export default function Feedback(props) {
   >
     Custom Plan Detail
   </Typography>
+  <VideoContainer/>
   </div>
    
   );

@@ -18,7 +18,7 @@ export default function Student(props) {
     });
 
     axios.get(`/student/${props.studentData.id}/trainers`).then((res) => {
-      console.log("myTrainers====>",res.data)
+     
       const mytrainers = res.data;
       setMyTrainers(mytrainers);
     });
