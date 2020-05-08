@@ -1,10 +1,10 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-// import TrainerAppSideBar from "../Sidebar/TrainerAppSidebar";
+import TrainerAppSideBar from "../Sidebar/TrainerAppSidebar";
 import VideoContainer from "./Video/VideoContainer";
 
 
-export default function Feedback() {
+export default function Feedback(props) {
 
   // useEffect(() => {
   //   axios.get(`/feedbacks/${props.trainerData.id}`).then((res) => {
@@ -16,7 +16,7 @@ export default function Feedback() {
   return (
     <div>
      
-      {/* <TrainerAppSideBar trainerData={props.trainerData} /> */}
+      <TrainerAppSideBar trainerData={props.trainerData} />
 
     <Typography
     style={{
