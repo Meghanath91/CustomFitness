@@ -8,9 +8,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
-
-import ProfileTr from "./ProfileTr/ProfileTr";
 import TrainerAppSideBar from "../Sidebar/TrainerAppSidebar";
+import ProfileTr from "./ProfileTr/ProfileTr";
 
 function Copyright() {
   return (
@@ -110,6 +109,7 @@ export default function TrainerProfile(props) {
     <div className={classes.root}>
       <CssBaseline />
       <TrainerAppSideBar trainerData={props.trainerData} />
+
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
