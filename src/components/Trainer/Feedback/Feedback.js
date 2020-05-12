@@ -10,7 +10,6 @@ export default function Feedback(props) {
   useEffect(() => {
     axios.get(`/trainer/${props.trainerData.id}/feedbacks`).then((res) => {
       const feedbackData = res.data;
-      // console.log(feedbackData[0].feedback_video,"feedback")
       setFeedback(feedbackData);
     });
   }, [props.trainerData.id]);

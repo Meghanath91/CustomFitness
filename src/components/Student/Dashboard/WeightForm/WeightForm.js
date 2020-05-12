@@ -13,18 +13,6 @@ export default function WeightForm(props) {
   const [weight, setWeight] = useState("");
   const [date, setDate] = useState("MM/DD");
 
-  // useEffect(() => {
-   
-  //   if (props.trainerData && props.trainerData.name) {
-  //     setUser(props.trainerData.name);
-  //   }
-
-  //   if (props.studentData && props.studentData.name) {
-  //     setUser(props.studentData.name);
-  //   }
-  // }, [props, user]);
-
-
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -32,15 +20,15 @@ export default function WeightForm(props) {
     setOpen(false);
   };
 
-  const handleWeight = evt => {
+  const handleWeight = (evt) => {
     evt.preventDefault();
     axios
       .post(`/weights/create`, {
         date: date,
         weight: parseInt(weight),
-        student_id: props.studentData.id
+        student_id: props.studentData.id,
       })
-      .then(res => {
+      .then((res) => {
         alert("Student Weight & Date added to DB");
         handleClose();
       });
@@ -56,7 +44,7 @@ export default function WeightForm(props) {
           fontSize: "1.5rem",
           color: "white",
           border: "1px solid white",
-          borderRadius: "8px"
+          borderRadius: "8px",
         }}
       >
         Update Weight
@@ -76,7 +64,7 @@ export default function WeightForm(props) {
             margin="dense"
             id="name"
             value={date}
-            onChange={evt => setDate(evt.target.value)}
+            onChange={(evt) => setDate(evt.target.value)}
             label=""
             type="date"
             fullWidth
@@ -86,7 +74,7 @@ export default function WeightForm(props) {
             margin="dense"
             id="name"
             value={weight}
-            onChange={evt => setWeight(evt.target.value)}
+            onChange={(evt) => setWeight(evt.target.value)}
             label="Weight (lbs)"
             type="number"
             fullWidth
