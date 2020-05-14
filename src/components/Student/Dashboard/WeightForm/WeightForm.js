@@ -31,17 +31,17 @@ export default function WeightForm(props) {
       .then((res) => {
         alert("Student Weight & Date added to database");
         handleClose();
-        axios
-        .get(`/student/${props.studentData.id}/weights`)
+        // axios
+        // .get(`/student/${props.studentData.id}/weights`)
   
-        .then((res) => {
-          const datafromdb = res.data;
-          const formattedData = datafromdb.map(
-            ({ id, student_id, created_at, ...item }) => item
-          );
+        // .then((res) => {
+        //   const datafromdb = res.data;
+        //   const formattedData = datafromdb.map(
+        //     ({ id, student_id, created_at, ...item }) => item
+        //   );
   
-          setData(formattedData);
-        });
+        //   setData(formattedData);
+        // });
       });
   };
 
