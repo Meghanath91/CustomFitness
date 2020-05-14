@@ -29,8 +29,9 @@ export default function WeightForm(props) {
         student_id: props.studentData.id,
       })
       .then((res) => {
-        alert("Student Weight & Date added to DB");
+        alert("Student Weight & Date added to database");
         handleClose();
+
       });
   };
 
