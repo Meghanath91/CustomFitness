@@ -83,7 +83,8 @@ export default function LoginRadioButton(props) {
   const classes = useStyles();
 
   const cb = (e) => {
-    props.setUser(e.target.value);
+    const user=e.target.value;
+    props.setUser(user);
   };
 
   return (
