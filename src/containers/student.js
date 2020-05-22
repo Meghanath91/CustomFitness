@@ -5,12 +5,12 @@ import "./student.scss";
 import StudentDashboard from "../components/Student/Dashboard/StudentDashboard";
 import StudentExercise from "../containers/studentExercise";
 import Trainers from "../components/Student/Trainers/Trainers";
-import StudentFeedback from "../components/Student/Myfeedback/MyFeedback"
+import StudentFeedback from "../components/Student/Myfeedback/MyFeedback";
 import { Switch, Route } from "react-router-dom";
 
 export default function Student(props) {
   const [allTrainers, setAllTrainers] = useState([]);
- const [myTrainers,setMyTrainers]= useState([]);
+  const [myTrainers, setMyTrainers] = useState([]);
   useEffect(() => {
     axios.get("/trainers").then((res) => {
       const trainers = res.data;
@@ -18,14 +18,11 @@ export default function Student(props) {
     });
 
     axios.get(`/student/${props.studentData.id}/trainers`).then((res) => {
-     
       const mytrainers = res.data;
       setMyTrainers(mytrainers);
     });
-    
   }, [props.studentData.id]);
 
-  
   return (
     <div style={{ display: "flex" }}>
       <div
@@ -55,9 +52,10 @@ export default function Student(props) {
           </Route>
 
           <Route path="/student/feedback">
-            <StudentFeedback 
-             myTrainers={myTrainers}
-            studentData={props.studentData} />
+            <StudentFeedback
+              myTrainers={myTrainers}
+              studentData={props.studentData}
+            />
           </Route>
         </Switch>
       </div>
