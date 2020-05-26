@@ -5,6 +5,8 @@ import axios from "axios";
 import CustomForm from "./CustomForm/CustomForm";
 
 export default function CustomPlan(props) {
+
+  //declaring states
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [difficulty, setDifficulty] = useState("");
