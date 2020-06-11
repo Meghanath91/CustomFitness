@@ -8,21 +8,22 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
 export default function CustomPlanForm(props) {
- 
+  //states declared
   const [difficulty, setDifficulty] = useState("beginner");
   const [type, setType] = useState("weightloss");
   const [student, setStudent] = useState({});
 
-  const handleDifficulty = event => {
+  //Event handlers
+  const handleDifficulty = (event) => {
     props.setDifficulty(() => event.target.value);
     setDifficulty(event.target.value);
   };
-  const handleType = event => {
+  const handleType = (event) => {
     props.setType(() => event.target.value);
     setType(event.target.value);
   };
 
-  const handleStudent = event => {
+  const handleStudent = (event) => {
     props.setStudent(() => event.target.value);
     setStudent(event.target.value);
   };
@@ -37,7 +38,7 @@ export default function CustomPlanForm(props) {
       <Typography
         style={{
           color: "black",
-          textAlign: "center"
+          textAlign: "center",
         }}
         component="h1"
         variant="h5"
@@ -53,36 +54,36 @@ export default function CustomPlanForm(props) {
             value={student}
             onChange={handleStudent}
           >
-            {props.myStudents.map(student => (
+            {props.myStudents.map((student) => (
               <MenuItem value={student.id}>{student.name}</MenuItem>
             ))}
           </Select>
         </FormControl>
         <TextField
           style={{
-            padding: "10px 0px"
+            padding: "10px 0px",
           }}
           required
           id="standard-required"
           label="Title of the plan"
           value={props.title}
-          onChange={evt => props.setTitle(evt.target.value)}
+          onChange={(evt) => props.setTitle(evt.target.value)}
           placeholder="Title"
         />
         <TextField
           style={{
-            padding: "10px 0px"
+            padding: "10px 0px",
           }}
           required
           id="standard-required"
           label="Description"
           value={props.description}
-          onChange={evt => props.setDescription(evt.target.value)}
+          onChange={(evt) => props.setDescription(evt.target.value)}
           placeholder="Description"
         />
         <FormControl
           style={{
-            padding: "10px 0px"
+            padding: "10px 0px",
           }}
         >
           <InputLabel id="demo-simple-select-label">Difficulty</InputLabel>
@@ -99,7 +100,7 @@ export default function CustomPlanForm(props) {
         </FormControl>{" "}
         <FormControl
           style={{
-            padding: "10px 0px"
+            padding: "10px 0px",
           }}
         >
           <InputLabel id="demo-simple-select-label">Work out type</InputLabel>
@@ -118,23 +119,23 @@ export default function CustomPlanForm(props) {
         </FormControl>
         <TextField
           style={{
-            padding: "10px 0px"
+            padding: "10px 0px",
           }}
           required
           id="standard-required"
           value={props.sets}
-          onChange={evt => props.setSets(evt.target.value)}
+          onChange={(evt) => props.setSets(evt.target.value)}
           label="Number of sets"
           placeholder="# of sets"
         />
         <TextField
           style={{
-            padding: "10px 0px"
+            padding: "10px 0px",
           }}
           required
           id="standard-required"
           value={props.reps}
-          onChange={evt => props.setReps(evt.target.value)}
+          onChange={(evt) => props.setReps(evt.target.value)}
           label="Number of reps"
           placeholder="# of reps"
         />

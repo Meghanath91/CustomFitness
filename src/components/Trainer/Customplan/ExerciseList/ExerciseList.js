@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 
 export default function ExerciseList(props) {
-
-  const [columns, setColumns] = useState(columnsFromBackend);
-  const columnsFromBackend = {
-    select: {
-      name: "Select Exercise(s)",
-      items: [],
-    },
-    selected: {
-      name: "Selected Exercise(s)",
-      items: [],
-    },
-  };
-  //component mounting
+//state declaration
+const columnsFromBackend = {
+  select: {
+    name: "Select Exercise(s)",
+    items: [],
+  },
+  selected: {
+    name: "Selected Exercise(s)",
+    items: [],
+  },
+};
+const [columns, setColumns] = useState(columnsFromBackend);
+  //component mounted
   useEffect(() => {
     const itemsFromBackend = props.exerciseData;
     setColumns((prev) => {
