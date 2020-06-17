@@ -1,52 +1,24 @@
-.feedback {
-  padding: 2vh;
+.main-container {
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  
-  
-  grid-template-areas:
-    "select" "link"
-    "message" "message" "send";
-    
+  grid-template-columns: 1fr 6fr;
 }
-.select-trainer {
 
-  padding: 10vh;
-  margin-left:100px;
-  grid-area: "select";
-}
-#outlined-basic {
-  
-  grid-area: "link";
-}
-#contactMessage {
-  grid-area: "message";
-}
-.send {
-  
-  height: 5vh;
-  width: 10vh;
-  grid-area: "send";
-}
-// .video-container{
-//   margin-top: 50px;
-//   margin-left: 50px;
-// }
-// #demo-simple-select{
-//   margin-left: 50px;
-//   margin-top: 25px;
-// }
-// #demo-simple-select-label{
-//   margin-top: 100px;
-// }
-.container {
-  padding: 2vh;
+.sub-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+.form-container{
+  margin:7vh;
+}
+
+.feedback{
+  display: grid;
+  grid-template-rows: 100px 100px 250px 50px;
+  
 }
 
 .video-album {
+  margin: 7vh;
   text-align: center;
   border: 5px solid black;
 }
