@@ -1,14 +1,52 @@
-.feedback{
-  margin-top: 100px;
+.feedback {
+  padding: 2vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  
+  
+  grid-template-areas:
+    "select" "link"
+    "message" "message" "send";
+    
 }
-.video-container{
-  margin-top: 50px;
-  margin-left: 50px;
+.select-trainer {
+
+  padding: 10vh;
+  margin-left:100px;
+  grid-area: "select";
 }
-#demo-simple-select{
-  margin-left: 50px;
-  margin-top: 25px;
+#outlined-basic {
+  
+  grid-area: "link";
 }
-#demo-simple-select-label{
-  margin-top: 100px;
+#contactMessage {
+  grid-area: "message";
+}
+.send {
+  
+  height: 5vh;
+  width: 10vh;
+  grid-area: "send";
+}
+// .video-container{
+//   margin-top: 50px;
+//   margin-left: 50px;
+// }
+// #demo-simple-select{
+//   margin-left: 50px;
+//   margin-top: 25px;
+// }
+// #demo-simple-select-label{
+//   margin-top: 100px;
+// }
+.container {
+  padding: 2vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.video-album {
+  text-align: center;
+  border: 5px solid black;
 }

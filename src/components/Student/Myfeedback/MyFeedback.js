@@ -21,7 +21,7 @@ export default function StudentFeedback(props) {
 
   const handleTrainer = evt =>{
     evt.preventDefault();
-    props.setTrainer(() => evt.target.value);
+    // props.setTrainer(evt.target.value);
     setTrainer(evt.target.value);
   }
 
@@ -41,10 +41,11 @@ export default function StudentFeedback(props) {
 
   }
   return (
+    <div className="container">
     <section>
       <h1>Send Feedback</h1>
       <form onSubmit={handleSubmit} className="feedback" noValidate autoComplete="off">
-      <FormControl>
+      <FormControl className="select-trainer">
           <InputLabel id="demo-simple-select-label">Select Trainer</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -74,11 +75,15 @@ export default function StudentFeedback(props) {
         name="contactMessage"
         >
         </textarea>
-        <button className="createPlan">Send</button>
+        <button className="send">Send</button>
       </form>
       <div>
         <VideoComponent feedback_video={feedback_video} />
       </div>
     </section>
+    <section className="video-album">
+      <h1>My feedbacks</h1>
+    </section>
+    </div>
   );
 }
