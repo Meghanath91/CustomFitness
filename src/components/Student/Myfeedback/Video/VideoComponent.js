@@ -4,10 +4,8 @@ import "./video.scss";
 
 export default function VideoComponent(props){
 
-
-  
   return(
-    <div>
+    <div className="video-container">
       <ReactPlayer
         className="video"
         url={props.feedback_video}

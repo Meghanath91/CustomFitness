@@ -6,7 +6,7 @@ import axios from "axios";
 
 export default function Feedback(props) {
   const [feedback, setFeedback] = useState([]);
-//getting all feedbacks.
+  //getting all feedbacks.
   useEffect(() => {
     axios.get(`/trainer/${props.trainerData.id}/feedbacks`).then((res) => {
       const feedbackData = res.data;
@@ -17,7 +17,7 @@ export default function Feedback(props) {
   return (
     <div>
       <TrainerAppSideBar trainerData={props.trainerData} />
-<h1>Feedbacks</h1>
+      <h1>Feedbacks</h1>
       <VideoContainer feedback={feedback} />
     </div>
   );

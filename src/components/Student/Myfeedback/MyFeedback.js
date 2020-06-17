@@ -42,6 +42,7 @@ export default function StudentFeedback(props) {
   }
   return (
     <section>
+      <h1>Send Feedback</h1>
       <form onSubmit={handleSubmit} className="feedback" noValidate autoComplete="off">
       <FormControl>
           <InputLabel id="demo-simple-select-label">Select Trainer</InputLabel>
@@ -52,7 +53,7 @@ export default function StudentFeedback(props) {
             onChange={handleTrainer}
           >
             {props.myTrainers.map(trainer => (
-              <MenuItem value={trainer.id}>{trainer.name}</MenuItem>
+              <MenuItem key={trainer.id} value={trainer.id}>{trainer.name}</MenuItem>
             ))}
           </Select>
         </FormControl>
