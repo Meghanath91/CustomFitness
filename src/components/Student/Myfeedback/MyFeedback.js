@@ -52,7 +52,7 @@ export default function StudentFeedback(props) {
           >
             <FormControl className="select-trainer">
               <TextField
-                id="outlined-select-currency"
+                id="outlined-text"
                 select
                 // label="Select"
                 value={trainer}

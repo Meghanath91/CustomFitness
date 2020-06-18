@@ -8,6 +8,7 @@
   grid-template-columns: 1fr 1fr;
 }
 .form-container {
+  text-align: center;
   margin: 7vh;
 }
 
@@ -15,27 +16,42 @@
   display: grid;
   grid-template-rows: 100px 100px 250px 50px;
 }
-.video-display{
-  margin:60px;
+.video-display {
+  margin: 60px;
 }
-#contactMessage{
+#contactMessage {
   display: flex;
   text-align: center;
-  border: 5px solid black;
+  border: 3px solid rgb(116, 113, 113);
   border-radius: 1vh;
   font-size: x-large;
 }
-.send-button{
+.send-button {
   border-radius: 1vh;
   margin-top: 1vh;
   font-weight: 700;
-  letter-spacing: .5vh;
+  letter-spacing: 0.5vh;
   color: white;
-  background-color: rgb(63, 63, 63);
+  background-color: rgb(116, 113, 113);
+  border: 3px solid rgb(116, 113, 113);
+}
+.send-button:hover {
+  background-color: white;
+  color: rgb(116, 113, 113);
+  cursor: grabbing;
+  transition-delay: .01s; /* delays for 1 second */
+}
+#outlined-basic {
+  font-size: large;
+  border: 3px solid rgb(116, 113, 113);
+}
+#outlined-text {
+  font-size: large;
+  border: 3px solid rgb(116, 113, 113);
 }
 
 .video-album {
   margin: 7vh;
   text-align: center;
-  border: 5px solid black;
+  border: 3px solid rgb(116, 113, 113);
 }
