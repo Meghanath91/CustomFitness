@@ -51,14 +51,13 @@ export default function StudentFeedback(props) {
             autoComplete="off"
           >
             <FormControl className="select-trainer">
-              <InputLabel id="demo-simple-select-label">
-                Select Trainer
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
+              <TextField
+                id="outlined-select-currency"
+                select
+                // label="Select"
                 value={trainer}
                 onChange={handleTrainer}
+                helperText="Please select your Trainer"
                 variant="outlined"
               >
                 {props.myTrainers.map((trainer) => (
@@ -66,14 +65,15 @@ export default function StudentFeedback(props) {
                     {trainer.name}
                   </MenuItem>
                 ))}
-              </Select>
+              </TextField>
             </FormControl>
             <TextField
               id="outlined-basic"
-              label="paste the video link"
+              // label="paste the video link"
               variant="outlined"
               value={feedback_video}
               onChange={handleVideo}
+              helperText="Please paste your video link"
             />
             <textarea
               cols="50"
@@ -83,10 +83,11 @@ export default function StudentFeedback(props) {
               value={feedback_text}
               onChange={handleText}
               name="contactMessage"
+              placeholder="Please type your feedback"
             ></textarea>
-            <button className="send">Send</button>
+            <button className="send-button">SEND</button>
           </form>
-          <div>
+          <div className="video-display">
             <VideoComponent feedback_video={feedback_video} />
           </div>
         </section>

@@ -7,14 +7,31 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.form-container{
-  margin:7vh;
+.form-container {
+  margin: 7vh;
 }
 
-.feedback{
+.feedback {
   display: grid;
   grid-template-rows: 100px 100px 250px 50px;
-  
+}
+.video-display{
+  margin:60px;
+}
+#contactMessage{
+  display: flex;
+  text-align: center;
+  border: 5px solid black;
+  border-radius: 1vh;
+  font-size: x-large;
+}
+.send-button{
+  border-radius: 1vh;
+  margin-top: 1vh;
+  font-weight: 700;
+  letter-spacing: .5vh;
+  color: white;
+  background-color: rgb(63, 63, 63);
 }
 
 .video-album {
