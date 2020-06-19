@@ -3,11 +3,10 @@ import TextField from "@material-ui/core/TextField";
 import "./myfeedback.scss";
 import VideoComponent from "./Video/VideoComponent";
 import axios from "axios";
-import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
 import StudentAppSideBar from "../SideBar/StudentAppSideBar";
+import VideoList from "./VideoList/VideoList"
 
 export default function StudentFeedback(props) {
   const [feedback_video, setFeedbackVideo] = useState("");
@@ -92,7 +91,7 @@ export default function StudentFeedback(props) {
           </div>
         </section>
         <section className="video-album">
-          <h1>My feedbacks</h1>
+         <VideoList student={props.studentData}/>
         </section>
       </div>
     </div>
