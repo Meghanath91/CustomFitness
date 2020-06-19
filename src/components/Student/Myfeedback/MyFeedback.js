@@ -90,9 +90,9 @@ export default function StudentFeedback(props) {
             <VideoComponent feedback_video={feedback_video} />
           </div>
         </section>
-        <section className="video-album">
+       
          <VideoList student={props.studentData}/>
-        </section>
+        
       </div>
     </div>
   );
