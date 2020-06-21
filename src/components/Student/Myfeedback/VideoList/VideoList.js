@@ -15,18 +15,18 @@ const VideoList = (props) => {
     <div className="feedback-container">
       <h1>My feedbacks</h1>
       <div className="video-container">
-        {feedback.map((feedback) => {
+        {feedback.map(feedback => {
           return (
             <div className="video-box">
-              {/* <p>Message: {feedback.feedback_text}</p> */}
               {feedback.feedback_video ? (
                 <ReactPlayer
                   key={feedback.id}
+                  id="videoItem"
                   className="video"
                   url={feedback.feedback_video}
                 />
               ) : (
-                <img src="/pictures/no_video.png" alt="no video available"/>
+                <img src="/pictures/no_video.png" alt="no video available" />
               )}
             </div>
           );

@@ -1,3 +1,8 @@
+*{
+  box-sizing: border-box;
+  margin:0px;
+  padding:0px;
+}
 .feedback-container {
   display: flex;
   flex-direction: column;
@@ -5,6 +10,20 @@
   margin: 7vh;
   // padding: 5vh;
   text-align: center;
-  border: 3px solid rgb(116, 113, 113);
+  // border: 3px solid rgb(116, 113, 113);
+}
+// .video-container{
+//   display: grid;
+//   grid-template-columns: 50px 50px;
+// }
+
+.video{
+  padding: 2vh;
+  
+}
+#videoItem{
+  // padding: 2vh;
+  width: 15%;
+  height:50px
 }
 
