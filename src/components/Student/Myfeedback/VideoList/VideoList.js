@@ -22,8 +22,10 @@ const VideoList = (props) => {
                 <ReactPlayer
                   key={feedback.id}
                   id="videoItem"
-                  className="video"
+                  className="video1"
                   url={feedback.feedback_video}
+                  width="300px"
+                  height="200px"
                 />
               ) : (
                 <img src="/pictures/no_video.png" alt="no video available" />
