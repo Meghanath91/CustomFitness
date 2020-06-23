@@ -12,7 +12,7 @@ export default function StudentFeedback(props) {
   const [feedback_video, setFeedbackVideo] = useState("");
   const [feedback_text, setfeedbackText] = useState("");
   const [trainer, setTrainer] = useState("");
-
+  const [feedback, setFeedback] = useState([]);
   const handleVideo = (evt) => {
     evt.preventDefault();
     setFeedbackVideo(evt.target.value);
@@ -30,12 +30,19 @@ export default function StudentFeedback(props) {
   };
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    axios.post("/feedback", {
-      feedback_video: feedback_video,
-      feedback_text: feedback_text,
-      student_id: props.studentData.id,
-      trainer_id: trainer,
-    });
+    axios
+      .post("/feedback", {
+        feedback_video: feedback_video,
+        feedback_text: feedback_text,
+        student_id: props.studentData.id,
+        trainer_id: trainer,
+      })
+      .then((res) => {
+        axios.get(`/student/${props.studentData.id}/feedbacks`).then((res) => {
+          const studentFeedbackData = res.data;
+          setFeedback(studentFeedbackData);
+        });
+      });
   };
   return (
     <div className="main-container">
@@ -91,7 +98,11 @@ export default function StudentFeedback(props) {
           </div>
         </section>
 
-        <VideoList student={props.studentData} />
+        <VideoList
+          student={props.studentData}
+          feedback={feedback}
+          setFeedback={setFeedback}
+        />
       </div>
     </div>
   );
