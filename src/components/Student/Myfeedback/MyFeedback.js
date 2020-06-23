@@ -6,7 +6,7 @@ import axios from "axios";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import StudentAppSideBar from "../SideBar/StudentAppSideBar";
-import VideoList from "./VideoList/VideoList"
+import VideoList from "./VideoList/VideoList";
 
 export default function StudentFeedback(props) {
   const [feedback_video, setFeedbackVideo] = useState("");
@@ -90,9 +90,8 @@ export default function StudentFeedback(props) {
             <VideoComponent feedback_video={feedback_video} />
           </div>
         </section>
-       
-         <VideoList student={props.studentData}/>
-        
+
+        <VideoList student={props.studentData} />
       </div>
     </div>
   );

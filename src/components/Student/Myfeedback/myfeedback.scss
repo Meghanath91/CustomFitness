@@ -1,16 +1,13 @@
-*{
-  box-sizing: border-box;
-  margin:0px;
-  padding:0px;
-}
+
 .main-container {
   display: grid;
-  grid-template-columns: 15% 85%;
+  grid-template-columns: 2fr 1fr;
+  
 }
 
 .sub-container {
   display: grid;
-  grid-template-columns: 50% 50% ;
+  grid-template-columns: 1fr 1fr ;
 }
 .form-container {
   text-align: center;
@@ -19,7 +16,7 @@
 
 .feedback {
   display: grid;
-  grid-template-rows: 10vh 10vh 25vh 6vh;
+  grid-template-rows: 1fr 1fr 4fr 1fr;
   // justify-items: center;
 }
 .video-display {
