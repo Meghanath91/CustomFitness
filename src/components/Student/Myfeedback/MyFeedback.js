@@ -20,7 +20,6 @@ export default function StudentFeedback(props) {
 
   const handleTrainer = (evt) => {
     evt.preventDefault();
-    // props.setTrainer(evt.target.value);
     setTrainer(evt.target.value);
   };
 
