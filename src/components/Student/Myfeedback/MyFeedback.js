@@ -38,6 +38,7 @@ export default function StudentFeedback(props) {
         trainer_id: trainer,
       })
       .then((res) => {
+        //this get request will update newly added video in DOM
         axios.get(`/student/${props.studentData.id}/feedbacks`).then((res) => {
           const studentFeedbackData = res.data;
           setFeedback(studentFeedbackData);
