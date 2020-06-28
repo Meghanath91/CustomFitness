@@ -5,7 +5,7 @@ export default function VideoContainer(props) {
   console.log("props in vidoe container", props.feedback);
 
   return (
-    <div>
+    
       <div>
         {props.feedback[0]
           ? props.feedback.map((feedback) => {
@@ -24,6 +24,6 @@ export default function VideoContainer(props) {
             })
           : "no feedbacks"}
       </div>
-    </div>
+    
   );
 }
