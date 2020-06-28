@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+//importing dependencies
+import React from "react";
 import ReactPlayer from "react-player";
 
+//component contains video
 export default function VideoContainer(props) {
-  console.log("props in vidoe container", props.feedback);
-
+ 
   return (
-    
+
       <div>
-        {props.feedback[0]
+        {props.feedback[0] //conditional rendering if there is feedbacks map feedbacks
           ? props.feedback.map((feedback) => {
               return (
                 <div>

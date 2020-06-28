@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+//import required libraries
+import React from "react";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 
 //to select the students from list
 export default function StudentList(props) {
- //function to handle dynamic selection event of student
+  //function to handle dynamic selection event of student
   const handleChange = (evt) => {
     //to prevent default behaviour of browser
     evt.preventDefault();
@@ -18,12 +19,12 @@ export default function StudentList(props) {
         id="select-student"
         select
         label="Select"
-        value={props.student}
+        value={props.student}//student object
         onChange={handleChange}
         helperText="Please select your student"
         variant="outlined"
       >
-        {props.myStudents.map(student => (
+        {props.myStudents.map((student) => (
           <MenuItem key={student.id} value={student}>
             {student.name}
           </MenuItem>
