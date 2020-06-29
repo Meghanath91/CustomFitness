@@ -2,7 +2,7 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
-
+import "./studentList.scss"
 //to select the students from list
 export default function StudentList(props) {
   //function to handle dynamic selection event of student

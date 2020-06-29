@@ -35,7 +35,7 @@ export default function Feedback(props) {
         student={student}
         setStudent={setStudent}
       />
-      <VideoContainer feedback={feedback} />
+      <VideoContainer feedback={feedback} student={student} />
       </div>
     </div>
   );

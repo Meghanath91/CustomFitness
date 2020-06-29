@@ -1,9 +1,11 @@
 //importing dependencies
 import React from "react";
 import ReactPlayer from "react-player";
+import StudentList from "../StudentList/StudentList";
 
 //component contains video
 export default function VideoContainer(props) {
+  console.log("props",props)
  
   return (
 
@@ -12,9 +14,12 @@ export default function VideoContainer(props) {
           ? props.feedback.map((feedback) => {
               return (
                 <div className="feedback-box">
-                  <p className="student-feedback-text">
-                    <strong>Message: </strong> {feedback.feedback_text}
-                  </p>
+                  <div message-container>
+                  <div className="student-feedback-text">
+                    <img className="avatar-img" src={props.student.avatar} alt="avatar"/> 
+                    <p>{feedback.feedback_text}</p>
+                  </div>
+                  </div>
                   <ReactPlayer
                     className="feedback-video"
                     width="450px"
