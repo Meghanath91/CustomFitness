@@ -18,8 +18,12 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+   
   },
   toolbar: {
+    paddingRight: 24
+    // keep right padding when drawer closed
+
     // backgroundColor: "#c7d4d69c"
   },
   toolbarIcon: {
@@ -54,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   drawerPaper: {
+    height:"1500px",
     position: "relative",
     whiteSpace: "nowrap",
     width: drawerWidth,
@@ -89,9 +94,9 @@ const useStyles = makeStyles((theme) => ({
 
     flexDirection: "column",
   },
-  fixedHeight: {
-    height: 240,
-  },
+  // fixedHeight: {
+  //   height: 240,
+  // },
 }));
 
 export default function TrainerAppSideBar(props) {

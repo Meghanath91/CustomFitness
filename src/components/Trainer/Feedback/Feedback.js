@@ -27,15 +27,16 @@ export default function Feedback(props) {
   }, [props.trainerData.id, student]);//adding dependencies
 
   return (
-    <div>
+    <div className="trainer-feedback-main-container">
       <TrainerAppSideBar trainerData={props.trainerData} />
-      <h1>Feedbacks</h1>
+      <div className="trainer-feedback-sub-container" >
       <StudentList
         myStudents={props.myStudents}
         student={student}
         setStudent={setStudent}
       />
       <VideoContainer feedback={feedback} />
+      </div>
     </div>
   );
 }

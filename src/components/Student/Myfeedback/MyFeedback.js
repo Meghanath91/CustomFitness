@@ -13,6 +13,7 @@ export default function StudentFeedback(props) {
   const [feedback_text, setfeedbackText] = useState("");
   const [trainer, setTrainer] = useState("");
   const [feedback, setFeedback] = useState([]);
+  
   const handleVideo = (evt) => {
     evt.preventDefault();
     setFeedbackVideo(evt.target.value);
@@ -27,6 +28,7 @@ export default function StudentFeedback(props) {
     evt.preventDefault();
     setfeedbackText(evt.target.value);
   };
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     axios

@@ -14,7 +14,7 @@ export default function StudentList(props) {
     props.setStudent(selectedStudent);
   };
   return (
-    <div>
+    <div className="select-form">
       <TextField
         id="select-student"
         select
