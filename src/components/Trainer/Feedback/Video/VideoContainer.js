@@ -29,7 +29,7 @@ export default function VideoContainer(props) {
                 </div>
               );
             })
-          : <div className="empty-container">no feedbacks</div>}
+          : <div className="empty-container">no feedbacks from {props.student?props.student.name: "no feedbacks"} </div>}
       </div>
     
   );
