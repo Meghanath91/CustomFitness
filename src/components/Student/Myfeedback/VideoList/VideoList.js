@@ -10,7 +10,7 @@ const VideoList = (props) => {
       const studentFeedbackData = res.data;
       props.setFeedback(studentFeedbackData);
     });
-  }, [props.student.id]);
+  }, [props]);
   return (
     <div className="feedback-container">
       <h1>My feedbacks</h1>

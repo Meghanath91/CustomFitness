@@ -1,7 +1,6 @@
 //importing dependencies
 import React from "react";
 import ReactPlayer from "react-player";
-import StudentList from "../StudentList/StudentList";
 
 //component contains video
 export default function VideoContainer(props) {
@@ -29,7 +28,7 @@ export default function VideoContainer(props) {
                 </div>
               );
             })
-          : <div className="empty-container">no feedbacks from {props.student?props.student.name: "no feedbacks"} </div>}
+          : <div className="empty-container">{props.student.name ? `No feedbacks from ${props.student.name}` : "no feedbacks"} </div>}
       </div>
     
   );
