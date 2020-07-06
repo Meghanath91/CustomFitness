@@ -3,8 +3,9 @@ import ReactPlayer from "react-player";
 import axios from "axios";
 import "./VideoList.scss";
 
+// videolist 
 const VideoList = (props) => {
-  
+  //getting all feedbacks for a student
   useEffect(() => {
     axios.get(`/student/${props.student.id}/feedbacks`).then((res) => {
       const studentFeedbackData = res.data;
