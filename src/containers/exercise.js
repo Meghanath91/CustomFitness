@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import axios from "axios";
 import CustomPlan from "../components/Trainer/Customplan/Customplan";
-import TrainerAppSideBar from "../components/Trainer/Dashboard/TrainerAppSidebar";
+import TrainerAppSideBar from "../components/Trainer/Sidebar/TrainerAppSidebar";
 
 const useStyles = makeStyles((theme) => ({
   root: {

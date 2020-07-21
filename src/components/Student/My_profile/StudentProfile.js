@@ -2,12 +2,13 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-import Box from "@material-ui/core/Box";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import StudentAppSideBar from "../components/Student/SideBar/StudentAppSideBar";
-import StudentCustomPlan from "../components/Student/StudentCustomPlan/StudentCustomPlan";
+import Box from "@material-ui/core/Box";
+
+import StudentAppSideBar from "../SideBar/StudentAppSideBar";
+import Profile from "./Profile/Profile";
 
 function Copyright() {
   return (
@@ -102,8 +103,9 @@ const useStyles = makeStyles((theme) => ({
 
 const drawerWidth = 240;
 
-export default function StudentExercise(props) {
+export default function StudentProfile(props) {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -111,11 +113,10 @@ export default function StudentExercise(props) {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={10}>
-            <Grid item xs={12} md={12} lg={20}>
-              <StudentCustomPlan studentData={props.studentData} />
-            </Grid>
+          <Grid item xs={12} md={12} lg={20}>
+            <Profile studentData={props.studentData} />
           </Grid>
+
           <Box pt={4}>
             <Copyright />
           </Box>

@@ -1,13 +1,14 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
-import Container from "@material-ui/core/Container";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import StudentAppSideBar from "../components/Student/SideBar/StudentAppSideBar";
-import StudentCustomPlan from "../components/Student/StudentCustomPlan/StudentCustomPlan";
+
+import StudentAppSideBar from "../SideBar/StudentAppSideBar";
+import TrainersItem from "./TrainersItem/TrainersItem";
 
 function Copyright() {
   return (
@@ -25,6 +26,7 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    width: "100%",
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
@@ -92,29 +94,27 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     display: "flex",
-
     flexDirection: "column",
-  },
-  fixedHeight: {
-    height: 240,
   },
 }));
 
 const drawerWidth = 240;
 
-export default function StudentExercise(props) {
+export default function Trainers(props) {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <CssBaseline />
       <StudentAppSideBar studentData={props.studentData} />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={10}>
-            <Grid item xs={12} md={12} lg={20}>
-              <StudentCustomPlan studentData={props.studentData} />
-            </Grid>
+        <Container maxWidth="xl" className={classes.container}>
+          <Grid item xs={12} md={10} lg={12}>
+            <TrainersItem
+              allTrainers={props.allTrainers}
+              studentData={props.studentData}
+            />
           </Grid>
           <Box pt={4}>
             <Copyright />

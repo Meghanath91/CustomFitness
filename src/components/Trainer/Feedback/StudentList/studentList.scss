@@ -1,0 +1,15 @@
+.select-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#select-student {
+  color: rgb(42, 136, 153);
+}
+
+#select-student-label {
+  color: rgb(91, 187, 204);
+}
+#select-student-helper-text {
+  color: rgb(148, 170, 173);
+}
+

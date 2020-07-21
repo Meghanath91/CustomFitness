@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import TrainerProfile from "../components/Trainer/TrainerProfile";
-import TrainerDashboard from "../components/Trainer/TrainerDashboard";
-import Students from "../components/Trainer/Dashboard/Students";
+import TrainerDashboard from "../components/Trainer/Dashboard/TrainerDashboard";
+import Students from "../components/Trainer/Students/Students";
 import Exercise from "../containers/exercise";
+import TrainerProfile from "../components/Trainer/My_profile/TrainerProfile"
+import Feedback from "../components/Trainer/Feedback/Feedback"
 
 import { Switch, Route } from "react-router-dom";
 
@@ -16,7 +17,6 @@ export default function Trainer(props) {
     });
   }, [props.trainerData.id]);
 
-  const cards = [1, 2, 3, 4, 5, 6];
   return (
     <div style={{ display: "flex" }}>
       <div
@@ -41,7 +41,6 @@ export default function Trainer(props) {
           <Route path="/trainer/students">
             <Students
               myStudents={myStudents}
-              cards={cards}
               trainerData={props.trainerData}
             />
           </Route>
@@ -50,9 +49,10 @@ export default function Trainer(props) {
             <Exercise myStudents={myStudents} trainerData={props.trainerData} />
           </Route>
 
-          {/* <Route path="/trainer/feedback">
-            <Exercise myStudents={myStudents} trainerData={props.trainerData}/>
-          </Route> */}
+          <Route path="/trainer/feedback">
+            <Feedback myStudents={myStudents} trainerData={props.trainerData}/>
+          </Route>
+
         </Switch>
       </div>
     </div>

@@ -1,0 +1,9 @@
+.feedback-container {
+  padding: 5vh;
+  text-align: center;
+}
+.video-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1vh;
+}
