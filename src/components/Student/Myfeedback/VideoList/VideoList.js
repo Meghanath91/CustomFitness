@@ -5,10 +5,12 @@ import "./VideoList.scss";
 
 // videolist
 const VideoList = (props) => {
-  //getting all feedbacks for a student
+  //getting all feedbacks for a student from db
   useEffect(() => {
     axios.get(`/student/${props.student.id}/feedbacks`).then((res) => {
+      //store response into variable
       const studentFeedbackData = res.data;
+      //set the feedback in myfeedbacks
       props.setFeedback(studentFeedbackData);
     });
   }, []);
