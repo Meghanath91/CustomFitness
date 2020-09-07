@@ -15,7 +15,6 @@ export default function StudentExerciseList(props) {
   const [columns, setColumns] = useState(columnsFromBackend);
   useEffect(() => {
     const itemsFromBackend = props.exerciseData;
-
     setColumns((prev) => {
       return {
         ...prev,

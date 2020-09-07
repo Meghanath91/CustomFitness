@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import axios from "axios";
 import "./VideoList.scss";
 
-// videolist 
+// videolist
 const VideoList = (props) => {
   //getting all feedbacks for a student
   useEffect(() => {
@@ -11,12 +11,12 @@ const VideoList = (props) => {
       const studentFeedbackData = res.data;
       props.setFeedback(studentFeedbackData);
     });
-  }, [props]);//add props as a dependency
+  }, []);
   return (
     <div className="feedback-container">
       <h1>My feedbacks</h1>
       <div className="video-container">
-        {props.feedback.map(feedback => {
+        {props.feedback.map((feedback) => {
           return (
             <div className="video-box">
               {feedback.feedback_video ? (
