@@ -9,28 +9,30 @@ import StudentAppSideBar from "../SideBar/StudentAppSideBar";
 import VideoList from "./VideoList/VideoList";
 
 export default function StudentFeedback(props) {
+  //state management
   const [feedback_video, setFeedbackVideo] = useState("");
   const [feedback_text, setfeedbackText] = useState("");
   const [trainer, setTrainer] = useState("");
   const [feedback, setFeedback] = useState([]);
-  
+  //to handle video url input
   const handleVideo = (evt) => {
     evt.preventDefault();
     setFeedbackVideo(evt.target.value);
   };
-
+  //to handle dynamic selection of trainers
   const handleTrainer = (evt) => {
     evt.preventDefault();
     setTrainer(evt.target.value);
   };
-
+  //to handle text message
   const handleText = (evt) => {
     evt.preventDefault();
     setfeedbackText(evt.target.value);
   };
-
+  //to handle submission event
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    //axios post request with data as request body to the db
     axios
       .post("/feedback", {
         feedback_video: feedback_video,
@@ -77,7 +79,6 @@ export default function StudentFeedback(props) {
             </FormControl>
             <TextField
               id="outlined-basic"
-              // label="paste the video link"
               variant="outlined"
               value={feedback_video}
               onChange={handleVideo}

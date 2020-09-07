@@ -3,20 +3,22 @@ import ReactPlayer from "react-player";
 import axios from "axios";
 import "./VideoList.scss";
 
-// videolist 
+// videolist
 const VideoList = (props) => {
-  //getting all feedbacks for a student
+  //getting all feedbacks for a student from db
   useEffect(() => {
     axios.get(`/student/${props.student.id}/feedbacks`).then((res) => {
+      //store response into variable
       const studentFeedbackData = res.data;
+      //set the feedback in myfeedbacks
       props.setFeedback(studentFeedbackData);
     });
-  }, [props]);//add props as a dependency
+  }, []);
   return (
     <div className="feedback-container">
       <h1>My feedbacks</h1>
       <div className="video-container">
-        {props.feedback.map(feedback => {
+        {props.feedback.map((feedback) => {
           return (
             <div className="video-box">
               {feedback.feedback_video ? (

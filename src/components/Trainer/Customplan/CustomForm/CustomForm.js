@@ -11,7 +11,7 @@ export default function CustomPlanForm(props) {
   //states declared
   const [difficulty, setDifficulty] = useState("beginner");
   const [type, setType] = useState("weightloss");
-  const [student, setStudent] = useState({});
+  // const [student, setStudent] = useState({});
 
   //Event handlers
   const handleDifficulty = (event) => {
@@ -24,8 +24,8 @@ export default function CustomPlanForm(props) {
   };
 
   const handleStudent = (event) => {
-    props.setStudent(() => event.target.value);
-    setStudent(event.target.value);
+    const selectedStudent = event.target.value;
+    props.setStudent(() => selectedStudent);
   };
 
   return (
@@ -51,7 +51,7 @@ export default function CustomPlanForm(props) {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={student}
+            value={props.student}
             onChange={handleStudent}
           >
             {props.myStudents.map((student) => (

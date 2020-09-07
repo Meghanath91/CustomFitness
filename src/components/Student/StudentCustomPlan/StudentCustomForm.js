@@ -15,25 +15,23 @@ export default function StudentCustomForm(props) {
   const [difficulty, setDifficulty] = useState("Difficulty level");
   const [description, setDescription] = useState("Explanation");
   const [type, setType] = useState("Type");
-  const [customId, setCustomId] = useState("");
+  // const [customId, setCustomId] = useState("");
 
   useEffect(() => {
-    axios
-      .get(`/student/${props.studentData.id}/custom_plans`)
-      .then(res => {
-        const customPlans = res.data;
+    axios.get(`/student/${props.studentData.id}/custom_plans`).then((res) => {
+      const customPlans = res.data;
 
-        setMyCustomPlans(customPlans);
-      });
+      setMyCustomPlans(customPlans);
+    });
   }, [props.studentData.id]);
 
-  const handlePlan = event => {
-    console.log("plan id", event.target.value);
-    props.setCustomId(event.target.value);
-    setCustomId(event.target.value);
-    setPlan(prev => {
+  const handlePlan = (event) => {
+    const customPlanId = event.target.value;
+    props.setCustomId(customPlanId);
+
+    setPlan((prev) => {
       const selectedPlan = myCustomPlans.filter(
-        p => p.id === event.target.value
+        (p) => p.id === event.target.value
       )[0];
 
       setTitle(selectedPlan.title);
@@ -42,23 +40,20 @@ export default function StudentCustomForm(props) {
       setReps(selectedPlan.reps);
       setDifficulty(selectedPlan.difficulty);
       setType(selectedPlan.type);
-      return event.target.value;
+      return customPlanId;
     });
   };
 
-  const handleComplete = event => {
+  const handleComplete = (event) => {
     event.preventDefault();
 
     axios
       .put(`/custom_plans`, {
         complete: true,
-        id: customId
-       
+        id: props.customId,
       })
-      .then(res => {
-
+      .then((res) => {
         alert("Custom plan completed");
-        
       });
   };
 
@@ -81,7 +76,7 @@ export default function StudentCustomForm(props) {
             value={plan}
             onChange={handlePlan}
           >
-            {myCustomPlans.map(plan => (
+            {myCustomPlans.map((plan) => (
               <MenuItem value={plan.id}>{plan.title}</MenuItem>
             ))}
           </Select>

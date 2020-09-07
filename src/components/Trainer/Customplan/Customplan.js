@@ -5,7 +5,6 @@ import axios from "axios";
 import CustomForm from "./CustomForm/CustomForm";
 
 export default function CustomPlan(props) {
-
   //declaring states
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -13,7 +12,7 @@ export default function CustomPlan(props) {
   const [type, setType] = useState("");
   const [sets, setSets] = useState(0);
   const [reps, setReps] = useState(0);
-  const [exerciseIdArray, setExerciseIdArray] = useState("");
+  const [exerciseIdArray, setExerciseIdArray] = useState([]);
   const [student, setStudent] = useState("");
 
   const handleCreatePlan = (evt) => {
@@ -30,9 +29,8 @@ export default function CustomPlan(props) {
         reps: reps,
         trainer_name: props.trainerData.name,
       })
-      .then((res) => {
+      .then(async (res) => {
         const workoutExercises = exerciseIdArray;
-
         for (let exerciseID of workoutExercises) {
           axios
             .post(`/workout_exercises/create`, {
@@ -40,7 +38,7 @@ export default function CustomPlan(props) {
               exercise_id: parseInt(exerciseID.id),
             })
             .then((res) => {
-              console.log("new exercise added", res);
+              console.log("new exercise added");
             });
         }
       });
@@ -59,6 +57,7 @@ export default function CustomPlan(props) {
         setReps={setReps}
         handleCreatePlan={handleCreatePlan}
         setStudent={setStudent}
+        student={student}
         myStudents={props.myStudents}
       />
       <ExerciseList
